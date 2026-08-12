@@ -82,7 +82,7 @@ GEM
       rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    liquid (4.0.0)
+    liquid (4.0.4)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
@@ -133,6 +133,7 @@ DEPENDENCIES
   jekyll-include-cache
   jekyll-seo-tag
   just-the-docs (~> 0.10.0)
+  liquid (~> 4.0.4)
   rexml
 
 CHECKSUMS
@@ -172,7 +173,7 @@ CHECKSUMS
   just-the-docs (0.10.2) sha256=63b295492906cc6b3e4ab10ceed19a4afea833b11ac06e0af28969058e15e5fe
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
-  liquid (4.0.0) sha256=5ef4c157436096e6dac49f8b1edc0eb6c8f3b55fc8ffed5d1949a5ca9f04ca9d
+  liquid (4.0.4) sha256=4fcfebb1a045e47918388dbb7a0925e7c3893e58d2bd6c3b3c73ec17a2d8fdb3
   listen (3.0.6) sha256=eba4df6615b63079930caa5dd9b5f8684a6e08b3feecee6371d5723b6ccb687f
   mercenary (0.3.6) sha256=2a084b18f5692c86a633e185d5311ba6d11fc46c802eb414ae05368178078a82
   pathutil (0.16.2) sha256=e43b74365631cab4f6d5e4228f812927efc9cb2c71e62976edcb252ee948d589

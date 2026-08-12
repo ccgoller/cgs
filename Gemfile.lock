@@ -113,6 +113,8 @@ GEM
     jekyll-github-metadata (2.9.3)
       jekyll (~> 3.1)
       octokit (~> 4.0, != 4.4.0)
+    jekyll-include-cache (0.1.0)
+      jekyll (~> 3.3)
     jekyll-mentions (1.2.0)
       activesupport (~> 4.0)
       html-pipeline (~> 2.3)
@@ -263,6 +265,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-include-cache
   jekyll-remote-theme
   jekyll-seo-tag
   rexml
@@ -300,6 +303,7 @@ CHECKSUMS
   jekyll-feed (0.9.2) sha256=bc2615bb703df57f9cec1aec026f0cd0dc903e67af61afba77a4a88aeebe8c1f
   jekyll-gist (1.4.1) sha256=ec024a43670b8b8db2f01811502b03f21b8d89580c7c76ef86b54f68c45e4083
   jekyll-github-metadata (2.9.3) sha256=f71bbda8ee6dec7c0abdfeb686de08733a8766e663aa5d77703c3ac3af948bf7
+  jekyll-include-cache (0.1.0) sha256=664808e18b9fcf09737dbaef5b108d4a98b749f2f452021ddcd487d5e68457ee
   jekyll-mentions (1.2.0) sha256=cd4f5c24d6ca34baa7271925a742d5a26277f0f70af44d765d3146f26ca8d802
   jekyll-optional-front-matter (0.3.0) sha256=d0c916e8eaba28d22c9f17517f2257f78afd8008e58f33a646e32d8bf7333c83
   jekyll-paginate (1.1.0) sha256=880aadf4b02529a93541d508c5cbb744f014cbfc071d0263a31f25ec9066eb64

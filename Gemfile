@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.4"
+gem "just-the-docs", "~> 0.10.0"
 gem "jekyll-include-cache"
-gem "jekyll-remote-theme"
 gem "jekyll-seo-tag"
 gem "rexml"

@@ -3,7 +3,7 @@ description: "Undergraduate research-integrated teaching in genetics and microbi
 baseurl: "/cgs"
 url: "https://ccgoller.github.io"
 
-remote_theme: just-the-docs/just-the-docs@v0.10.0
+theme: just-the-docs
 
 # Just the Docs settings
 search_enabled: true
@@ -21,7 +21,7 @@ aux_links_new_tab: true
 nav_sort: order
 
 plugins:
-  - jekyll-remote-theme
+  - jekyll-include-cache
   - jekyll-seo-tag
 
 exclude:

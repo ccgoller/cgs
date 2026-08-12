@@ -1,6 +1,7 @@
 ---
 layout: home
 title: "Gordy–Goller Lab — Undergraduate Onboarding Hub"
-description: "Undergraduate research-integrated teaching in genetics and microbiology at NC State University."
+description: "Undergraduate onboarding hub for genetics and microbiology teaching labs at NC State University."
+nav_order: 1
 permalink: /
 ---

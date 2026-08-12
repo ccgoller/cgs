@@ -1,0 +1,33 @@
+title: "Gordy–Goller Lab"
+description: "Undergraduate research-integrated teaching in genetics and microbiology at NC State University."
+baseurl: "/cgs"
+url: "https://ccgoller.github.io"
+
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+
+color_scheme: nil
+
+# Just the Docs settings
+search_enabled: true
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "&copy; 2026 Gordy–Goller Lab, NC State University. Content on this site is for educational use."
+
+aux_links:
+  "GitHub":
+    - "https://github.com/ccgoller/cgs"
+aux_links_new_tab: true
+
+nav_sort: order
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - "*.gemspec"
+  - vendor

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Electronic Lab Notebook Template
+nav_order: 5
+permalink: /eln
+---
 # 📓 Electronic Lab Notebook (ELN) Template
 
 > An ELN is a permanent, dated, and searchable record of your experimental work. It is a cornerstone of scientific reproducibility and professional practice.
@@ -133,4 +139,4 @@ LastName_FirstName_YYYYMMDD_ExperimentTitle.ext
 
 ---
 
-*Return to [Hub Home](README.md)*
+*Return to [Hub Home](/cgs/)*

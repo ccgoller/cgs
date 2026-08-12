@@ -1,3 +1,9 @@
+---
+layout: default
+title: About This Hub
+nav_order: 7
+permalink: /about
+---
 # 🧬 CGs Lab — Undergraduate Onboarding Hub
 
 Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings together the core resources that support **Claire Gordy and Carlos Goller's** genetics and microbiology teaching labs at **NC State University**.
@@ -8,21 +14,21 @@ Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings toget
 
 ## Start Here
 
-- **Complete required safety training** in the [Safety Training Checklist](SAFETY_TRAINING_CHECKLIST.md) before handling equipment or samples.
-- **Review lab meeting times and expectations** in the [Lab Schedule](LAB_SCHEDULE.md).
-- **Set up your records early** with the [Electronic Lab Notebook Template](ELN_TEMPLATE.md).
-- **Prepare for core techniques** with the [Common Protocols guide](COMMON_PROTOCOLS.md).
-- **Plan your growth as a scientist** with the [Professional Development resources](PROFESSIONAL_DEVELOPMENT.md).
+- **Complete required safety training** in the [Safety Training Checklist](../safety) before handling equipment or samples.
+- **Review lab meeting times and expectations** in the [Lab Schedule](../schedule).
+- **Set up your records early** with the [Electronic Lab Notebook Template](../eln).
+- **Prepare for core techniques** with the [Common Protocols guide](../protocols).
+- **Plan your growth as a scientist** with the [Professional Development resources](../professional-development).
 
 ---
 
 ## Getting Started Checklist
 
-1. Read the [Safety Training Checklist](SAFETY_TRAINING_CHECKLIST.md) and complete every required training.
-2. Check the [Lab Schedule](LAB_SCHEDULE.md) for section times, office hours, and important deadlines.
-3. Build your notebook structure using the [Electronic Lab Notebook Template](ELN_TEMPLATE.md).
-4. Review the [Common Protocols guide](COMMON_PROTOCOLS.md) before your first wet-lab session.
-5. Use the [Professional Development resources](PROFESSIONAL_DEVELOPMENT.md) to set goals for the semester.
+1. Read the [Safety Training Checklist](../safety) and complete every required training.
+2. Check the [Lab Schedule](../schedule) for section times, office hours, and important deadlines.
+3. Build your notebook structure using the [Electronic Lab Notebook Template](../eln).
+4. Review the [Common Protocols guide](../protocols) before your first wet-lab session.
+5. Use the [Professional Development resources](../professional-development) to set goals for the semester.
 
 ---
 

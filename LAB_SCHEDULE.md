@@ -1,3 +1,9 @@
+---
+layout: default
+title: Lab Schedule
+nav_order: 3
+permalink: /schedule
+---
 # 📅 Lab Schedule
 
 > This document provides the semester framework. Your **specific section times and room numbers** are listed in the course syllabus on the LMS.
@@ -78,4 +84,4 @@ Bench assignments are posted on the lab door and in the LMS by the end of Week 1
 
 ---
 
-*Return to [Hub Home](README.md)*
+*Return to [Hub Home](/cgs/)*

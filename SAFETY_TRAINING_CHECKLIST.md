@@ -1,3 +1,9 @@
+---
+layout: default
+title: Safety Training Checklist
+nav_order: 2
+permalink: /safety
+---
 # 🔒 Safety Training Checklist
 
 > **Complete every item on this list before your first wet-lab session.**  
@@ -79,4 +85,4 @@ All organisms used in this course are **BSL-1** unless otherwise noted.
 
 ---
 
-*Return to [Hub Home](README.md)*
+*Return to [Hub Home](/cgs/)*

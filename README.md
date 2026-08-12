@@ -1,1 +1,1 @@
-# cgs
+# CGs Lab

@@ -5,8 +5,6 @@ url: "https://ccgoller.github.io"
 
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
-color_scheme: nil
-
 # Just the Docs settings
 search_enabled: true
 heading_anchors: true

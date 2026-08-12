@@ -1,55 +1,69 @@
 # 🧬 CGs Lab — Undergraduate Onboarding Hub
 
-Welcome to the **Gordy–Goller Lab** teaching repository! This hub is your central resource for onboarding and day-to-day support in **Claire Gordy and Carlos Goller's** genetics and microbiology teaching labs.
+Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings together the core resources that support **Claire Gordy and Carlos Goller's** genetics and microbiology teaching labs at **NC State University**.
 
-Whether you are joining us for the first time or need a quick reference mid-semester, start here.
-
----
-
-## 📋 Table of Contents
-
-| Section | Description |
-|---|---|
-| [🔒 Safety Training Checklist](SAFETY_TRAINING_CHECKLIST.md) | Required trainings before you touch any equipment |
-| [📅 Lab Schedule](LAB_SCHEDULE.md) | Semester calendar, bench assignments, and office hours |
-| [🔬 Common Protocols](COMMON_PROTOCOLS.md) | Step-by-step procedures for routine lab techniques |
-| [📓 Electronic Lab Notebook Template](ELN_TEMPLATE.md) | How to set up and maintain your ELN |
-| [🚀 Professional Development](PROFESSIONAL_DEVELOPMENT.md) | Goals, resources, and career planning tools |
+> **New to the lab?** Use this page to complete onboarding, prepare for weekly work, and explore the research themes that connect lab learning with active discovery.
 
 ---
 
-## 👋 Getting Started (Quick Checklist)
+## Start Here
 
-1. **Read the lab safety policies** and complete all required online trainings listed in the [Safety Training Checklist](SAFETY_TRAINING_CHECKLIST.md).
-2. **Review the semester schedule** and note your lab section times in [Lab Schedule](LAB_SCHEDULE.md).
-3. **Set up your Electronic Lab Notebook** using the template in [ELN Template](ELN_TEMPLATE.md).
-4. **Familiarise yourself with common protocols** before your first wet-lab session: [Common Protocols](COMMON_PROTOCOLS.md).
-5. **Draft your semester goals** using the [Professional Development](PROFESSIONAL_DEVELOPMENT.md) guide.
-
----
-
-## 🏛️ About the Lab
-
-| | |
-|---|---|
-| **Principal Instructors** | Dr. Claire Gordy & Dr. Carlos Goller |
-| **Institution** | NC State University |
-| **Courses** | Genetics Lab · Microbiology Lab |
-| **Focus** | Undergraduate research-integrated teaching |
+- **Complete required safety training** in the [Safety Training Checklist](SAFETY_TRAINING_CHECKLIST.md) before handling equipment or samples.
+- **Review lab meeting times and expectations** in the [Lab Schedule](LAB_SCHEDULE.md).
+- **Set up your records early** with the [Electronic Lab Notebook Template](ELN_TEMPLATE.md).
+- **Prepare for core techniques** with the [Common Protocols guide](COMMON_PROTOCOLS.md).
+- **Plan your growth as a scientist** with the [Professional Development resources](PROFESSIONAL_DEVELOPMENT.md).
 
 ---
 
-## 📬 Contact & Communication
+## Getting Started Checklist
 
-- **Lab questions:** post in the course discussion board before emailing instructors.
-- **Safety concerns:** contact your TA or instructor immediately.
-- **GitHub issues:** use the [Issues tab](../../issues) to flag broken links or suggest improvements to this hub.
+1. Read the [Safety Training Checklist](SAFETY_TRAINING_CHECKLIST.md) and complete every required training.
+2. Check the [Lab Schedule](LAB_SCHEDULE.md) for section times, office hours, and important deadlines.
+3. Build your notebook structure using the [Electronic Lab Notebook Template](ELN_TEMPLATE.md).
+4. Review the [Common Protocols guide](COMMON_PROTOCOLS.md) before your first wet-lab session.
+5. Use the [Professional Development resources](PROFESSIONAL_DEVELOPMENT.md) to set goals for the semester.
 
 ---
 
-## 🤝 Contributing to This Hub
+## Research Projects
 
-Found an error or want to add a protocol? Please open a pull request or file an issue. See the contributing guidelines embedded in each document.
+Our teaching environment is shaped by research questions that span microbiology, genomics, and host-associated systems.
+
+### Wax Worm Microbiomes and Genomics
+
+Explore how wax worm-associated microbial communities and genomic tools can be used to study host-microbe interactions, adaptation, and experimental model systems.
+
+### Fungal Genomics
+
+Investigate fungal diversity, genome-level variation, and the biological mechanisms that shape how fungi survive, interact, and evolve.
+
+### *Delftia* spp. Research
+
+Study *Delftia* species through questions in microbial ecology, genetics, and functional traits, with opportunities to connect genomic data to laboratory observations.
+
+---
+
+## About the Lab
+
+- **Principal Instructors:** Dr. Claire Gordy and Dr. Carlos Goller
+- **Institution:** NC State University
+- **Courses:** Genetics Lab and Microbiology Lab
+- **Focus:** Undergraduate research-integrated teaching
+
+---
+
+## Contact and Communication
+
+- **Lab questions:** Post in the course discussion board before emailing instructors.
+- **Safety concerns:** Contact your TA or instructor immediately.
+- **Hub improvements:** Use [GitHub Issues](https://github.com/ccgoller/cgs/issues) to report broken links or suggest updates.
+
+---
+
+## Contributing to This Hub
+
+Found an error or want to add a protocol? Open an issue or submit a pull request. Contribution expectations are described within the linked documents.
 
 ---
 

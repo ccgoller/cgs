@@ -21,6 +21,7 @@ aux_links_new_tab: true
 nav_sort: order
 
 plugins:
+  - jekyll-include-cache
   - jekyll-remote-theme
   - jekyll-seo-tag
 

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Common Protocols
+nav_order: 4
+permalink: /protocols
+---
 # 🔬 Common Protocols
 
 > Standard operating procedures (SOPs) used in the Gordy–Goller teaching labs.  
@@ -190,4 +196,4 @@
 
 ---
 
-*Return to [Hub Home](README.md)*
+*Return to [Hub Home](/cgs/)*

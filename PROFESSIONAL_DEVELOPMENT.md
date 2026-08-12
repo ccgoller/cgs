@@ -1,3 +1,9 @@
+---
+layout: default
+title: Professional Development
+nav_order: 6
+permalink: /professional-development
+---
 # 🚀 Professional Development Planning
 
 > Science is more than bench work. This guide helps you build skills, expand your network, and plan your career while you are still in the lab.
@@ -214,4 +220,4 @@ A biology degree opens many doors beyond academia.
 
 ---
 
-*Return to [Hub Home](README.md)*
+*Return to [Hub Home](/cgs/)*

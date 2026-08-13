@@ -9,6 +9,8 @@ permalink: /protocols
 > Standard operating procedures (SOPs) used in the Gordy–Goller teaching labs.  
 > Always confirm with your TA if a protocol has been modified for your specific experiment.
 
+{% include download_links.html markdown_url="/downloads/common-protocols.md" pdf_url="/downloads/common-protocols.pdf" %}
+
 ---
 
 ## Table of Contents

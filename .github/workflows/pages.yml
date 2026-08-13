@@ -36,6 +36,65 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Install PDF dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc wkhtmltopdf
+
+      - name: Generate downloadable Markdown and PDFs
+        run: |
+          mkdir -p _site/downloads
+          python <<'PY'
+          from pathlib import Path
+          import subprocess
+
+          files = {
+              "COMMON_PROTOCOLS.md": "common-protocols",
+              "SAFETY_TRAINING_CHECKLIST.md": "safety-training-checklist",
+              "LAB_SCHEDULE.md": "lab-availability",
+          }
+
+          def strip_front_matter(text: str) -> str:
+              if not text.startswith("---\n"):
+                  return text
+              end = text.find("\n---\n", 4)
+              if end == -1:
+                  return text
+              return text[end + len("\n---\n"):]
+
+          downloads_dir = Path("_site/downloads")
+
+          for source_name, slug in files.items():
+              source_path = Path(source_name)
+              body = strip_front_matter(source_path.read_text(encoding="utf-8")).lstrip()
+              markdown_path = downloads_dir / f"{slug}.md"
+              markdown_path.write_text(body, encoding="utf-8")
+
+              title = next(
+                  (
+                      line[2:].strip()
+                      for line in body.splitlines()
+                      if line.startswith("# ")
+                  ),
+                  slug.replace("-", " ").title(),
+              )
+
+              subprocess.run(
+                  [
+                      "pandoc",
+                      str(markdown_path),
+                      "--from=markdown",
+                      "--to=pdf",
+                      "--pdf-engine=wkhtmltopdf",
+                      "--metadata",
+                      f"title={title}",
+                      "--output",
+                      str(downloads_dir / f"{slug}.pdf"),
+                  ],
+                  check=True,
+              )
+          PY
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 

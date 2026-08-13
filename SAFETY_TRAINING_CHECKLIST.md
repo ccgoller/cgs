@@ -9,6 +9,8 @@ permalink: /safety
 > **Complete every item on this list before your first wet-lab session.**  
 > Keep a copy of each completion certificate — your TA will verify them during the first lab meeting.
 
+{% include download_links.html markdown_url="/downloads/safety-training-checklist.md" pdf_url="/downloads/safety-training-checklist.pdf" %}
+
 ---
 
 ## 1. University-Required Online Trainings

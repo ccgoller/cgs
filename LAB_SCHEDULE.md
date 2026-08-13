@@ -8,6 +8,8 @@ permalink: /schedule
 
 > This page shows **research availability only** for Labs 1503 and 1512.
 
+{% include download_links.html markdown_url="/downloads/lab-availability.md" pdf_url="/downloads/lab-availability.pdf" %}
+
 <style>
   .lab-availability-table {
     width: 100%;

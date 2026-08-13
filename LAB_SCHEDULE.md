@@ -47,6 +47,34 @@ permalink: /schedule
 
 ---
 
+## Weekly Research Availability (Labs 1503 and 1512)
+
+> These room schedules are posted for students planning research time. If a conflict appears, follow TA/instructor guidance and posted door signage.
+
+### Lab 1503
+
+| Day | Reserved Time | Research Availability |
+|---|---|---|
+| Monday | 8:00 AM – 1:00 PM (instruction) | 1:00 PM – 7:00 PM |
+| Tuesday | 9:00 AM – 12:00 PM (instruction) | 12:00 PM – 7:00 PM |
+| Wednesday | 8:00 AM – 1:00 PM (instruction) | 1:00 PM – 7:00 PM |
+| Thursday | 9:00 AM – 12:00 PM (instruction) | 12:00 PM – 7:00 PM |
+| Friday | 8:00 AM – 11:00 AM (instruction) | 11:00 AM – 5:00 PM |
+
+### Lab 1512
+
+| Day | Reserved Time | Research Availability |
+|---|---|---|
+| Monday | 1:00 PM – 4:00 PM (instruction) | 8:00 AM – 1:00 PM; 4:00 PM – 7:00 PM |
+| Tuesday | 2:00 PM – 5:00 PM (instruction) | 8:00 AM – 2:00 PM; 5:00 PM – 7:00 PM |
+| Wednesday | 1:00 PM – 4:00 PM (instruction) | 8:00 AM – 1:00 PM; 4:00 PM – 7:00 PM |
+| Thursday | 2:00 PM – 5:00 PM (instruction) | 8:00 AM – 2:00 PM; 5:00 PM – 7:00 PM |
+| Friday | 11:00 AM – 2:00 PM (instruction) | 8:00 AM – 11:00 AM; 2:00 PM – 5:00 PM |
+
+> Last updated weekly by the instructional team.
+
+---
+
 ## Bench Assignments
 
 Bench assignments are posted on the lab door and in the LMS by the end of Week 1. Assignments are **permanent for the semester** unless a lab-safety concern requires reassignment.

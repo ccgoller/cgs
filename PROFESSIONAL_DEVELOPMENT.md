@@ -6,7 +6,7 @@ permalink: /professional-development
 ---
 # 🚀 Professional Development Planning
 
-> Science is more than bench work. This guide helps you build skills, expand your network, and plan your career while you are still in the lab.
+> Science is more than benchwork. This guide helps you build skills, expand your network, and plan your career while you are still in the lab.
 
 ---
 

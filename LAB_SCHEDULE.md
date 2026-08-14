@@ -10,6 +10,14 @@ permalink: /schedule
 
 {% include download_links.html markdown_url="/downloads/lab-availability.md" pdf_url="/downloads/lab-availability.pdf" %}
 
+## 📆 Live Calendar
+
+<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+## 📚 Repository Wiki
+
+[View the CGS Wiki](https://github.com/ccgoller/cgs/wiki)
+
 <style>
   .lab-availability-table {
     width: 100%;

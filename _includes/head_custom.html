@@ -23,6 +23,26 @@
     outline-offset: 3px !important;
   }
 
+  /* ─── Just the Docs navigation surfaces ───────────────────────
+     Match the home page with a dark gray navigation background.
+  ──────────────────────────────────────────────────────────────── */
+  .site-header,
+  .main-header,
+  .side-bar {
+    background: var(--brand-dark);
+  }
+
+  .site-header,
+  .main-header {
+    border-bottom: 1px solid #3a3a3a;
+  }
+
+  .site-title,
+  .site-title:hover,
+  .site-button {
+    color: var(--white);
+  }
+
   /* ─── Brand link color ────────────────────────────────────────
      Just the Docs defaults to purple; override to brand red.
   ──────────────────────────────────────────────────────────────── */
@@ -37,10 +57,17 @@
   .nav-list .nav-list-link.active,
   .nav-list .nav-list-link:hover,
   .nav-list .nav-list-link:focus {
-    color: var(--brand-red);
+    color: var(--white);
+    background: #2a2a2a;
   }
   .nav-list .nav-list-link.active {
     font-weight: 700;
+    border-left: 3px solid var(--focus-ring);
+    color: var(--focus-ring);
+  }
+
+  .nav-list .nav-list-link {
+    border-radius: 4px;
   }
 
   /* ─── Inline code and table accents ──────────────────────────── */

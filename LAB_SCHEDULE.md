@@ -10,13 +10,6 @@ permalink: /schedule
 
 {% include download_links.html markdown_url="/downloads/lab-availability.md" pdf_url="/downloads/lab-availability.pdf" %}
 
-## 📆 Live Calendar
-
-<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
-## 📚 Repository Wiki
-
-[View the CGS Wiki](https://github.com/ccgoller/cgs/wiki)
 
 <style>
   .lab-availability-table {
@@ -58,7 +51,7 @@ permalink: /schedule
   <tbody>
     <tr>
       <th scope="row">Monday</th>
-      <td><span class="available-slot">1:00 PM – 7:00 PM</span></td>
+      <td><span class="available-slot">10:00 AM – 12:20 PM</span></td>
       <td>
         <span class="available-slot">8:00 AM – 1:00 PM</span>
         <span class="available-slot">4:00 PM – 7:00 PM</span>
@@ -98,5 +91,14 @@ permalink: /schedule
     </tr>
   </tbody>
 </table>
+
+## 📆 Live Calendar
+
+<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+## 📚 Repository Wiki
+
+[View the CGS Wiki](https://github.com/ccgoller/cgs/wiki)
+
 
 *Return to [Hub Home](/cgs/)*

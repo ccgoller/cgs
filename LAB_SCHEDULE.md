@@ -27,13 +27,13 @@ permalink: /schedule
     margin: 0.2rem 0;
     padding: 0.3rem 0.45rem;
     color: #ffffff;
-    background-color: #005a9c;
+    background-color: var(--brand-red);
     background-image: repeating-linear-gradient(
       -45deg,
       rgba(255, 255, 255, 0.24) 0 6px,
       rgba(255, 255, 255, 0) 6px 12px
     );
-    border: 1px solid #00365c;
+    border: 1px solid #7a0000;
     border-radius: 0.15rem;
     font-weight: 600;
   }

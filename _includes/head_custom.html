@@ -1,0 +1,58 @@
+<style>
+  /* ─── Design Tokens ───────────────────────────────────────────
+     Mirror the tokens defined in _layouts/home.html so that all
+     inner pages (layout: default / Just the Docs) share the same
+     brand palette and accessibility baseline.
+  ──────────────────────────────────────────────────────────────── */
+  :root {
+    --brand-red:   #B30000;   /* NC State red — WCAG AA on white */
+    --brand-dark:  #1f1f1f;
+    --brand-light: #F5F5F5;
+    --text:        #1a1a1a;
+    --muted:       #595959;   /* 7:1 on white — WCAG AAA */
+    --white:       #FFFFFF;
+    --focus-ring:  #FFBF00;   /* high-visibility focus indicator */
+  }
+
+  /* ─── Global focus style ──────────────────────────────────────
+     Replace the default Just the Docs focus outline with the
+     high-contrast brand focus ring.
+  ──────────────────────────────────────────────────────────────── */
+  :focus-visible {
+    outline: 3px solid var(--focus-ring) !important;
+    outline-offset: 3px !important;
+  }
+
+  /* ─── Brand link color ────────────────────────────────────────
+     Just the Docs defaults to purple; override to brand red.
+  ──────────────────────────────────────────────────────────────── */
+  .main-content a {
+    color: var(--brand-red);
+  }
+  .main-content a:hover {
+    color: #900000;
+  }
+
+  /* ─── Sidebar active and hover link ──────────────────────────── */
+  .nav-list .nav-list-link.active,
+  .nav-list .nav-list-link:hover,
+  .nav-list .nav-list-link:focus {
+    color: var(--brand-red);
+  }
+  .nav-list .nav-list-link.active {
+    font-weight: 700;
+  }
+
+  /* ─── Inline code and table accents ──────────────────────────── */
+  .main-content code {
+    border-color: #d1d5db;
+  }
+
+  /* ─── Reduced motion ──────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>

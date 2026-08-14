@@ -36,7 +36,7 @@ Complete with your instructor, TA, or peer mentor during the first lab meeting.
 - [ ] Review **biohazard waste disposal** procedures (sharps, liquid waste, solid biological waste).
 - [ ] Review **chemical waste disposal** procedures and labeling requirements.
 - [ ] Understand the **spill response protocol** for biological and chemical spills.
-- [ ] Know who to contact in an emergency (TA → Instructor → Campus EHS).
+- [ ] Know who to **contact** in an emergency (TA → Instructor → Campus EHS).
 
 ---
 
@@ -60,7 +60,7 @@ All organisms used in this course are **BSL-1** unless otherwise noted.
 
 - Treat all biological material as potentially hazardous.
 - Decontaminate bench surfaces with **10% bleach** (30-min contact time) or 70% ethanol before and after work. Let's make fresh 10% bleach every other month to refill the yellow squirt bottles. Carefully mix 100 mL of bleach and 900 mL of distilled water from the prep lab (white spigot). 
-- Autoclave or chemically disinfect all liquid cultures before disposal.
+- Prepare for autoclaving or chemically disinfect all liquid cultures before disposal.
 
 ---
 

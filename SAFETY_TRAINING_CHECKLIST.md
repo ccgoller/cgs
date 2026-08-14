@@ -15,14 +15,12 @@ permalink: /safety
 
 ## 1. University-Required Online Trainings
 
-Complete these modules through the NC State **MyPack Portal → Training** (or your institution's LMS). Check the box once you have a completion certificate.
+Complete these modules through the NC State **Reporter → Training**. Check the box once you have a completion certificate.
 
-- [ ] **Laboratory Safety Fundamentals** *(EHS-101 or equivalent)*
-- [ ] **Chemical Hygiene / Right-to-Know** *(Hazard Communication / GHS)*
-- [ ] **Biological Safety Awareness** *(Biosafety Level 1 & 2 overview)*
-- [ ] **Fire Safety & Emergency Procedures**
-- [ ] **Bloodborne Pathogens** *(if handling human-derived samples)*
-- [ ] **Radiation Safety** *(only if your section uses radioisotopes — check with TA)*
+- [ ] **Laboratory Safety Fundamentals** *(EHS-101 or equivalent)* Laboratory Chemical Waste Management Training EHPS-HW104
+- [ ] **Chemical Hygiene** *(Hazard Communication / GHS)* Laboratory Chemical Waste Management Training EHPS-HW104
+- [ ] **Fire Safety & Emergency Procedures** Fire Extinguisher Operations/Basic Fire Safety EHPS-FM110
+- [ ] **Bloodborne Pathogens** *(if handling human-derived samples)* EHPS-BS100-001: Bloodborne Pathogens Training
 
 ---
 

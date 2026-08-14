@@ -41,19 +41,17 @@ permalink: /schedule
 
 ## 📚 Weekly Lab Schedule (Fall Semester)
 
-<table class="lab-availability-table" aria-label="Weekly research availability for Labs 1503, 1512, and MB 360">
+<table class="lab-availability-table" aria-label="Weekly research availability for Labs 1503 and 1512">
   <thead>
     <tr>
       <th scope="col">Day</th>
       <th scope="col">Lab 1503</th>
       <th scope="col">Lab 1512</th>
-      <th scope="col">MB 360</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">Monday</th>
-      <td><em>No sections scheduled</em></td>
       <td><em>No sections scheduled</em></td>
       <td><span class="available-slot">10:00 AM – 12:25 PM</span></td>
     </tr>
@@ -61,24 +59,23 @@ permalink: /schedule
       <th scope="row">Tuesday</th>
       <td><span class="available-slot">12:50 PM – 3:35 PM</span></td>
       <td><em>No sections scheduled</em></td>
-      <td><em>No sections scheduled</em></td>
     </tr>
     <tr>
       <th scope="row">Wednesday</th>
       <td><span class="available-slot">12:50 PM – 3:35 PM</span></td>
-      <td><span class="available-slot">1:30 PM – 4:15 PM</span></td>
-      <td><span class="available-slot">10:00 AM – 12:25 PM</span></td>
+      <td>
+        <span class="available-slot">10:00 AM – 12:25 PM</span>
+        <span class="available-slot">1:30 PM – 4:15 PM</span>
+      </td>
     </tr>
     <tr>
       <th scope="row">Thursday</th>
       <td><span class="available-slot">12:50 PM – 3:35 PM</span></td>
       <td><span class="available-slot">1:30 PM – 4:15 PM</span></td>
-      <td><em>No sections scheduled</em></td>
     </tr>
     <tr>
       <th scope="row">Friday</th>
       <td><span class="available-slot">12:50 PM – 3:35 PM</span></td>
-      <td><em>No sections scheduled</em></td>
       <td><em>No sections scheduled</em></td>
     </tr>
   </tbody>

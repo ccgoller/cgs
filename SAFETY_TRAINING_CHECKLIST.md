@@ -26,7 +26,7 @@ Complete these modules through the NC State **Reporter → Training**. Check the
 
 ## 2. Lab-Specific Orientation Tasks
 
-Complete with your TA during the first lab meeting.
+Complete with your instructor, TA, or peer mentor during the first lab meeting.
 
 - [ ] Locate all emergency exits, eyewash stations, safety showers, and fire extinguishers.
 - [ ] Identify the location of the **Safety Data Sheet (SDS) binder** or digital SDS portal.
@@ -36,7 +36,7 @@ Complete with your TA during the first lab meeting.
 - [ ] Review **biohazard waste disposal** procedures (sharps, liquid waste, solid biological waste).
 - [ ] Review **chemical waste disposal** procedures and labeling requirements.
 - [ ] Understand the **spill response protocol** for biological and chemical spills.
-- [ ] Know who to contact in an emergency (TA → Instructor → Campus EHS: *insert number*).
+- [ ] Know who to contact in an emergency (TA → Instructor → Campus EHS).
 
 ---
 
@@ -45,8 +45,8 @@ Complete with your TA during the first lab meeting.
 | Situation | Required PPE |
 |---|---|
 | All wet-lab work | Lab coat, nitrile gloves, safety glasses |
-| Handling bleach / acids / bases | Lab coat, nitrile gloves, safety goggles, closed-toe shoes |
-| Working with live cultures (BSL-1) | Lab coat, gloves, safety glasses; work near open flame or in BSC as directed |
+| Handling bleach / acids / bases | Lab coat, gloves, safety glasses, closed-toe shoes |
+| Working with live cultures (BSL-1) | Lab coat, gloves, safety glasses; work in BSC as directed |
 | Gel electrophoresis (EtBr-free stains) | Lab coat, gloves, safety glasses |
 | Autoclave operation | Insulated gloves, eye protection |
 
@@ -68,8 +68,8 @@ All organisms used in this course are **BSL-1** unless otherwise noted.
 
 | Role | Name | Contact |
 |---|---|---|
-| Lab Instructor | Dr. Claire Gordy | *see course syllabus* |
-| Lab Instructor | Dr. Carlos Goller | *see course syllabus* |
+| Professor | Dr. Claire L. Gordy | clgordy@ncsu.edu |
+| Professor | Dr. Carlos C. Goller | ccgoller@ncsu.edu |
 | Campus EHS | NC State EHS | (919) 515-7915 |
 | Campus Police / Emergency | | 911 or (919) 515-3000 |
 
@@ -79,7 +79,7 @@ All organisms used in this course are **BSL-1** unless otherwise noted.
 
 > Once you have completed **all items above**, bring this checklist (printed or screenshot) to your TA for sign-off during the first lab.
 
-| Student Name | Date Completed | TA Initials |
+| Student Name | Date Completed | Initials |
 |---|---|---|
 | | | |
 

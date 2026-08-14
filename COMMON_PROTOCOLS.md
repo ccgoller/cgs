@@ -7,7 +7,7 @@ permalink: /protocols
 # 🔬 Common Protocols
 
 > Standard operating procedures (SOPs) used in the Gordy–Goller teaching labs.  
-> Always confirm with your TA if a protocol has been modified for your specific experiment.
+> Always confirm with your instructor/mentor if a protocol has been modified for your specific experiment.
 
 {% include download_links.html markdown_url="/downloads/common-protocols.md" pdf_url="/downloads/common-protocols.pdf" %}
 
@@ -32,15 +32,14 @@ permalink: /protocols
 
 **Purpose:** Prevent contamination of cultures and reagents.
 
-**Materials:** Bunsen burner or biosafety cabinet, 70% ethanol, sterile loops/pipettes.
+**Materials:** 70% ethanol, sterile loops/pipettes.
 
 **Procedure:**
 1. Wipe bench with 70% ethanol; allow to dry.
-2. Turn on Bunsen burner or activate biosafety cabinet.
+2. Activate biosafety cabinet (if available).
 3. Keep all media containers open for the minimum time necessary.
-4. Flame the mouth of glass bottles/tubes immediately before and after opening.
-5. Never set down lids — hold them or place upside down on a clean surface.
-6. Dispose of used loops and pipettes in appropriate biohazard waste immediately.
+4. Never set down lids — hold them or place upside down on a clean surface.
+5. Dispose of used loops and pipettes in appropriate waste immediately.
 
 ---
 
@@ -55,7 +54,7 @@ permalink: /protocols
 | NaCl | 10 g |
 | dH₂O | to 1 L |
 
-1. Combine ingredients in a 2 L flask.
+1. Combine ingredients in a 2 L flask. Please note that we often use premixed media: all components in a single powder.
 2. Stir to dissolve; adjust pH to 7.0 with NaOH if needed.
 3. Autoclave at 121 °C, 15 psi, 20 min (liquid cycle).
 4. Allow to cool to ~55 °C before adding heat-sensitive supplements.
@@ -66,9 +65,9 @@ permalink: /protocols
 ## 3. Preparing Agar Plates
 
 1. Prepare LB broth as above; add **15 g agar** per liter before autoclaving.
-2. After autoclaving, cool in a 55 °C water bath until flask is comfortable to hold.
+2. After autoclaving, cool in a 55 °C water bath until the flask is comfortable to hold.
 3. Add any antibiotics or supplements at this stage (see supplement table below).
-4. Pour ~25 mL per 100-mm plate in a laminar-flow hood or near a flame.
+4. Pour ~25 mL per 100-mm plate in a laminar-flow hood. If available and using the correct flask, use the KEIO plate pourer.
 5. Allow to solidify at room temperature (~20 min), then invert and store at 4 °C.
 
 **Common Antibiotics (stock → working concentration):**
@@ -83,7 +82,7 @@ permalink: /protocols
 
 ## 4. Bacterial Transformation (Heat Shock)
 
-**Materials:** Chemically competent *E. coli*, plasmid DNA, SOC medium, LB+antibiotic plates.
+**Materials:** Chemically competent *Escherichia coli*, plasmid DNA, SOC medium, LB+antibiotic plates.
 
 1. Thaw competent cells on ice (10 min).
 2. Add 1–5 ng plasmid DNA to 50 µL cells; flick gently to mix — **do not pipette**.
@@ -92,7 +91,7 @@ permalink: /protocols
 5. Return to ice for 2 min.
 6. Add 950 µL room-temperature SOC medium.
 7. Incubate at 37 °C, 200 rpm, for 1 h (recovery).
-8. Plate 100–200 µL on selective plates; spread with sterile beads or spreader.
+8. Plate 100–200 µL on selective plates; spread with sterile beads or a spreader.
 9. Incubate plates inverted at 37 °C overnight.
 
 ---
@@ -122,15 +121,18 @@ permalink: /protocols
 
 ---
 
-## 6. Agarose Gel Electrophoresis
+## 6. Agarose Gel Electrophoresis using E-Gel System
 
-1. Prepare **1% agarose** in 1× TAE buffer (1 g agarose per 100 mL).
-2. Microwave until fully dissolved; swirl carefully.
-3. Cool to ~55 °C; add SYBR Safe or equivalent (1:10,000) — **use only approved non-EtBr stains**.
-4. Pour into gel tray with comb; allow to solidify (~20 min).
-5. Load 5 µL ladder + 5 µL sample (mixed with 6× loading dye) per well.
+Review the [E-Gel video](https://youtu.be/6_TtIGAm45w).
+[![Watch the video](https://youtube.com)](https://youtu.be/6_TtIGAm45w)
+
+
+1. Prepare E-Gel system by obtaining an E-Gel base and appropriate E-Gel.
+2. Place E-Gel in the base until it clicks.
+3. Load 5-20 µL ladder + x µL loading dye) for a total of 20 µL per well.
+3. Load 5-20 µL sample buffer + 5 µL sample (mixed with 6× loading dye) per well.
 6. Run at **100 V for 30–45 min** in 1× TAE.
-7. Image on UV transilluminator — **wear UV-blocking face shield**.
+7. Image on UV transilluminator — **wear a UV-blocking face shield**.
 
 ---
 

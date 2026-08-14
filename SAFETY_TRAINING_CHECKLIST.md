@@ -59,7 +59,7 @@ Complete with your instructor, TA, or peer mentor during the first lab meeting.
 All organisms used in this course are **BSL-1** unless otherwise noted.
 
 - Treat all biological material as potentially hazardous.
-- Decontaminate bench surfaces with **10% bleach** (30-min contact time) or 70% ethanol before and after work.
+- Decontaminate bench surfaces with **10% bleach** (30-min contact time) or 70% ethanol before and after work. Let's make fresh 10% bleach every other month to refill the yellow squirt bottles. Carefully mix 100 mL of bleach and 900 mL of distilled water from the prep lab (white spigot). 
 - Autoclave or chemically disinfect all liquid cultures before disposal.
 
 ---

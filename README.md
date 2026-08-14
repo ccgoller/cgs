@@ -14,21 +14,21 @@ Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings toget
 
 ## Start Here
 
-- **Complete required safety training** in the [Safety Training Checklist](../safety) before handling equipment or samples.
-- **Review lab meeting times and expectations** in the [Lab Schedule](../schedule).
-- **Set up your records early** with the [Electronic Lab Notebook Template](../eln).
-- **Prepare for core techniques** with the [Common Protocols guide](../protocols).
-- **Plan your growth as a scientist** with the [Professional Development resources](../professional-development).
+- **Complete required safety training** in the [Safety Training Checklist](https://ccgoller.github.io/cgs/safety) before handling equipment or samples.
+- **Review lab meeting times and expectations** in the [Lab Schedule](https://ccgoller.github.io/cgs/schedule).
+- **Set up your records early** with the [Electronic Lab Notebook Template](https://ccgoller.github.io/cgs/eln).
+- **Prepare for core techniques** with the [Common Protocols guide](https://ccgoller.github.io/cgs/protocols).
+- **Plan your growth as a scientist** with the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development).
 
 ---
 
 ## Getting Started Checklist
 
-1. Read the [Safety Training Checklist](../safety) and complete every required training.
-2. Check the [Lab Schedule](../schedule) for section times, office hours, and important deadlines.
-3. Build your notebook structure using the [Electronic Lab Notebook Template](../eln).
-4. Review the [Common Protocols guide](../protocols) before your first wet-lab session.
-5. Use the [Professional Development resources](../professional-development) to set goals for the semester.
+1. Read the [Safety Training Checklist](https://ccgoller.github.io/cgs/safety) and complete every required training.
+2. Check the [Lab Schedule](https://ccgoller.github.io/cgs/schedule) for section times, office hours, and important deadlines.
+3. Build your notebook structure using the [Electronic Lab Notebook Template](https://ccgoller.github.io/cgs/eln).
+4. Review the [Common Protocols guide](https://ccgoller.github.io/cgs/protocols) before your first wet-lab session.
+5. Use the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development) to set goals for the semester.
 
 ---
 

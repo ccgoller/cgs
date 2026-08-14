@@ -4,9 +4,9 @@ title: About This Hub
 nav_order: 7
 permalink: /about
 ---
-# 🧬 CGs Lab — Undergraduate Onboarding Hub
+# 🧬 CGs Lab — Onboarding Hub
 
-Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings together the core resources that support **Claire Gordy and Carlos Goller's** genetics and microbiology teaching labs at **NC State University**.
+Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings together the core resources that support **Drs. Claire Gordy and Carlos Goller's** genetics and microbiology teaching labs at **NC State University**.
 
 > **New to the lab?** Use this page to complete onboarding, prepare for weekly work, and explore the research themes that connect lab learning with active discovery.
 
@@ -52,17 +52,17 @@ Study *Delftia* species through questions in microbial ecology, genetics, and fu
 
 ## About the Lab
 
-- **Principal Instructors:** Dr. Claire Gordy and Dr. Carlos Goller
+- **Faculty:** Dr. Claire L. Gordy and Dr. Carlos C. Goller
 - **Institution:** NC State University
-- **Courses:** Genetics Lab and Microbiology Lab
+- **Programs:** Genetics and Microbiology Programs
 - **Focus:** Undergraduate research-integrated teaching
 
 ---
 
 ## Contact and Communication
 
-- **Lab questions:** Post in the course discussion board before emailing instructors.
-- **Safety concerns:** Contact your TA or instructor immediately.
+- **Lab questions:** Post in the course discussion board before emailing the faculty.
+- **Safety concerns:** Contact your TA, peer mentor, or faculty immediately.
 - **Hub improvements:** Use [GitHub Issues](https://github.com/ccgoller/cgs/issues) to report broken links or suggest updates.
 
 ---

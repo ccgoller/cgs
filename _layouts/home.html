@@ -99,7 +99,7 @@
 
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(160deg, #0d1b2a 0%, #1b2d45 45%, #1e3a5f 100%);
       color: var(--white);
       text-align: center;
       padding: 5rem 1.5rem 4.5rem;
@@ -110,20 +110,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(126,200,227,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(100,160,220,0.07) 0%, transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(179,0,0,0.9);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-      border-radius: 2rem;
-      margin-bottom: 1.2rem;
     }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
@@ -303,7 +294,6 @@
 
     <!-- ── Hero ── -->
     <section class="hero" aria-labelledby="hero-heading">
-      <p class="hero-badge">NC State University</p>
       <h1 id="hero-heading">Welcome to the<br><em>Gordy–Goller Lab</em></h1>
       <p>Undergraduate onboarding hub for genetics and microbiology teaching labs. Everything you need — from safety training to career planning — in one place.</p>
       <div class="hero-cta">

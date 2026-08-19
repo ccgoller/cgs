@@ -12,7 +12,9 @@
   <style>
     /* ─── Design Tokens ─────────────────────────────────────── */
     :root {
-      --brand-red:      #8B0000;   /* deep red — WCAG AA on white */
+      --brand-red:      #CC0000;   /* NC State Red */
+      --brand-red-dark: #990000;   /* darker red for hover states */
+      --brand-gold:     #FFBF00;   /* NC State Gold/Yellow */
       --brand-dark:     #111111;
       --brand-mid:      #2b2b2b;
       --brand-light:    #f4f4f4;
@@ -21,8 +23,8 @@
       --muted:          #5f5f5f;   /* 7:1 contrast on white — WCAG AAA */
       --white:          #ffffff;
       --line:           #d6d6d6;
-      --focus-ring:     #8B0000;
-      --focus-ring-soft: rgba(139, 0, 0, 0.18);
+      --focus-ring:     #CC0000;
+      --focus-ring-soft: rgba(204, 0, 0, 0.18);
       --content-max:    72rem;
       --section-gap:    5rem;
       --card-pad:       1.75rem;
@@ -133,8 +135,8 @@
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
       background:
-        radial-gradient(ellipse at top, rgba(139,0,0,0.22) 0%, transparent 55%),
-        linear-gradient(160deg, #141414 0%, #242424 55%, #111111 100%);
+        radial-gradient(ellipse at top, rgba(204,0,0,0.45) 0%, transparent 55%),
+        linear-gradient(160deg, #CC0000 0%, #8B0000 45%, #4a0000 100%);
       color: var(--white);
       text-align: center;
       padding: clamp(4rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 5rem);
@@ -146,9 +148,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255,191,0,0.08) 0%, transparent 60%),
         radial-gradient(ellipse 60% 50% at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 55%),
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
     }
     .hero h1 {
@@ -160,11 +162,11 @@
     }
     .hero h1 em {
       font-style: normal;
-      color: #d9d9d9;
+      color: var(--brand-gold);
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #e2e2e2;
+      color: #f5e6c8;
       max-width: 680px;
       margin: 0 auto 2.25rem;
     }
@@ -186,12 +188,12 @@
       min-height: 44px;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); text-decoration: none; }
-    .btn-primary { background: var(--brand-red); color: #fff; }
-    .btn-primary:hover { background: #660000; }
-    .btn-outline { border-color: rgba(255,255,255,0.8); color: #fff; }
-    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+    .btn-primary { background: var(--brand-gold); color: #1a1a1a; border-color: var(--brand-gold); }
+    .btn-primary:hover { background: #e6a800; border-color: #e6a800; }
+    .btn-outline { border-color: rgba(255,255,255,0.85); color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); }
     .btn:focus-visible {
-      box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 0 8px rgba(139,0,0,0.55);
+      box-shadow: 0 0 0 4px rgba(255,191,0,0.45), 0 0 0 8px rgba(204,0,0,0.4);
     }
 
     /* ─── Section helpers ───────────────────────────────────── */
@@ -203,7 +205,7 @@
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 0.65rem;
-      color: var(--brand-dark);
+      color: var(--brand-red);
       letter-spacing: -0.02em;
     }
     .section-sub {
@@ -330,7 +332,7 @@
     @media (prefers-contrast: more) {
       :focus-visible {
         outline-width: 4px;
-        box-shadow: 0 0 0 8px rgba(139,0,0,0.22);
+        box-shadow: 0 0 0 8px rgba(204,0,0,0.22);
       }
       .card, .research-card { border-color: #9a9a9a; }
     }

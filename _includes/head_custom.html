@@ -5,8 +5,9 @@
      brand palette and accessibility baseline.
   ──────────────────────────────────────────────────────────────── */
   :root {
-    --brand-red:   #B30000;   /* NC State red — WCAG AA on white */
-    --brand-dark:  #1f1f1f;
+    --brand-red:   #CC0000;   /* NC State Red */
+    --brand-gold:  #FFBF00;   /* NC State Gold */
+    --brand-dark:  #1a1a1a;
     --brand-light: #F5F5F5;
     --text:        #1a1a1a;
     --muted:       #595959;   /* 7:1 on white — WCAG AAA */
@@ -30,14 +31,87 @@
     color: var(--brand-red);
   }
   .main-content a:hover {
-    color: #900000;
+    color: #990000;
+  }
+
+  /* ─── Dark navigation sidebar ────────────────────────────────
+     Override Just the Docs sidebar and top-bar with a dark
+     background and high-contrast text/links.
+  ──────────────────────────────────────────────────────────────── */
+
+  /* Sidebar background */
+  .side-bar,
+  nav.site-nav,
+  .site-header {
+    background-color: #1a1a1a !important;
+    border-right-color: #333333 !important;
+  }
+
+  /* Site title / logo in sidebar */
+  .site-title {
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+  .site-title:hover {
+    background-color: rgba(255,255,255,0.07) !important;
+    color: var(--brand-gold) !important;
+  }
+
+  /* Top navigation bar (mobile) */
+  .site-header .site-button {
+    color: #ffffff !important;
+  }
+
+  /* All sidebar nav links */
+  .nav-list .nav-list-link {
+    color: #d9d9d9 !important;
+  }
+  .nav-list .nav-list-link:hover,
+  .nav-list .nav-list-link:focus {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,0.07) !important;
+  }
+
+  /* Active / current page link */
+  .nav-list .nav-list-link.active {
+    color: var(--brand-gold) !important;
+    font-weight: 700;
+    background-color: rgba(255,191,0,0.10) !important;
+  }
+
+  /* Section headers inside nav */
+  .nav-list-title {
+    color: #aaaaaa !important;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 0.75rem;
+  }
+
+  /* Auxiliary links (GitHub link, search bar area) */
+  .aux-nav-list-item a,
+  .aux-nav a {
+    color: #d9d9d9 !important;
+  }
+  .aux-nav-list-item a:hover,
+  .aux-nav a:hover {
+    color: #ffffff !important;
+  }
+
+  /* Search input in dark sidebar */
+  .search-input {
+    background-color: #2d2d2d !important;
+    color: #f0f0f0 !important;
+    border-color: #444444 !important;
+  }
+  .search-input::placeholder {
+    color: #888888 !important;
   }
 
   /* ─── Sidebar active and hover link ──────────────────────────── */
   .nav-list .nav-list-link.active,
   .nav-list .nav-list-link:hover,
   .nav-list .nav-list-link:focus {
-    color: var(--brand-red);
+    color: var(--brand-gold) !important;
   }
   .nav-list .nav-list-link.active {
     font-weight: 700;

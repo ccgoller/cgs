@@ -134,9 +134,8 @@
 
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
-      background:
-        radial-gradient(ellipse at top, rgba(204,0,0,0.45) 0%, transparent 55%),
-        linear-gradient(160deg, #CC0000 0%, #8B0000 45%, #4a0000 100%);
+      background: var(--brand-dark);
+      border-bottom: 4px solid var(--brand-red);
       color: var(--white);
       text-align: center;
       padding: clamp(4rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 5rem);
@@ -148,9 +147,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255,191,0,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 55%),
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E");
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(204,0,0,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 55%);
       pointer-events: none;
     }
     .hero h1 {
@@ -162,11 +160,11 @@
     }
     .hero h1 em {
       font-style: normal;
-      color: var(--brand-gold);
+      color: var(--brand-red);
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #f5e6c8;
+      color: #cccccc;
       max-width: 680px;
       margin: 0 auto 2.25rem;
     }
@@ -187,13 +185,13 @@
       border: 2px solid transparent;
       min-height: 44px;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); text-decoration: none; }
-    .btn-primary { background: var(--brand-gold); color: #1a1a1a; border-color: var(--brand-gold); }
-    .btn-primary:hover { background: #e6a800; border-color: #e6a800; }
-    .btn-outline { border-color: rgba(255,255,255,0.85); color: #fff; }
-    .btn-outline:hover { background: rgba(255,255,255,0.12); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); text-decoration: none; }
+    .btn-primary { background: var(--brand-red); color: #fff; border-color: var(--brand-red); }
+    .btn-primary:hover { background: var(--brand-red-dark); border-color: var(--brand-red-dark); }
+    .btn-outline { border-color: rgba(255,255,255,0.7); color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
     .btn:focus-visible {
-      box-shadow: 0 0 0 4px rgba(255,191,0,0.45), 0 0 0 8px rgba(204,0,0,0.4);
+      box-shadow: 0 0 0 4px rgba(204,0,0,0.5), 0 0 0 8px rgba(255,255,255,0.15);
     }
 
     /* ─── Section helpers ───────────────────────────────────── */

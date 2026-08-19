@@ -5,14 +5,16 @@
      brand palette and accessibility baseline.
   ──────────────────────────────────────────────────────────────── */
   :root {
-    --brand-red:   #CC0000;   /* NC State Red */
-    --brand-gold:  #FFBF00;   /* NC State Gold */
-    --brand-dark:  #1a1a1a;
-    --brand-light: #F5F5F5;
-    --text:        #1a1a1a;
-    --muted:       #595959;   /* 7:1 on white — WCAG AAA */
-    --white:       #FFFFFF;
-    --focus-ring:  #FFBF00;   /* high-visibility focus indicator */
+    --brand-red:       #CC0000;   /* NC State Red */
+    --brand-red-dark:  #990000;   /* darker red for hover */
+    --brand-dark:      #111111;
+    --brand-mid:       #2b2b2b;
+    --brand-light:     #f4f4f4;
+    --text:            #1a1a1a;
+    --muted:           #595959;   /* 7:1 on white — WCAG AAA */
+    --white:           #FFFFFF;
+    --focus-ring:      #CC0000;   /* matches home.html focus ring */
+    --focus-ring-soft: rgba(204, 0, 0, 0.18);
   }
 
   /* ─── Global focus style ──────────────────────────────────────
@@ -22,6 +24,11 @@
   :focus-visible {
     outline: 3px solid var(--focus-ring) !important;
     outline-offset: 3px !important;
+    box-shadow: 0 0 0 6px var(--focus-ring-soft) !important;
+  }
+  :focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
   }
 
   /* ─── Brand link color ────────────────────────────────────────
@@ -54,7 +61,7 @@
   }
   .site-title:hover {
     background-color: rgba(255,255,255,0.07) !important;
-    color: var(--brand-gold) !important;
+    color: #ffffff !important;
   }
 
   /* Top navigation bar (mobile) */
@@ -69,14 +76,15 @@
   .nav-list .nav-list-link:hover,
   .nav-list .nav-list-link:focus {
     color: #ffffff !important;
-    background-color: rgba(255,255,255,0.07) !important;
+    background-color: rgba(204, 0, 0, 0.08) !important;
   }
 
   /* Active / current page link */
   .nav-list .nav-list-link.active {
-    color: var(--brand-gold) !important;
+    color: #ffffff !important;
     font-weight: 700;
-    background-color: rgba(255,191,0,0.10) !important;
+    border-left: 3px solid var(--brand-red);
+    background-color: rgba(204, 0, 0, 0.12) !important;
   }
 
   /* Section headers inside nav */
@@ -108,14 +116,6 @@
   }
 
   /* ─── Sidebar active and hover link ──────────────────────────── */
-  .nav-list .nav-list-link.active,
-  .nav-list .nav-list-link:hover,
-  .nav-list .nav-list-link:focus {
-    color: var(--brand-gold) !important;
-  }
-  .nav-list .nav-list-link.active {
-    font-weight: 700;
-  }
 
   /* ─── Inline code and table accents ──────────────────────────── */
   .main-content code {

@@ -6,7 +6,7 @@ permalink: /schedule
 ---
 # 📅 Weekly Lab Availability
 
-> This page shows **research availability only** for Labs 1503 and 1512.
+> This page shows **research availability only** for Labs 1503, 1512, and MB 360.
 
 {% include download_links.html markdown_url="/downloads/lab-availability.md" pdf_url="/downloads/lab-availability.pdf" %}
 

@@ -13,6 +13,7 @@
     /* ─── Design Tokens ─────────────────────────────────────── */
     :root {
       --brand-red:      #CC0000;   /* NC State Red */
+      --brand-red-bright:#E03A3E;  /* brighter accent red */
       --brand-red-dark: #990000;   /* darker red for hover states */
       --brand-gold:     #FFBF00;   /* NC State Gold/Yellow */
       --brand-dark:     #111111;
@@ -83,8 +84,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--brand-dark);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.28);
+      background: rgba(244, 244, 244, 0.96);
+      border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+      box-shadow: 0 8px 24px rgba(17,17,17,0.08);
+      backdrop-filter: blur(10px);
     }
     .site-nav {
       display: flex;
@@ -97,7 +100,7 @@
       margin: 0 auto;
     }
     .site-nav .logo-link {
-      color: var(--white);
+      color: var(--brand-dark);
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.015em;
@@ -107,12 +110,12 @@
     .site-nav .logo-link:hover { text-decoration: underline; }
     .site-nav .logo-link:focus-visible {
       border-radius: 4px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(224, 58, 62, 0.10);
     }
-    .site-nav .logo-link .logo-accent { color: #d9d9d9; }
+    .site-nav .logo-link .logo-accent { color: var(--brand-red); }
     .nav-links { display: flex; gap: 1.25rem; list-style: none; flex-wrap: wrap; justify-content: flex-end; }
     .nav-links a {
-      color: #d0d0d0;
+      color: var(--brand-dark);
       font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.015em;
@@ -121,21 +124,22 @@
       padding: 0.25rem 0;
       border-bottom: 2px solid transparent;
     }
-    .nav-links a:hover { color: var(--white); text-decoration: underline; }
+    .nav-links a:hover { color: #000000; text-decoration: underline; }
     .nav-links a[aria-current="page"] {
-      color: var(--white);
-      border-bottom-color: var(--white);
+      color: #000000;
+      border-bottom-color: var(--brand-red-bright);
     }
     .nav-links a:focus-visible {
       border-bottom-color: var(--focus-ring);
-      background: rgba(255,255,255,0.06);
+      background: rgba(224, 58, 62, 0.10);
       border-radius: 4px;
     }
 
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
-      background: var(--brand-dark);
-      border-bottom: 4px solid var(--brand-red);
+      background:
+        linear-gradient(135deg, #151515 0%, #222222 52%, #3a1115 100%);
+      border-bottom: 4px solid var(--brand-red-bright);
       color: var(--white);
       text-align: center;
       padding: clamp(4rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 5rem);
@@ -147,8 +151,21 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(204,0,0,0.18) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 55%);
+        radial-gradient(ellipse 72% 58% at 50% 0%, rgba(224,58,62,0.32) 0%, transparent 68%),
+        radial-gradient(ellipse 34% 30% at 18% 22%, rgba(224,58,62,0.18) 0%, transparent 72%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 50% 1.4rem;
+      width: min(220px, 42vw);
+      height: 6px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(224,58,62,0) 0%, rgba(224,58,62,0.9) 18%, rgba(224,58,62,1) 50%, rgba(224,58,62,0.9) 82%, rgba(224,58,62,0) 100%);
+      box-shadow: 0 0 24px rgba(224,58,62,0.45);
       pointer-events: none;
     }
     .hero h1 {
@@ -160,7 +177,8 @@
     }
     .hero h1 em {
       font-style: normal;
-      color: var(--brand-red);
+      color: var(--brand-red-bright);
+      text-shadow: 0 0 22px rgba(224,58,62,0.22);
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
@@ -187,7 +205,7 @@
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); text-decoration: none; }
     .btn-primary { background: var(--brand-red); color: #fff; border-color: var(--brand-red); }
-    .btn-primary:hover { background: var(--brand-red-dark); border-color: var(--brand-red-dark); }
+    .btn-primary:hover { background: var(--brand-red-bright); border-color: var(--brand-red-bright); }
     .btn-outline { border-color: rgba(255,255,255,0.7); color: #fff; }
     .btn-outline:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
     .btn:focus-visible {
@@ -203,7 +221,7 @@
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 0.65rem;
-      color: var(--brand-red);
+      color: var(--brand-red-bright);
       letter-spacing: -0.02em;
     }
     .section-sub {
@@ -257,7 +275,7 @@
     }
     .research-card {
       background: #ffffff;
-      border-left: 4px solid var(--brand-red);
+      border-left: 4px solid var(--brand-red-bright);
       border-radius: 6px;
       padding: 1.5rem 1.4rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);

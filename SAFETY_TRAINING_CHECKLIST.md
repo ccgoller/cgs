@@ -15,12 +15,14 @@ permalink: /safety
 
 ## 1. University-Required Online Trainings
 
-Complete these modules through the NC State **Reporter → Training**. Check the box once you have a completion certificate.
+Complete these modules through the NC State **Reporter → Training**. Check the box once you have a completion certificate. Upload your certificates of completion with your last name first to [this shared folder](https://drive.google.com/drive/u/0/folders/1QLg76o-gnmOYm92n2DCP7YJ-ln1nss6D).
 
-- [ ] **Laboratory Safety Fundamentals** *(EHS-101 or equivalent)* Laboratory Chemical Waste Management Training EHPS-HW104
-- [ ] **Chemical Hygiene** *(Hazard Communication / GHS)* Laboratory Chemical Waste Management Training EHPS-HW104
-- [ ] **Fire Safety & Emergency Procedures** Fire Extinguisher Operations/Basic Fire Safety EHPS-FM110
-- [ ] **Bloodborne Pathogens** *(if handling human-derived samples)* EHPS-BS100-001: Bloodborne Pathogens Training
+### Priority Training
+- [ ] **[Laboratory Safety Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS201-LAB&deptName=EHPS)** *(EHPS-BS201-LAB)* — **Must complete before first lab**
+
+### Reference Trainings
+- [ ] **[Autoclave Use and Safety](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS300&deptName=EHPS)** *(EHPS-BS300)* — For reference
+- [ ] **[Bloodborne Pathogen Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS100-001&deptName=EHPS)** *(EHPS-BS100-001)* — For reference *(if handling human-derived samples)*
 
 ---
 
@@ -59,7 +61,7 @@ Complete with your instructor, TA, or peer mentor during the first lab meeting.
 All organisms used in this course are **BSL-1** unless otherwise noted.
 
 - Treat all biological material as potentially hazardous.
-- Decontaminate bench surfaces with **10% bleach** (30-min contact time) or 70% ethanol before and after work. Let's make fresh 10% bleach every other month to refill the yellow squirt bottles. Carefully mix 100 mL of bleach and 900 mL of distilled water from the prep lab (white spigot). 
+- Decontaminate bench surfaces with **10% bleach** (30-min contact time) or 70% ethanol before and after work. Let's make fresh 10% bleach every other month to refill the yellow squirt bottles. Carefully label bottles with the preparation date.
 - Prepare for autoclaving or chemically disinfect all liquid cultures before disposal.
 
 ---

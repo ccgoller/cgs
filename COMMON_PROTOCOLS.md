@@ -54,10 +54,13 @@ permalink: /protocols
 | NaCl | 10 g |
 | dH₂O | to 1 L |
 
+> [!IMPORTANT]
+> We often use pre-mixed powders that have agar for plates or without it for broth. Please get help from one of your peers before autoclaving. 
+
 1. Combine ingredients in a 2 L flask. Please note that we often use premixed media: all components in a single powder.
-2. Stir to dissolve; adjust pH to 7.0 with NaOH if needed.
-3. Autoclave at 121 °C, 15 psi, 20 min (liquid cycle).
-4. Allow to cool to ~55 °C before adding heat-sensitive supplements.
+2. Stir to dissolve.
+3. Autoclave at 121°C, 15 psi, 20 min (liquid cycle).
+4. Allow to cool to ~55°C before adding heat-sensitive supplements.
 5. Store at 4 °C for up to 4 weeks.
 
 ---

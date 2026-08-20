@@ -61,6 +61,7 @@ Study *Delftia* species through questions in microbial ecology, genetics, and fu
 
 ## Contact and Communication
 
+- **Contact us:** Visit the [Contact Us page](https://ccgoller.github.io/cgs/contact) for the best ways to reach the lab team.
 - **Lab questions:** Post in the course discussion board before emailing the faculty.
 - **Safety concerns:** Contact your TA, peer mentor, or faculty immediately.
 - **Hub improvements:** Use [GitHub Issues](https://github.com/ccgoller/cgs/issues) to report broken links or suggest updates.

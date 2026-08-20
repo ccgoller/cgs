@@ -7,7 +7,7 @@ permalink: /safety
 # 🔒 Safety Training Checklist
 
 > **Complete every item on this list before your first wet-lab session.**  
-> Keep a copy of each completion certificate — your TA will verify them during the first lab meeting.
+> Keep a copy of each completion certificate — emailed to your @ncsu.edu address.
 
 {% include download_links.html markdown_url="/downloads/safety-training-checklist.md" pdf_url="/downloads/safety-training-checklist.pdf" %}
 
@@ -18,7 +18,7 @@ permalink: /safety
 Complete these modules through the NC State **Reporter → Training**. Check the box once you have a completion certificate. Upload your certificates of completion with your last name first to [this shared folder](https://drive.google.com/drive/u/0/folders/1QLg76o-gnmOYm92n2DCP7YJ-ln1nss6D).
 
 ### Priority Training
-- [ ] **[Laboratory Safety Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS201-LAB&deptName=EHPS)** *(EHPS-BS201-LAB)* — **Must complete before first lab**
+- [ ] **[Laboratory Safety Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS201-LAB&deptName=EHPS)** *(EHPS-BS201-LAB)* — **Must complete before working in the lab**
 
 ### Reference Trainings
 - [ ] **[Autoclave Use and Safety](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS300&deptName=EHPS)** *(EHPS-BS300)* — For reference
@@ -79,11 +79,7 @@ All organisms used in this course are **BSL-1** unless otherwise noted.
 
 ## ✅ Sign-Off
 
-> Once you have completed **all items above**, bring this checklist (printed or screenshot) to your TA for sign-off during the first lab.
-
-| Student Name | Date Completed | Initials |
-|---|---|---|
-| | | |
+> Once you have completed **all items above**, complete the [**Lab Safety Sign-off form**](https://docs.google.com/forms/d/e/1FAIpQLSfYQsm58NnJiEQ5jbLfDK9gtujE9YZRuh9KvkkJkDqDYdGumw/viewform?usp=sharing&ouid=105826871227022710667).
 
 ---
 

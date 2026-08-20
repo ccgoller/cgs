@@ -4,7 +4,7 @@ title: Contact Us
 nav_order: 6
 permalink: /contact
 ---
-# Contact Us
+# 📧 Contact Us
 
 Use this page to get in touch with the CGs Lab team.
 
@@ -16,9 +16,5 @@ Use this page to get in touch with the CGs Lab team.
 
 ## Faculty contacts
 
-- **Dr. Claire L. Gordy:** clgordy@ncsu.edu
-- **Dr. Carlos C. Goller:** ccgoller@ncsu.edu
-
-## General note
-
-For quick help, please include your section, course context, and a short description of the issue.
+- **Dr. Claire L. Gordy:** clgordy @ ncsu.edu
+- **Dr. Carlos C. Goller:** ccgoller @ ncsu.edu

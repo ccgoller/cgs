@@ -146,26 +146,31 @@
       position: relative;
       overflow: hidden;
     }
+    /* Subtle molecular/abstract pattern overlay */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(102, 153, 102, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 35% 60%, rgba(102, 153, 102, 0.05) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 65% 20%, rgba(102, 153, 102, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 85% 75%, rgba(102, 153, 102, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 25% 80%, rgba(102, 153, 102, 0.05) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 50% 45%, rgba(102, 153, 102, 0.04) 1px, transparent 1px);
+      background-size: 180px 180px, 220px 220px, 150px 150px, 200px 200px, 190px 190px, 210px 210px;
+      background-position: 0 0, 20px 30px, 40px 10px, 10px 50px, 30px 20px, 15px 35px;
+      pointer-events: none;
+      opacity: 0.4;
+    }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 72% 58% at 50% 0%, rgba(224,58,62,0.32) 0%, transparent 68%),
-        radial-gradient(ellipse 34% 30% at 18% 22%, rgba(224,58,62,0.18) 0%, transparent 72%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 55%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 50% 1.4rem;
-      width: min(220px, 42vw);
-      height: 6px;
-      transform: translateX(-50%);
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(224,58,62,0) 0%, rgba(224,58,62,0.9) 18%, rgba(224,58,62,1) 50%, rgba(224,58,62,0.9) 82%, rgba(224,58,62,0) 100%);
-      box-shadow: 0 0 24px rgba(224,58,62,0.45);
+        radial-gradient(ellipse 72% 58% at 50% 0%, rgba(204, 0, 0, 0.12) 0%, transparent 68%),
+        radial-gradient(ellipse 34% 30% at 18% 22%, rgba(204, 0, 0, 0.08) 0%, transparent 72%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.02) 0%, transparent 55%);
       pointer-events: none;
     }
     .hero h1 {
@@ -174,23 +179,29 @@
       line-height: 1.08;
       margin-bottom: 1.1rem;
       letter-spacing: -0.025em;
+      position: relative;
+      z-index: 2;
     }
     .hero h1 em {
       font-style: normal;
       color: var(--brand-red-bright);
-      text-shadow: 0 0 22px rgba(224,58,62,0.22);
+      text-shadow: 0 0 14px rgba(204, 0, 0, 0.15);
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: #cccccc;
       max-width: 680px;
       margin: 0 auto 2.25rem;
+      position: relative;
+      z-index: 2;
     }
     .hero-cta {
       display: inline-flex;
       gap: 0.9rem;
       flex-wrap: wrap;
       justify-content: center;
+      position: relative;
+      z-index: 2;
     }
     .btn {
       display: inline-block;

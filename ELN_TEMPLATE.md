@@ -27,6 +27,33 @@ We recommend using **Benchling** (free for academics) or your institution's pref
 
 ---
 
+## Using GitHub for Your ELN
+
+If you are keeping your ELN in Markdown, start by opening the course repository at [ccgoller/cgs](https://github.com/ccgoller/cgs). This repository contains the shared course instructions, protocols, and ELN template that you should reference throughout the semester.
+
+Use the course repository as your reference source, but keep your personal notebook entries in your own **private** repository or another TA-approved space rather than in this public site repository.
+
+Recommended setup:
+
+1. Sign in to GitHub and open the course repository: `https://github.com/ccgoller/cgs`
+2. Create your own private ELN repository for the semester.
+3. Add a folder such as `notebooks/` to store your entries.
+4. Create one Markdown notebook file for each experiment or lab day.
+5. Copy the ELN structure below into each new notebook and complete it in real time during lab.
+6. Commit your updates regularly so each entry has a clear dated history.
+
+Suggested file format for individual notebook entries:
+
+```
+YYYY-MM-DD_ExperimentTitle.md
+```
+
+**Example:** `2026-09-02_BacterialTransformation.md`
+
+You may also keep related files such as gel images, raw data sheets, or analysis outputs in clearly labelled folders alongside each notebook entry.
+
+---
+
 ## ELN Entry Structure
 
 Every entry must contain **all six sections** below. Use the template for each experiment.

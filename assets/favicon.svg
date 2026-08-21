@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="82">🧬</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="CGs">
+  <rect x="6" y="6" width="88" height="88" rx="22" fill="#c00000"/>
+  <text
+    x="50%"
+    y="52%"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-size="34"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="700"
+    fill="#ffffff"
+  >CGs</text>
 </svg>

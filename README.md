@@ -4,7 +4,7 @@ title: About This Hub
 nav_order: 7
 permalink: /about
 ---
-# 🧬 CGs Lab — Onboarding Hub
+# <img src="assets/favicon.svg" alt="CGs logo" width="28" height="28"> CGs Lab — Onboarding Hub
 
 Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings together the core resources that support **Drs. Claire Gordy and Carlos Goller's** genetics and microbiology teaching labs at **NC State University**.
 

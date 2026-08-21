@@ -21,7 +21,7 @@ permalink: /eln
 
 ## Platform Recommendation
 
-We recommend using **Benchling** (free for academics) or your institution's preferred ELN platform. Alternatively, a well-organised **Markdown file in a private GitHub repository** is acceptable for this course.
+We recommend using **Benchling** (free for academics) or your institution's preferred ELN platform. Alternatively, a well-organised **Markdown workflow in a private GitHub repository** is acceptable for CGs lab undergraduate work.
 
 > 💡 Ask your TA which platform your lab section is using before Week 1.
 
@@ -29,18 +29,19 @@ We recommend using **Benchling** (free for academics) or your institution's pref
 
 ## Using GitHub for Your ELN
 
-If you are keeping your ELN in Markdown, start by opening the course repository at [ccgoller/cgs](https://github.com/ccgoller/cgs). This repository contains the shared course instructions, protocols, and ELN template that you should reference throughout the semester.
+If you are keeping your ELN in Markdown, start by opening the CGs lab hub repository at [ccgoller/cgs](https://github.com/ccgoller/cgs). This repository contains the shared lab instructions, protocols, and ELN template that you should reference throughout the semester.
 
-Use the course repository as your reference source, but keep your personal notebook entries in your own **private** repository or another TA-approved space rather than in this public site repository.
+Use the CGs repository as your reference source, but keep your personal notebook entries in your own **private** repository or another TA-approved space rather than in this public site repository.
 
 Recommended setup:
 
-1. Sign in to GitHub and open the course repository: `https://github.com/ccgoller/cgs`
+1. Sign in to GitHub and open the CGs lab hub repository: `https://github.com/ccgoller/cgs`
 2. Create your own private ELN repository for the semester.
-3. Add a folder such as `notebooks/` to store your entries.
-4. Create one Markdown notebook file for each experiment or lab day.
-5. Copy the ELN structure below into each new notebook and complete it in real time during lab.
-6. Commit your updates regularly so each entry has a clear dated history.
+3. Create a clear folder structure (for example: `notebooks/`, `data/`, and `images/`).
+4. Create one Markdown notebook file in `notebooks/` for each experiment or lab day.
+5. Keep experiment-specific files grouped in matching folders when useful (for example: `data/2026-09-02_BacterialTransformation/`).
+6. Copy the ELN structure below into each new notebook and complete it in real time during lab.
+7. Commit your updates regularly so each entry has a clear dated history.
 
 Suggested file format for individual notebook entries:
 
@@ -67,7 +68,7 @@ EXPERIMENT ENTRY
 Title:      [Brief descriptive title]
 Date:       [YYYY-MM-DD]
 Researcher: [Your full name]
-Course:     [e.g., BIO 315L — Genetics Lab]
+Lab Group:  [e.g., CGs Undergraduate Research]
 Section:    [Your lab section number]
 TA:         [TA name]
 ========================================================

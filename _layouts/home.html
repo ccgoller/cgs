@@ -100,12 +100,30 @@
       margin: 0 auto;
     }
     .site-nav .logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
       color: var(--brand-dark);
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.015em;
       white-space: nowrap;
       text-decoration: none;
+    }
+    .site-nav .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.25rem;
+      min-height: 2.25rem;
+      padding: 0.2rem 0.45rem;
+      border-radius: 999px;
+      background: var(--brand-red);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1;
     }
     .site-nav .logo-link:hover { text-decoration: underline; }
     .site-nav .logo-link:focus-visible {
@@ -382,7 +400,7 @@
   <header class="site-header">
     <nav class="site-nav" aria-label="Primary navigation">
       <a class="logo-link" href="{{ '/' | relative_url }}" aria-label="Gordy–Goller Lab — Home">
-        <span aria-hidden="true">🧬</span> <span class="logo-accent">Gordy–Goller</span> Lab
+        <span class="logo-mark" aria-hidden="true">CGs</span> <span class="logo-accent">Gordy–Goller</span> Lab
       </a>
       <ul class="nav-links" role="list">
         <li><a href="{{ '/safety' | relative_url }}">Safety</a></li>

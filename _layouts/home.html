@@ -388,12 +388,12 @@
         <span class="logo-mark" aria-hidden="true">CGs</span> <span class="logo-accent">Gordy–Goller</span> Lab
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="{{ '/safety' | relative_url }}">Safety</a></li>
-        <li><a href="{{ '/schedule' | relative_url }}">Schedule</a></li>
-        <li><a href="{{ '/protocols' | relative_url }}">Protocols</a></li>
-        <li><a href="{{ '/eln' | relative_url }}">ELN</a></li>
-        <li><a href="{{ '/professional-development' | relative_url }}">Professional Dev</a></li>
-        <li><a href="{{ '/maintenance' | relative_url }}">Lab Maintenance</a></li>
+        <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
+        <li><a href="{{ '/schedule' | relative_url }}"{% if page.url == '/schedule/' %} aria-current="page"{% endif %}>Schedule</a></li>
+        <li><a href="{{ '/protocols' | relative_url }}"{% if page.url == '/protocols/' %} aria-current="page"{% endif %}>Protocols</a></li>
+        <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
+        <li><a href="{{ '/professional-development' | relative_url }}"{% if page.url == '/professional-development/' %} aria-current="page"{% endif %}>Professional Dev</a></li>
+        <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
       </ul>
     </nav>
   </header>

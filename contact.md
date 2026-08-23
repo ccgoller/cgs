@@ -16,5 +16,5 @@ Use this page to get in touch with the CGs Lab team.
 
 ## Faculty contacts
 
-- **Dr. Claire L. Gordy:** clgordy @ ncsu.edu
-- **Dr. Carlos C. Goller:** ccgoller @ ncsu.edu
+- **Dr. Claire L. Gordy:** [clgordy@ncsu.edu](mailto:clgordy@ncsu.edu)
+- **Dr. Carlos C. Goller:** [ccgoller@ncsu.edu](mailto:ccgoller@ncsu.edu)

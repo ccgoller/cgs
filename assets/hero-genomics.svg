@@ -1,0 +1,67 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05070B"/>
+      <stop offset="1" stop-color="#15060A"/>
+    </linearGradient>
+    <linearGradient id="dnaLeft" x1="465" y1="115" x2="465" y2="785" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F7FA"/>
+      <stop offset="1" stop-color="#C9D3DD"/>
+    </linearGradient>
+    <linearGradient id="dnaRight" x1="1135" y1="115" x2="1135" y2="785" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B6B"/>
+      <stop offset="1" stop-color="#B31217"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 450) rotate(90) scale(360 700)">
+      <stop stop-color="#B31217" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#B31217" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.28">
+    <path d="M0 135H1600M0 255H1600M0 375H1600M0 495H1600M0 615H1600M0 735H1600" stroke="#DCE3EA" stroke-width="1"/>
+    <path d="M140 0V900M380 0V900M620 0V900M860 0V900M1100 0V900M1340 0V900" stroke="#DCE3EA" stroke-width="1"/>
+  </g>
+  <g filter="url(#blur)">
+    <circle cx="1225" cy="200" r="135" fill="#B31217" fill-opacity="0.28"/>
+    <circle cx="345" cy="720" r="165" fill="#8E1B30" fill-opacity="0.22"/>
+    <circle cx="820" cy="430" r="220" fill="#2A3F73" fill-opacity="0.18"/>
+  </g>
+  <rect x="180" y="110" width="1240" height="680" rx="34" fill="url(#glow)" stroke="#FFFFFF" stroke-opacity="0.16"/>
+  <g opacity="0.9">
+    <path d="M430 120C585 210 585 350 430 450C275 550 275 690 430 780" stroke="url(#dnaLeft)" stroke-width="20" stroke-linecap="round"/>
+    <path d="M1170 120C1015 210 1015 350 1170 450C1325 550 1325 690 1170 780" stroke="url(#dnaRight)" stroke-width="20" stroke-linecap="round"/>
+    <path d="M490 164H1110M555 225H1045M620 286H980M676 347H924M714 408H886M714 492H886M676 553H924M620 614H980M555 675H1045M490 736H1110" stroke="#F1F5F9" stroke-width="11" stroke-linecap="round" stroke-opacity="0.8"/>
+    <circle cx="490" cy="164" r="12" fill="#FF6B6B"/>
+    <circle cx="1110" cy="164" r="12" fill="#F1F5F9"/>
+    <circle cx="555" cy="225" r="12" fill="#FF6B6B"/>
+    <circle cx="1045" cy="225" r="12" fill="#F1F5F9"/>
+    <circle cx="620" cy="286" r="12" fill="#FF6B6B"/>
+    <circle cx="980" cy="286" r="12" fill="#F1F5F9"/>
+    <circle cx="676" cy="347" r="12" fill="#FF6B6B"/>
+    <circle cx="924" cy="347" r="12" fill="#F1F5F9"/>
+    <circle cx="714" cy="408" r="12" fill="#FF6B6B"/>
+    <circle cx="886" cy="408" r="12" fill="#F1F5F9"/>
+    <circle cx="714" cy="492" r="12" fill="#FF6B6B"/>
+    <circle cx="886" cy="492" r="12" fill="#F1F5F9"/>
+    <circle cx="676" cy="553" r="12" fill="#FF6B6B"/>
+    <circle cx="924" cy="553" r="12" fill="#F1F5F9"/>
+    <circle cx="620" cy="614" r="12" fill="#FF6B6B"/>
+    <circle cx="980" cy="614" r="12" fill="#F1F5F9"/>
+    <circle cx="555" cy="675" r="12" fill="#FF6B6B"/>
+    <circle cx="1045" cy="675" r="12" fill="#F1F5F9"/>
+    <circle cx="490" cy="736" r="12" fill="#FF6B6B"/>
+    <circle cx="1110" cy="736" r="12" fill="#F1F5F9"/>
+  </g>
+  <g opacity="0.8">
+    <circle cx="245" cy="230" r="56" stroke="#F1F5F9" stroke-width="4"/>
+    <circle cx="245" cy="230" r="12" fill="#F1F5F9"/>
+    <path d="M245 162V298M177 230H313M195 180L295 280M295 180L195 280" stroke="#F1F5F9" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1360" cy="640" r="64" stroke="#FF6B6B" stroke-width="4"/>
+    <circle cx="1360" cy="640" r="14" fill="#FF6B6B"/>
+    <path d="M1360 566V714M1286 640H1434M1306 588L1414 692M1414 588L1306 692" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

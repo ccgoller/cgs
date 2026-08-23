@@ -156,7 +156,9 @@
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
       background:
-        linear-gradient(135deg, #151515 0%, #222222 52%, #3a1115 100%);
+        linear-gradient(rgba(0,0,0,0.62), rgba(20,0,0,0.70)),
+        url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1600&q=80')
+        center / cover no-repeat;
       border-bottom: 4px solid var(--brand-red-bright);
       color: var(--white);
       text-align: center;
@@ -164,31 +166,14 @@
       position: relative;
       overflow: hidden;
     }
-    /* Subtle molecular/abstract pattern overlay */
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 15% 25%, rgba(102, 153, 102, 0.06) 1px, transparent 1px),
-        radial-gradient(circle at 35% 60%, rgba(102, 153, 102, 0.05) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 65% 20%, rgba(102, 153, 102, 0.04) 1px, transparent 1px),
-        radial-gradient(circle at 85% 75%, rgba(102, 153, 102, 0.06) 1px, transparent 1px),
-        radial-gradient(circle at 25% 80%, rgba(102, 153, 102, 0.05) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 50% 45%, rgba(102, 153, 102, 0.04) 1px, transparent 1px);
-      background-size: 180px 180px, 220px 220px, 150px 150px, 200px 200px, 190px 190px, 210px 210px;
-      background-position: 0 0, 20px 30px, 40px 10px, 10px 50px, 30px 20px, 15px 35px;
-      pointer-events: none;
-      opacity: 0.4;
-    }
+    /* Subtle red-glow overlay on top of the photo dim */
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 72% 58% at 50% 0%, rgba(204, 0, 0, 0.12) 0%, transparent 68%),
-        radial-gradient(ellipse 34% 30% at 18% 22%, rgba(204, 0, 0, 0.08) 0%, transparent 72%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(255,255,255,0.02) 0%, transparent 55%);
+        radial-gradient(ellipse 72% 58% at 50% 0%, rgba(204, 0, 0, 0.18) 0%, transparent 68%),
+        radial-gradient(ellipse 34% 30% at 18% 22%, rgba(204, 0, 0, 0.10) 0%, transparent 72%);
       pointer-events: none;
     }
     .hero h1 {
@@ -207,7 +192,7 @@
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #cccccc;
+      color: #e8e8e8;
       max-width: 680px;
       margin: 0 auto 2.25rem;
       position: relative;
@@ -523,7 +508,8 @@
   <footer role="contentinfo">
     <p>&copy; 2026 Gordy–Goller Lab, NC State University &nbsp;|&nbsp;
       <a href="https://github.com/ccgoller/cgs">GitHub Repository</a> &nbsp;|&nbsp;
-      Questions? Post in the course discussion board.
+      Questions? Post in the course discussion board. &nbsp;|&nbsp;
+      Hero photo by <a href="https://unsplash.com/photos/RgTI2KaQ5N0" rel="noopener noreferrer">National Cancer Institute</a> on <a href="https://unsplash.com" rel="noopener noreferrer">Unsplash</a>.
     </p>
   </footer>
 

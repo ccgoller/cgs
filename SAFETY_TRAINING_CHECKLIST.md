@@ -18,11 +18,11 @@ permalink: /safety
 Complete these modules through the NC State **Reporter → Training**. Check the box once you have a completion certificate. Upload your certificates of completion with your last name first to [this shared folder](https://drive.google.com/drive/u/0/folders/1QLg76o-gnmOYm92n2DCP7YJ-ln1nss6D).
 
 ### Priority Training
-- [ ] **[Laboratory Safety Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS201-LAB&deptName=EHPS)** *(EHPS-BS201-LAB)* — **Must complete before working in the lab**
+- ☐ **[Laboratory Safety Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS201-LAB&deptName=EHPS)** *(EHPS-BS201-LAB)* — **Must complete before working in the lab**
 
 ### Reference Trainings
-- [ ] **[Autoclave Use and Safety](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS300&deptName=EHPS)** *(EHPS-BS300)* — For reference
-- [ ] **[Bloodborne Pathogen Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS100-001&deptName=EHPS)** *(EHPS-BS100-001)* — For reference *(if handling human-derived samples)*
+- ☐ **[Autoclave Use and Safety](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS300&deptName=EHPS)** *(EHPS-BS300)* — For reference
+- ☐ **[Bloodborne Pathogen Training](https://reporter.ncsu.edu/link/courseview?courseID=EHPS-BS100-001&deptName=EHPS)** *(EHPS-BS100-001)* — For reference *(if handling human-derived samples)*
 
 ---
 
@@ -30,15 +30,15 @@ Complete these modules through the NC State **Reporter → Training**. Check the
 
 Complete with your instructor, TA, or peer mentor during the first lab meeting.
 
-- [ ] Locate all emergency exits, eyewash stations, safety showers, and fire extinguishers.
-- [ ] Identify the location of the **Safety Data Sheet (SDS) binder** or digital SDS portal.
-- [ ] Review the lab's **Chemical Hygiene Plan** (posted near the fume hood).
-- [ ] Learn proper **PPE requirements** for each zone of the lab.
-- [ ] Demonstrate correct **glove removal and disposal** technique.
-- [ ] Review **biohazard waste disposal** procedures (sharps, liquid waste, solid biological waste).
-- [ ] Review **chemical waste disposal** procedures and labeling requirements.
-- [ ] Understand the **spill response protocol** for biological and chemical spills.
-- [ ] Know who to **contact** in an emergency (TA → Instructor → Campus EHS).
+- ☐ Locate all emergency exits, eyewash stations, safety showers, and fire extinguishers.
+- ☐ Identify the location of the **Safety Data Sheet (SDS) binder** or digital SDS portal.
+- ☐ Review the lab's **Chemical Hygiene Plan** (posted near the fume hood).
+- ☐ Learn proper **PPE requirements** for each zone of the lab.
+- ☐ Demonstrate correct **glove removal and disposal** technique.
+- ☐ Review **biohazard waste disposal** procedures (sharps, liquid waste, solid biological waste).
+- ☐ Review **chemical waste disposal** procedures and labeling requirements.
+- ☐ Understand the **spill response protocol** for biological and chemical spills.
+- ☐ Know who to **contact** in an emergency (TA → Instructor → Campus EHS).
 
 ---
 

@@ -133,13 +133,13 @@ END OF ENTRY
 
 Before submitting each entry to your TA, confirm:
 
-- [ ] All six sections are present and complete.
-- [ ] Entry is dated on the **day the experiment was performed** (not backdated).
-- [ ] Raw data is included — not just final calculated values.
-- [ ] Deviations from the published protocol are noted.
-- [ ] Any images/gels are labelled with your name, date, and lane/sample info.
-- [ ] Calculations show all steps and units.
-- [ ] No data has been erased — mistakes are crossed out with a single line and initialled.
+- ☐ All six sections are present and complete.
+- ☐ Entry is dated on the **day the experiment was performed** (not backdated).
+- ☐ Raw data is included — not just final calculated values.
+- ☐ Deviations from the published protocol are noted.
+- ☐ Any images/gels are labelled with your name, date, and lane/sample info.
+- ☐ Calculations show all steps and units.
+- ☐ No data has been erased — mistakes are crossed out with a single line and initialled.
 
 ---
 

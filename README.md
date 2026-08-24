@@ -10,6 +10,8 @@ Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings toget
 
 > **New to the lab?** Use this page to complete onboarding, prepare for weekly work, and explore the research themes that connect lab learning with active discovery.
 
+> **Site URL:** Open the hub at **https://ccgoller.github.io/cgs/** (the `/cgs/` path is required).
+
 ---
 
 ## Start Here

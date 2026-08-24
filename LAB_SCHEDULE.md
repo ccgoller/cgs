@@ -83,7 +83,7 @@ permalink: /schedule
 
 ## 📆 Live Calendar
 
-<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 ## 📚 Repository Wiki
 

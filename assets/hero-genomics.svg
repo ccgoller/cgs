@@ -1,67 +1,257 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#05070B"/>
-      <stop offset="1" stop-color="#15060A"/>
+    <!-- Lab bench surface gradient -->
+    <linearGradient id="benchGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3a2d1e"/>
+      <stop offset="1" stop-color="#1e1710"/>
     </linearGradient>
-    <linearGradient id="dnaLeft" x1="465" y1="115" x2="465" y2="785" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F5F7FA"/>
-      <stop offset="1" stop-color="#C9D3DD"/>
+    <!-- Wall gradient -->
+    <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d0ccc6"/>
+      <stop offset="1" stop-color="#b0aca6"/>
     </linearGradient>
-    <linearGradient id="dnaRight" x1="1135" y1="115" x2="1135" y2="785" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FF6B6B"/>
-      <stop offset="1" stop-color="#B31217"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 450) rotate(90) scale(360 700)">
-      <stop stop-color="#B31217" stop-opacity="0.34"/>
-      <stop offset="1" stop-color="#B31217" stop-opacity="0"/>
+    <!-- Overhead lab light -->
+    <radialGradient id="lightGrad" cx="50%" cy="0%" r="60%" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffbe0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#fffbe0" stop-opacity="0"/>
     </radialGradient>
-    <filter id="blur" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="30"/>
+    <!-- Plate agar gradient (top-lit) -->
+    <radialGradient id="agarYellow" cx="42%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#f5e6b0"/>
+      <stop offset="1" stop-color="#c9b060"/>
+    </radialGradient>
+    <radialGradient id="agarOrange" cx="42%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#e8c08a"/>
+      <stop offset="1" stop-color="#a06830"/>
+    </radialGradient>
+    <radialGradient id="agarRed" cx="42%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#c05050"/>
+      <stop offset="1" stop-color="#7a1a1a"/>
+    </radialGradient>
+    <radialGradient id="agarBlue" cx="42%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#90b8d0"/>
+      <stop offset="1" stop-color="#2a5070"/>
+    </radialGradient>
+    <radialGradient id="agarGreen" cx="42%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#a0c870"/>
+      <stop offset="1" stop-color="#3a6820"/>
+    </radialGradient>
+    <radialGradient id="agarPurple" cx="42%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#c090c0"/>
+      <stop offset="1" stop-color="#5a2060"/>
+    </radialGradient>
+    <!-- Plate lid sheen -->
+    <radialGradient id="lidSheen" cx="35%" cy="28%" r="50%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Plate rim gradient -->
+    <linearGradient id="rimGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0ddd8"/>
+      <stop offset="1" stop-color="#a8a5a0"/>
+    </linearGradient>
+    <!-- Bench top surface -->
+    <linearGradient id="benchTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5c4828"/>
+      <stop offset="1" stop-color="#3a2d1e"/>
+    </linearGradient>
+    <!-- Bench tile reflection -->
+    <linearGradient id="tileGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a3c28"/>
+      <stop offset="1" stop-color="#2a1e10"/>
+    </linearGradient>
+    <filter id="plateShad" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="gloveShad" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="overheadLight">
+      <feGaussianBlur stdDeviation="60"/>
     </filter>
   </defs>
-  <rect width="1600" height="900" fill="url(#bg)"/>
-  <g opacity="0.28">
-    <path d="M0 135H1600M0 255H1600M0 375H1600M0 495H1600M0 615H1600M0 735H1600" stroke="#DCE3EA" stroke-width="1"/>
-    <path d="M140 0V900M380 0V900M620 0V900M860 0V900M1100 0V900M1340 0V900" stroke="#DCE3EA" stroke-width="1"/>
+
+  <!-- ── Background wall ── -->
+  <rect width="1600" height="900" fill="url(#wallGrad)"/>
+
+  <!-- Wall tiles suggestion -->
+  <line x1="0" y1="200" x2="1600" y2="200" stroke="#c0bcb6" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="400" x2="1600" y2="400" stroke="#c0bcb6" stroke-width="1.5" opacity="0.35"/>
+  <line x1="0" y1="480" x2="1600" y2="480" stroke="#c0bcb6" stroke-width="1" opacity="0.25"/>
+
+  <!-- Cabinet strip above bench -->
+  <rect x="0" y="360" width="1600" height="30" fill="#8a7a6a" opacity="0.4"/>
+  <rect x="0" y="388" width="1600" height="4" fill="#6a5a4a" opacity="0.5"/>
+
+  <!-- ── Bench body ── -->
+  <rect x="0" y="560" width="1600" height="340" fill="url(#benchGrad)"/>
+  <!-- Bench top surface strip -->
+  <rect x="0" y="555" width="1600" height="30" fill="url(#benchTop)"/>
+  <!-- Bench front edge highlight -->
+  <rect x="0" y="553" width="1600" height="5" fill="#7a6040" opacity="0.7"/>
+  <!-- Bench countertop (darker epoxy) -->
+  <rect x="0" y="558" width="1600" height="120" fill="url(#tileGrad)" opacity="0.85"/>
+
+  <!-- Overhead fluorescent light bloom -->
+  <rect x="0" y="0" width="1600" height="580" fill="url(#lightGrad)"/>
+
+  <!-- ── Lab equipment / context items ── -->
+
+  <!-- Bunsen burner (far right) -->
+  <g transform="translate(1360,490)">
+    <rect x="-10" y="-4" width="20" height="80" rx="3" fill="#555" opacity="0.9"/>
+    <rect x="-18" y="72" width="36" height="12" rx="3" fill="#444" opacity="0.9"/>
+    <ellipse cx="0" cy="70" rx="20" ry="6" fill="#555" opacity="0.7"/>
+    <!-- flame -->
+    <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#ff8c00" opacity="0.85"/>
+    <ellipse cx="0" cy="-20" rx="4" ry="9" fill="#ffdd00" opacity="0.8"/>
+    <ellipse cx="0" cy="-26" rx="2" ry="5" fill="#ffffff" opacity="0.6"/>
   </g>
-  <g filter="url(#blur)">
-    <circle cx="1225" cy="200" r="135" fill="#B31217" fill-opacity="0.28"/>
-    <circle cx="345" cy="720" r="165" fill="#8E1B30" fill-opacity="0.22"/>
-    <circle cx="820" cy="430" r="220" fill="#2A3F73" fill-opacity="0.18"/>
+
+  <!-- Marker / pen -->
+  <g transform="translate(1480,572) rotate(-15)">
+    <rect x="-4" y="-80" width="8" height="100" rx="3" fill="#1a1a80" opacity="0.9"/>
+    <rect x="-4" y="20" width="8" height="10" rx="2" fill="#ccc" opacity="0.9"/>
+    <polygon points="0,-88 -4,-80 4,-80" fill="#1a1a80" opacity="0.9"/>
   </g>
-  <rect x="180" y="110" width="1240" height="680" rx="34" fill="url(#glow)" stroke="#FFFFFF" stroke-opacity="0.16"/>
-  <g opacity="0.9">
-    <path d="M430 120C585 210 585 350 430 450C275 550 275 690 430 780" stroke="url(#dnaLeft)" stroke-width="20" stroke-linecap="round"/>
-    <path d="M1170 120C1015 210 1015 350 1170 450C1325 550 1325 690 1170 780" stroke="url(#dnaRight)" stroke-width="20" stroke-linecap="round"/>
-    <path d="M490 164H1110M555 225H1045M620 286H980M676 347H924M714 408H886M714 492H886M676 553H924M620 614H980M555 675H1045M490 736H1110" stroke="#F1F5F9" stroke-width="11" stroke-linecap="round" stroke-opacity="0.8"/>
-    <circle cx="490" cy="164" r="12" fill="#FF6B6B"/>
-    <circle cx="1110" cy="164" r="12" fill="#F1F5F9"/>
-    <circle cx="555" cy="225" r="12" fill="#FF6B6B"/>
-    <circle cx="1045" cy="225" r="12" fill="#F1F5F9"/>
-    <circle cx="620" cy="286" r="12" fill="#FF6B6B"/>
-    <circle cx="980" cy="286" r="12" fill="#F1F5F9"/>
-    <circle cx="676" cy="347" r="12" fill="#FF6B6B"/>
-    <circle cx="924" cy="347" r="12" fill="#F1F5F9"/>
-    <circle cx="714" cy="408" r="12" fill="#FF6B6B"/>
-    <circle cx="886" cy="408" r="12" fill="#F1F5F9"/>
-    <circle cx="714" cy="492" r="12" fill="#FF6B6B"/>
-    <circle cx="886" cy="492" r="12" fill="#F1F5F9"/>
-    <circle cx="676" cy="553" r="12" fill="#FF6B6B"/>
-    <circle cx="924" cy="553" r="12" fill="#F1F5F9"/>
-    <circle cx="620" cy="614" r="12" fill="#FF6B6B"/>
-    <circle cx="980" cy="614" r="12" fill="#F1F5F9"/>
-    <circle cx="555" cy="675" r="12" fill="#FF6B6B"/>
-    <circle cx="1045" cy="675" r="12" fill="#F1F5F9"/>
-    <circle cx="490" cy="736" r="12" fill="#FF6B6B"/>
-    <circle cx="1110" cy="736" r="12" fill="#F1F5F9"/>
+
+  <!-- Lab notebook (left) -->
+  <g transform="translate(140,570)">
+    <rect x="-70" y="-20" width="140" height="10" rx="2" fill="#1a3a6a" opacity="0.9"/>
+    <rect x="-70" y="-10" width="140" height="90" rx="2" fill="#2255aa" opacity="0.85"/>
+    <line x1="-50" y1="10" x2="50" y2="10" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-50" y1="25" x2="50" y2="25" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-50" y1="40" x2="50" y2="40" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-50" y1="55" x2="50" y2="55" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+    <rect x="-70" y="-10" width="12" height="90" fill="#1a3a6a" opacity="0.9"/>
   </g>
-  <g opacity="0.8">
-    <circle cx="245" cy="230" r="56" stroke="#F1F5F9" stroke-width="4"/>
-    <circle cx="245" cy="230" r="12" fill="#F1F5F9"/>
-    <path d="M245 162V298M177 230H313M195 180L295 280M295 180L195 280" stroke="#F1F5F9" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="1360" cy="640" r="64" stroke="#FF6B6B" stroke-width="4"/>
-    <circle cx="1360" cy="640" r="14" fill="#FF6B6B"/>
-    <path d="M1360 566V714M1286 640H1434M1306 588L1414 692M1414 588L1306 692" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Glove (right side, laid flat) -->
+  <g filter="url(#gloveShad)" transform="translate(1230,590)">
+    <ellipse cx="0" cy="0" rx="55" ry="20" fill="#60a080" opacity="0.88"/>
+    <!-- fingers suggestion -->
+    <ellipse cx="-30" cy="-16" rx="12" ry="22" fill="#60a080" opacity="0.88" transform="rotate(-15,-30,-16)"/>
+    <ellipse cx="-10" cy="-22" rx="11" ry="24" fill="#60a080" opacity="0.88" transform="rotate(-5,-10,-22)"/>
+    <ellipse cx="12" cy="-21" rx="11" ry="23" fill="#60a080" opacity="0.85" transform="rotate(5,12,-21)"/>
+    <ellipse cx="33" cy="-16" rx="10" ry="20" fill="#60a080" opacity="0.85" transform="rotate(15,33,-16)"/>
+    <!-- thumb -->
+    <ellipse cx="-46" cy="8" rx="9" ry="18" fill="#60a080" opacity="0.85" transform="rotate(-40,-46,8)"/>
+    <rect x="-55" y="-5" width="110" height="28" rx="14" fill="#60a080" opacity="0.88"/>
+    <!-- cuff -->
+    <rect x="-55" y="18" width="110" height="18" rx="8" fill="#50906a" opacity="0.9"/>
   </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PETRI DISHES ON THE BENCH  (6 plates, various media)
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- Helper macro: each plate = bottom dish (agar) + lid (transparent circle + sheen) -->
+
+  <!-- Plate 1 — LB agar (amber), centre-left — slightly tilted for depth -->
+  <g filter="url(#plateShad)" transform="translate(390,618)">
+    <!-- base dish -->
+    <ellipse cx="0" cy="0" rx="86" ry="30" fill="#7a6030" opacity="0.9"/>
+    <!-- agar surface -->
+    <ellipse cx="0" cy="-8" rx="80" ry="26" fill="url(#agarYellow)"/>
+    <!-- colonies -->
+    <circle cx="-20" cy="-12" r="4" fill="#8a6020" opacity="0.7"/>
+    <circle cx="15" cy="-5" r="5" fill="#8a6020" opacity="0.7"/>
+    <circle cx="-5" cy="-18" r="3" fill="#9a7030" opacity="0.7"/>
+    <circle cx="30" cy="-14" r="3.5" fill="#8a6020" opacity="0.65"/>
+    <circle cx="-38" cy="-6" r="4" fill="#8a6020" opacity="0.65"/>
+    <circle cx="50" cy="-10" r="3" fill="#8a6020" opacity="0.6"/>
+    <circle cx="-52" cy="-12" r="2.5" fill="#9a7030" opacity="0.6"/>
+    <!-- rim -->
+    <ellipse cx="0" cy="-8" rx="80" ry="26" fill="none" stroke="url(#rimGrad)" stroke-width="3" opacity="0.7"/>
+    <!-- lid -->
+    <ellipse cx="0" cy="-14" rx="82" ry="27" fill="#d8f0e0" opacity="0.18"/>
+    <ellipse cx="0" cy="-14" rx="82" ry="27" fill="none" stroke="#ccc" stroke-width="2.5" opacity="0.6"/>
+    <!-- lid sheen -->
+    <ellipse cx="-22" cy="-26" rx="32" ry="10" fill="white" opacity="0.22" transform="rotate(-20,-22,-26)"/>
+  </g>
+
+  <!-- Plate 2 — Blood agar (red), centre -->
+  <g filter="url(#plateShad)" transform="translate(600,628)">
+    <ellipse cx="0" cy="0" rx="90" ry="31" fill="#6a2020" opacity="0.9"/>
+    <ellipse cx="0" cy="-8" rx="84" ry="27" fill="url(#agarRed)"/>
+    <!-- colonies -->
+    <circle cx="0" cy="-10" r="5" fill="#f0d0d0" opacity="0.55"/>
+    <circle cx="-25" cy="-18" r="3.5" fill="#f0d0d0" opacity="0.5"/>
+    <circle cx="30" cy="-8" r="4" fill="#f0d0d0" opacity="0.5"/>
+    <circle cx="-45" cy="-6" r="3" fill="#e0c0c0" opacity="0.5"/>
+    <circle cx="55" cy="-14" r="2.5" fill="#f0d0d0" opacity="0.45"/>
+    <circle cx="10" cy="-22" r="3" fill="#f0d0d0" opacity="0.5"/>
+    <ellipse cx="0" cy="-8" rx="84" ry="27" fill="none" stroke="url(#rimGrad)" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="0" cy="-15" rx="86" ry="28" fill="#ffe0e0" opacity="0.14"/>
+    <ellipse cx="0" cy="-15" rx="86" ry="28" fill="none" stroke="#ccc" stroke-width="2.5" opacity="0.55"/>
+    <ellipse cx="-24" cy="-28" rx="30" ry="9" fill="white" opacity="0.20" transform="rotate(-20,-24,-28)"/>
+  </g>
+
+  <!-- Plate 3 — MacConkey (orange), right of centre -->
+  <g filter="url(#plateShad)" transform="translate(820,620)">
+    <ellipse cx="0" cy="0" rx="88" ry="30" fill="#7a4010" opacity="0.9"/>
+    <ellipse cx="0" cy="-8" rx="82" ry="26" fill="url(#agarOrange)"/>
+    <circle cx="-10" cy="-12" r="5" fill="#c07020" opacity="0.65"/>
+    <circle cx="20" cy="-6" r="6" fill="#c06020" opacity="0.65"/>
+    <circle cx="-35" cy="-16" r="4" fill="#b05010" opacity="0.65"/>
+    <circle cx="45" cy="-12" r="4" fill="#c07020" opacity="0.6"/>
+    <circle cx="-55" cy="-8" r="3" fill="#b05010" opacity="0.6"/>
+    <ellipse cx="0" cy="-8" rx="82" ry="26" fill="none" stroke="url(#rimGrad)" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="0" cy="-15" rx="84" ry="27" fill="#fff0e0" opacity="0.15"/>
+    <ellipse cx="0" cy="-15" rx="84" ry="27" fill="none" stroke="#ccc" stroke-width="2.5" opacity="0.55"/>
+    <ellipse cx="-22" cy="-27" rx="30" ry="9" fill="white" opacity="0.20" transform="rotate(-20,-22,-27)"/>
+  </g>
+
+  <!-- Plate 4 — Sabouraud / fungal (green), far left -->
+  <g filter="url(#plateShad)" transform="translate(180,600)">
+    <ellipse cx="0" cy="0" rx="78" ry="27" fill="#2a4a18" opacity="0.9"/>
+    <ellipse cx="0" cy="-7" rx="73" ry="23" fill="url(#agarGreen)"/>
+    <circle cx="-5" cy="-10" r="8" fill="#5a9030" opacity="0.6"/>
+    <circle cx="25" cy="-14" r="5" fill="#4a8020" opacity="0.6"/>
+    <circle cx="-30" cy="-8" r="6" fill="#5a9030" opacity="0.55"/>
+    <ellipse cx="0" cy="-7" rx="73" ry="23" fill="none" stroke="url(#rimGrad)" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="0" cy="-13" rx="75" ry="24" fill="#e0ffe0" opacity="0.13"/>
+    <ellipse cx="0" cy="-13" rx="75" ry="24" fill="none" stroke="#ccc" stroke-width="2.5" opacity="0.55"/>
+    <ellipse cx="-20" cy="-24" rx="26" ry="8" fill="white" opacity="0.20" transform="rotate(-20,-20,-24)"/>
+  </g>
+
+  <!-- Plate 5 — BCYE (blue/teal), right -->
+  <g filter="url(#plateShad)" transform="translate(1040,615)">
+    <ellipse cx="0" cy="0" rx="85" ry="29" fill="#183a50" opacity="0.9"/>
+    <ellipse cx="0" cy="-7" rx="79" ry="25" fill="url(#agarBlue)"/>
+    <circle cx="-15" cy="-10" r="4" fill="#a0d0e8" opacity="0.55"/>
+    <circle cx="20" cy="-15" r="3.5" fill="#90c0d8" opacity="0.55"/>
+    <circle cx="-40" cy="-12" r="3" fill="#a0d0e8" opacity="0.5"/>
+    <circle cx="45" cy="-8" r="4" fill="#90c0d8" opacity="0.5"/>
+    <circle cx="5" cy="-20" r="2.5" fill="#a0d0e8" opacity="0.5"/>
+    <ellipse cx="0" cy="-7" rx="79" ry="25" fill="none" stroke="url(#rimGrad)" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="0" cy="-13" rx="81" ry="26" fill="#e0f0ff" opacity="0.14"/>
+    <ellipse cx="0" cy="-13" rx="81" ry="26" fill="none" stroke="#ccc" stroke-width="2.5" opacity="0.55"/>
+    <ellipse cx="-22" cy="-25" rx="28" ry="8" fill="white" opacity="0.20" transform="rotate(-20,-22,-25)"/>
+  </g>
+
+  <!-- Plate 6 — Chocolate agar (purple-brown), far right -->
+  <g filter="url(#plateShad)" transform="translate(1200,605)">
+    <ellipse cx="0" cy="0" rx="80" ry="28" fill="#3a1840" opacity="0.9"/>
+    <ellipse cx="0" cy="-7" rx="74" ry="24" fill="url(#agarPurple)"/>
+    <circle cx="10" cy="-12" r="4.5" fill="#e0b0e0" opacity="0.55"/>
+    <circle cx="-20" cy="-8" r="3.5" fill="#d0a0d0" opacity="0.55"/>
+    <circle cx="35" cy="-16" r="3" fill="#e0b0e0" opacity="0.5"/>
+    <circle cx="-40" cy="-14" r="3" fill="#d0a0d0" opacity="0.5"/>
+    <ellipse cx="0" cy="-7" rx="74" ry="24" fill="none" stroke="url(#rimGrad)" stroke-width="3" opacity="0.7"/>
+    <ellipse cx="0" cy="-13" rx="76" ry="25" fill="#f0e0ff" opacity="0.13"/>
+    <ellipse cx="0" cy="-13" rx="76" ry="25" fill="none" stroke="#ccc" stroke-width="2.5" opacity="0.55"/>
+    <ellipse cx="-20" cy="-25" rx="26" ry="8" fill="white" opacity="0.20" transform="rotate(-20,-20,-25)"/>
+  </g>
+
+  <!-- ── Bench shadow / depth line ── -->
+  <rect x="0" y="555" width="1600" height="8" fill="#000" opacity="0.18"/>
+
+  <!-- Final ambient vignette -->
+  <radialGradient id="vig" cx="50%" cy="50%" r="75%" gradientUnits="userSpaceOnUse">
+    <stop offset="60%" stop-color="transparent"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+  </radialGradient>
+  <rect width="1600" height="900" fill="url(#vig)"/>
 </svg>

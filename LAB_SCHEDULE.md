@@ -6,7 +6,7 @@ permalink: /schedule
 ---
 # 📅 Weekly Lab Availability
 
-> This page shows **research availability only** for Labs 1503 and 1512 (Thomas Hall).
+> This page shows **class and prep/research use** for Labs 1503 and 1512 (Thomas Hall).
 
 {% include download_links.html markdown_url="/downloads/lab-availability.md" pdf_url="/downloads/lab-availability.pdf" %}
 
@@ -39,14 +39,14 @@ permalink: /schedule
   }
 </style>
 
-## 📚 Weekly Lab Schedule (Fall Semester)
+## 📚 Thomas Hall Weekly Lab Schedule (Fall Semester)
 
 <table class="lab-availability-table" aria-label="Weekly research availability for Labs 1503 and 1512 (Thomas Hall)">
   <thead>
     <tr>
       <th scope="col">Day</th>
       <th scope="col">Lab 1503</th>
-      <th scope="col">Lab 1512 (Thomas Hall)</th>
+      <th scope="col">Lab 1512</th>
     </tr>
   </thead>
   <tbody>

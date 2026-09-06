@@ -127,7 +127,6 @@ permalink: /protocols
 ## 6. Agarose Gel Electrophoresis using E-Gel System
 
 Review the [E-Gel video](https://youtu.be/6_TtIGAm45w).
-[![Watch the video](https://youtube.com)](https://youtu.be/6_TtIGAm45w)
 
 
 1. Prepare E-Gel system by obtaining an E-Gel base and appropriate E-Gel.

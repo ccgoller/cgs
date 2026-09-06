@@ -37,6 +37,12 @@ permalink: /schedule
     border-radius: 0.15rem;
     font-weight: 600;
   }
+  .calendar-frame {
+    width: 100%;
+    max-width: 100%;
+    min-height: 37.5rem;
+    border: 0;
+  }
 </style>
 
 ## 📚 Thomas Hall Weekly Lab Schedule (Fall Semester)
@@ -83,7 +89,9 @@ permalink: /schedule
 
 ## 📆 Live Calendar
 
-<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+If the embedded calendar is difficult to use on your device, open the [CGS Lab live calendar directly in Google Calendar](https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York).
+
+<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" class="calendar-frame" height="600" scrolling="no"></iframe>
 
 ## 📚 Repository Wiki
 

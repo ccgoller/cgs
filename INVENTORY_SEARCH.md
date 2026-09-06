@@ -16,6 +16,15 @@ Search the live inventory spreadsheet and filter items by any text value.
     grid-template-columns: 2fr 1fr auto;
     gap: 0.6rem;
     margin: 1rem 0 0.75rem 0;
+    align-items: end;
+  }
+  .inventory-control {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .inventory-label {
+    font-size: 0.9rem;
+    font-weight: 600;
   }
   .inventory-input,
   .inventory-select,
@@ -75,13 +84,19 @@ Search the live inventory spreadsheet and filter items by any text value.
   }
 </style>
 
-<div class="inventory-controls" aria-label="Inventory search controls">
-  <input id="inventorySearchInput" class="inventory-input" type="search" placeholder="Search inventory..." aria-label="Search inventory">
-  <select id="inventoryColumnSelect" class="inventory-select" aria-label="Filter by column">
-    <option value="__all__">All columns</option>
-  </select>
-  <button id="inventoryClearButton" class="inventory-button" type="button">Clear</button>
-</div>
+<form class="inventory-controls" aria-label="Inventory search controls" onsubmit="return false;">
+  <div class="inventory-control">
+    <label class="inventory-label" for="inventorySearchInput">Search inventory</label>
+    <input id="inventorySearchInput" class="inventory-input" type="search" placeholder="Enter text to match">
+  </div>
+  <div class="inventory-control">
+    <label class="inventory-label" for="inventoryColumnSelect">Filter by column</label>
+    <select id="inventoryColumnSelect" class="inventory-select">
+      <option value="__all__">All columns</option>
+    </select>
+  </div>
+  <button id="inventoryClearButton" class="inventory-button" type="button">Clear search</button>
+</form>
 
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
 

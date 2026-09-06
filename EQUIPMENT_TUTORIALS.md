@@ -12,6 +12,19 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
+## Table of Contents
+
+1. [Implen NP80 Nano Spectrophotometer](#1-implen-np80-nano-spectrophotometer)
+2. [Cerillo Bio (Alto) Plate Reader](#2-cerillo-bio-alto-plate-reader)
+3. [Invitrogen Fluorometer (Qubit 4.0)](#3-invitrogen-fluorometer-qubit-40)
+4. [BioTek Synergy HT Plate Reader](#4-biotek-synergy-ht-plate-reader)
+5. [LogPhase 600 Plate Reader](#5-logphase-600-plate-reader)
+6. [USA Scientific Digital Disruptor Genie](#6-usa-scientific-digital-disruptor-genie)
+7. [KREO Universal Plate Pourer](#7-kreo-universal-plate-pourer)
+8. [General Good Habits for All Equipment](#general-good-habits-for-all-equipment)
+
+---
+
 ## 1. Implen NP80 Nano Spectrophotometer
 
 *Manufacturer reference:* [NanoPhotometer® NP80 (Implen)](https://implen.com/products/nanophotometer/np80-microvolume-cuvette-spectrophotometer/)

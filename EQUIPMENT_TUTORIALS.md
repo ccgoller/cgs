@@ -128,27 +128,50 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## 6. USA Scientific Vortex-Genie BioRuptor (Digital Model)
+## 6. USA Scientific Digital Disruptor Genie
 
-*Manufacturer reference:* [Digital Vortex-Genie® 2 (USA Scientific)](https://www.usascientific.com/digital-vortex-genie/p/7402-2360)
+*Manufacturer reference:* [Digital Disruptor Genie (USA Scientific)](https://www.usascientific.com/digital-disruptor-genie/p/7403-3380)
 
 ### Safe use
-1. Sonication can generate heat and aerosols—use closed tubes and recommended tube holders.
-2. Use hearing protection if your local SOP requires it.
-3. Keep water level and cooling conditions within manufacturer guidance.
+1. Use only properly closed 1.5 or 2.0 mL microtubes in the correct holder setup.
+2. Keep tube caps and holder locked before starting to avoid leaks or ejection during high-speed mixing.
+3. Wear eye and hand protection when disrupting samples with beads or hazardous material.
 
 ### Quick steps
-1. Inspect tube holder, water bath, and power connections.
-2. Add samples in balanced positions.
-3. Set cycle parameters (ON/OFF time and total cycles) from lab SOP.
-4. Start run and monitor temperature.
-5. Pause and cool if sample temperature rises above your SOP limit.
-6. Remove samples, then empty/clean bath area as required.
+1. Install the universal microtube holder and confirm it is seated securely.
+2. Load tubes in balanced positions and include blanks/balance tubes as needed.
+3. Set digital speed and timer according to your lab SOP.
+4. Start the run and monitor tube integrity and instrument stability.
+5. Allow samples to cool between cycles if your protocol requires temperature control.
+6. Remove tubes carefully and clean any spills immediately.
 
 ### Care checklist
-- Replace bath water on schedule.
-- Dry external surfaces after use.
-- Do not run device dry or with unbalanced loads.
+- Wipe holder and cup surfaces after each use.
+- Do not run with unbalanced tube placement.
+- Report unusual vibration, noise, or speed instability before next use.
+
+---
+
+## 7. KREO Universal Plate Pourer
+
+*Manufacturer reference:* [KREO Technologies](https://kreotechnologies.com)
+
+### Safe use
+1. Use sterile media pathways and confirm tubing/nozzle are properly installed before pouring.
+2. Keep the enclosure closed during operation to reduce contamination risk.
+3. Verify plate stacks are clean, undamaged, and correctly loaded before starting.
+
+### Quick steps
+1. Power on the unit and select the plate format/program.
+2. Prime the media line and confirm target dispense volume.
+3. Load plate stacks and start the automated pour cycle.
+4. Check early plates for fill consistency and adjust settings if needed.
+5. Unload poured plates carefully and transfer to the designated cooling/solidification area.
+
+### Care checklist
+- Flush or clean fluid-contact parts after each media session per lab SOP.
+- Wipe internal and external surfaces with approved disinfectant.
+- Document run settings and any errors in the equipment log.
 
 ---
 

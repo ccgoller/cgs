@@ -20,6 +20,7 @@ Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings toget
 - **Review lab meeting times and expectations** in the [Lab Schedule](https://ccgoller.github.io/cgs/schedule).
 - **Set up your records early** with the [Electronic Lab Notebook Template](https://ccgoller.github.io/cgs/eln).
 - **Prepare for core techniques** with the [Common Protocols guide](https://ccgoller.github.io/cgs/protocols).
+- **Learn instrument basics and care** with the [Equipment Tutorials](https://ccgoller.github.io/cgs/equipment-tutorials).
 - **Plan your growth as a scientist** with the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development).
 
 ---
@@ -30,7 +31,8 @@ Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings toget
 2. Check the [Lab Schedule](https://ccgoller.github.io/cgs/schedule) for section times, office hours, and important deadlines.
 3. Build your notebook structure using the [Electronic Lab Notebook Template](https://ccgoller.github.io/cgs/eln).
 4. Review the [Common Protocols guide](https://ccgoller.github.io/cgs/protocols) before your first wet-lab session.
-5. Use the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development) to set goals for the semester.
+5. Review the [Equipment Tutorials](https://ccgoller.github.io/cgs/equipment-tutorials) before using shared instruments.
+6. Use the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development) to set goals for the semester.
 
 ---
 

@@ -14,6 +14,8 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ## 1. Implen NP80 Nano Spectrophotometer
 
+*Manufacturer reference:* [NanoPhotometer® NP80 (Implen)](https://implen.com/products/nanophotometer/np80-microvolume-cuvette-spectrophotometer/)
+
 ### Safe use
 1. Wear gloves and wipe gloves if they contact samples.
 2. Keep the pedestal clean and dry to avoid bad readings and corrosion.
@@ -36,6 +38,8 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ## 2. Cerillo Bio (Alto) Plate Reader
 
+*Manufacturer reference:* [Alto Plate Reader (Cerillo)](https://cerillo.bio/alto)
+
 ### Safe use
 1. Only use sealed, clean plates with no liquid on the outside.
 2. Keep fingers away from moving tray parts.
@@ -56,6 +60,8 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 ---
 
 ## 3. Invitrogen Fluorometer (Qubit 4.0)
+
+*Manufacturer reference:* [Invitrogen™ Qubit™ 4 Fluorometer (Thermo Fisher)](https://www.thermofisher.com/order/catalog/product/Q33226)
 
 ### Safe use
 1. Use only Qubit assay tubes (not standard microcentrifuge tubes).
@@ -78,6 +84,8 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ## 4. BioTek Synergy HT Plate Reader
 
+*Manufacturer reference:* [Synergy Multi-Mode Readers (Agilent/BioTek)](https://www.agilent.com/en/product/microplate-readers-imagers/multimode-microplate-readers/synergy-multi-mode-readers)
+
 ### Safe use
 1. Verify plate type matches method (96-well, clear/black/white plate).
 2. Keep lid closed during reads unless protocol says otherwise.
@@ -99,6 +107,8 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ## 5. LogPhase 600 Plate Reader
 
+*Manufacturer reference:* [BioTek LogPhase 600 Microbiology Reader (Agilent)](https://www.agilent.com/en/product/microplate-instrumentation/microplate-readers/multiplate-absorbance-reader/biotek-logphase-600-microbiology-reader-1623185)
+
 ### Safe use
 1. Ensure plate bottom is clean and free of condensation.
 2. Do not open or touch internal optics.
@@ -118,7 +128,9 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## 6. USA Scientific Device (Foral Bioruptor)
+## 6. USA Scientific Vortex-Genie BioRuptor (Digital Model)
+
+*Manufacturer reference:* [Digital Vortex-Genie® 2 (USA Scientific)](https://www.usascientific.com/digital-vortex-genie/p/7402-2360)
 
 ### Safe use
 1. Sonication can generate heat and aerosols—use closed tubes and recommended tube holders.

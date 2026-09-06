@@ -70,7 +70,7 @@ permalink: /protocols
 1. Prepare LB broth as above; add **15 g agar** per liter before autoclaving.
 2. After autoclaving, cool in a 55 °C water bath until the flask is comfortable to hold.
 3. Add any antibiotics or supplements at this stage (see supplement table below).
-4. Pour ~25 mL per 100-mm plate in a laminar-flow hood. If available and using the correct flask, use the KEIO plate pourer.
+4. Pour ~25 mL per 100-mm plate in a laminar-flow hood. If available and using the correct flask, use the KREO plate pourer.
 5. Allow to solidify at room temperature (~20 min), then invert and store at 4 °C.
 
 **Common Antibiotics (stock → working concentration):**

@@ -187,6 +187,8 @@
         radial-gradient(ellipse 72% 58% at 50% 0%, rgba(204, 0, 0, 0.18) 0%, transparent 68%),
         radial-gradient(ellipse 34% 30% at 18% 22%, rgba(204, 0, 0, 0.10) 0%, transparent 72%);
       background-size: 80px 120px, 100% 100%, 100% 100%;
+      animation: heroMicrobeDrift 22s ease-in-out infinite alternate;
+      will-change: transform, opacity, background-position;
       pointer-events: none;
     }
     .hero h1 {
@@ -359,6 +361,25 @@
       border-radius: 4px;
     }
 
+    /* ─── Subtle hero background animation ──────────────────── */
+    @keyframes heroMicrobeDrift {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 1;
+        background-position: 0 0, 50% 0%, 18% 22%;
+      }
+      50% {
+        transform: translate3d(0, -6px, 0) scale(1.01);
+        opacity: 0.96;
+        background-position: 6px -8px, 50% 2%, 20% 24%;
+      }
+      100% {
+        transform: translate3d(0, 4px, 0) scale(1.005);
+        opacity: 0.98;
+        background-position: -4px 6px, 50% -1%, 16% 20%;
+      }
+    }
+
     /* ─── Screen-reader only utility ───────────────────────────── */
     .sr-only {
       position: absolute;
@@ -379,6 +400,10 @@
         animation: none !important;
         scroll-behavior: auto !important;
       }
+      .hero::before {
+        animation: none !important;
+        transform: none !important;
+      }
     }
 
     /* ─── High-contrast mode ─────────────────────────────────── */
@@ -388,6 +413,11 @@
         box-shadow: 0 0 0 8px rgba(204,0,0,0.22);
       }
       .card, .research-card { border-color: #9a9a9a; }
+      .btn-outline:hover {
+        color: var(--brand-red-dark);
+        background: #ffffff;
+        border-color: #ffffff;
+      }
     }
 
     /* ─── Mobile nav ─────────────────────────────────────────── */

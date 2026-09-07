@@ -52,6 +52,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   }
   .inventory-table-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid #d8d8d8;
     border-radius: 0.2rem;
   }
@@ -100,7 +101,7 @@ Search the live inventory spreadsheet and filter items by any text value.
 
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
 
-<div class="inventory-table-wrap">
+<div class="inventory-table-wrap" tabindex="0" aria-label="Scrollable inventory results table">
   <table id="inventoryTable" class="inventory-table" aria-label="Inventory results">
     <thead></thead>
     <tbody>

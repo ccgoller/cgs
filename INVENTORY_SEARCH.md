@@ -192,7 +192,14 @@ Search the live inventory spreadsheet and filter items by any text value.
 <section class="inventory-chart" aria-labelledby="inventoryChartTitle">
   <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Count Bar Graph</h2>
   <div class="inventory-control">
-    <label class="inventory-label" for="inventoryItemSelect">Select inventory item</label>
+    <label class="inventory-label" for="inventoryChartModeSelect">Plot totals by</label>
+    <select id="inventoryChartModeSelect" class="inventory-select" disabled>
+      <option value="item">Inventory item</option>
+      <option value="category">Category</option>
+    </select>
+  </div>
+  <div class="inventory-control">
+    <label id="inventorySeriesSelectLabel" class="inventory-label" for="inventoryItemSelect">Select inventory item</label>
     <select id="inventoryItemSelect" class="inventory-select" disabled>
       <option value="">Loading items…</option>
     </select>
@@ -238,6 +245,8 @@ Search the live inventory spreadsheet and filter items by any text value.
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
     const meta = document.getElementById("inventoryMeta");
+    const chartModeSelect = document.getElementById("inventoryChartModeSelect");
+    const seriesSelectLabel = document.getElementById("inventorySeriesSelectLabel");
     const itemSelect = document.getElementById("inventoryItemSelect");
     const chartBar = document.getElementById("inventoryChartBar");
     const chartValue = document.getElementById("inventoryChartValue");
@@ -245,6 +254,7 @@ Search the live inventory spreadsheet and filter items by any text value.
     let headers = [];
     let records = [];
     let inventorySeries = [];
+    let categorySeries = [];
 
     const parseCsv = (text) => {
       const rows = [];
@@ -389,10 +399,37 @@ Search the live inventory spreadsheet and filter items by any text value.
         .sort((a, b) => a.name.localeCompare(b.name));
     };
 
-    const renderInventoryChart = (itemName) => {
-      const selected = inventorySeries.find((item) => item.name === itemName);
-      const maxCount = inventorySeries.length
-        ? Math.max(...inventorySeries.map((item) => item.count), 0)
+    const buildCategorySeries = () => {
+      const categoryHeader = findHeader(/category|type|group|class|section|department/i, "");
+      const countHeader = findHeader(/count|qty|quantity|stock|on\s*hand|amount|units?/i, "");
+      const grouped = new Map();
+      if (!categoryHeader) {
+        categorySeries = [];
+        return;
+      }
+
+      records.forEach((record) => {
+        const categoryName = String(record[categoryHeader] ?? "").trim();
+        if (!categoryName) return;
+
+        const parsedCount = countHeader ? parseCount(record[countHeader]) : NaN;
+        const increment = Number.isFinite(parsedCount) ? parsedCount : 1;
+        grouped.set(categoryName, (grouped.get(categoryName) || 0) + increment);
+      });
+
+      categorySeries = Array.from(grouped.entries())
+        .map(([name, count]) => ({ name, count }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    };
+
+    const getSelectedSeries = () =>
+      chartModeSelect.value === "category" ? categorySeries : inventorySeries;
+
+    const renderInventoryChart = (seriesName) => {
+      const selectedSeries = getSelectedSeries();
+      const selected = selectedSeries.find((item) => item.name === seriesName);
+      const maxCount = selectedSeries.length
+        ? Math.max(...selectedSeries.map((item) => item.count), 0)
         : 0;
       const selectedCount = selected ? selected.count : 0;
       const width = maxCount > 0 ? (selectedCount / maxCount) * 100 : 0;
@@ -403,20 +440,39 @@ Search the live inventory spreadsheet and filter items by any text value.
 
       chartValue.textContent = selected
         ? `${selected.name}: ${selected.count}`
-        : "Select an item to view its count.";
+        : chartModeSelect.value === "category"
+          ? "Select a category to view its total count."
+          : "Select an item to view its count.";
+    };
+
+    const updateChartModeOptions = () => {
+      const categoryOption = chartModeSelect.querySelector('option[value="category"]');
+      if (categoryOption) categoryOption.disabled = !categorySeries.length;
+
+      chartModeSelect.disabled = !inventorySeries.length && !categorySeries.length;
+      if (chartModeSelect.value === "category" && !categorySeries.length) {
+        chartModeSelect.value = "item";
+      } else if (chartModeSelect.value === "item" && !inventorySeries.length && categorySeries.length) {
+        chartModeSelect.value = "category";
+      }
     };
 
     const populateItemSelector = () => {
+      const selectedSeries = getSelectedSeries();
+      const optionLabel = chartModeSelect.value === "category" ? "category" : "item";
+
+      seriesSelectLabel.textContent =
+        chartModeSelect.value === "category" ? "Select category" : "Select inventory item";
       itemSelect.innerHTML = "";
 
-      if (!inventorySeries.length) {
+      if (!selectedSeries.length) {
         itemSelect.disabled = true;
-        itemSelect.innerHTML = `<option value="">No items available</option>`;
+        itemSelect.innerHTML = `<option value="">No ${optionLabel}s available</option>`;
         renderInventoryChart("");
         return;
       }
 
-      inventorySeries.forEach((item) => {
+      selectedSeries.forEach((item) => {
         const option = document.createElement("option");
         option.value = item.name;
         option.textContent = item.name;
@@ -446,12 +502,16 @@ Search the live inventory spreadsheet and filter items by any text value.
 
         populateColumnFilter();
         buildInventorySeries();
+        buildCategorySeries();
+        updateChartModeOptions();
         populateItemSelector();
         renderTable(records);
       } catch (error) {
         thead.innerHTML = "";
         tbody.innerHTML = `<tr><td class="inventory-empty">Could not load sheet data. Ensure the sheet is published/shared for public viewing.</td></tr>`;
         meta.textContent = "Inventory load failed.";
+        chartModeSelect.value = "item";
+        chartModeSelect.disabled = true;
         itemSelect.innerHTML = `<option value="">Inventory unavailable</option>`;
         itemSelect.disabled = true;
         renderInventoryChart("");
@@ -461,6 +521,9 @@ Search the live inventory spreadsheet and filter items by any text value.
 
     searchInput.addEventListener("input", applyFilter);
     columnSelect.addEventListener("change", applyFilter);
+    chartModeSelect.addEventListener("change", () => {
+      populateItemSelector();
+    });
     itemSelect.addEventListener("change", () => {
       renderInventoryChart(itemSelect.value);
     });

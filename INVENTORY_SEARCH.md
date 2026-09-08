@@ -92,6 +92,40 @@ Search the live inventory spreadsheet and filter items by any text value.
     color: var(--muted);
     font-size: 0.9rem;
   }
+  .inventory-chart {
+    margin: 1.1rem 0 1rem 0;
+    padding: 0.9rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.35rem;
+    background: rgba(255, 255, 255, 0.45);
+  }
+  .inventory-chart-title {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.1rem;
+  }
+  .inventory-chart-panel {
+    margin-top: 0.7rem;
+  }
+  .inventory-chart-track {
+    width: 100%;
+    height: 1.55rem;
+    border-radius: 999px;
+    background: #ececec;
+    overflow: hidden;
+  }
+  .inventory-chart-bar {
+    height: 100%;
+    width: 0;
+    min-width: 0;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-red-dark));
+    border-radius: 999px;
+    transition: width 260ms ease;
+  }
+  .inventory-chart-value {
+    margin-top: 0.45rem;
+    font-weight: 600;
+    color: var(--text);
+  }
   .inventory-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -155,6 +189,31 @@ Search the live inventory spreadsheet and filter items by any text value.
   <button id="inventoryClearButton" class="inventory-button" type="button">Clear search</button>
 </form>
 
+<section class="inventory-chart" aria-labelledby="inventoryChartTitle">
+  <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Count Bar Graph</h2>
+  <div class="inventory-control">
+    <label class="inventory-label" for="inventoryItemSelect">Select inventory item</label>
+    <select id="inventoryItemSelect" class="inventory-select" disabled>
+      <option value="">Loading items…</option>
+    </select>
+  </div>
+  <div class="inventory-chart-panel">
+    <div class="inventory-chart-track" aria-hidden="true">
+      <div
+        id="inventoryChartBar"
+        class="inventory-chart-bar"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="0"
+        aria-valuenow="0"
+      ></div>
+    </div>
+    <p id="inventoryChartValue" class="inventory-chart-value" aria-live="polite">
+      Select an item to view its count.
+    </p>
+  </div>
+</section>
+
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
 
 <div class="inventory-table-wrap" tabindex="0" aria-label="Scrollable inventory results table">
@@ -179,9 +238,13 @@ Search the live inventory spreadsheet and filter items by any text value.
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
     const meta = document.getElementById("inventoryMeta");
+    const itemSelect = document.getElementById("inventoryItemSelect");
+    const chartBar = document.getElementById("inventoryChartBar");
+    const chartValue = document.getElementById("inventoryChartValue");
 
     let headers = [];
     let records = [];
+    let inventorySeries = [];
 
     const parseCsv = (text) => {
       const rows = [];
@@ -298,6 +361,72 @@ Search the live inventory spreadsheet and filter items by any text value.
       });
     };
 
+    const findHeader = (pattern, fallback = "") =>
+      headers.find((header) => pattern.test(String(header || ""))) || fallback;
+
+    const parseCount = (value) => {
+      const cleaned = String(value ?? "").replace(/[^0-9.-]/g, "");
+      const numeric = Number.parseFloat(cleaned);
+      return Number.isFinite(numeric) ? Math.max(0, numeric) : NaN;
+    };
+
+    const buildInventorySeries = () => {
+      const itemHeader = findHeader(/item|reagent|name|material|product/i, headers[0] || "");
+      const countHeader = findHeader(/count|qty|quantity|stock|on\s*hand|amount|units?/i, "");
+      const grouped = new Map();
+
+      records.forEach((record) => {
+        const itemName = String(record[itemHeader] ?? "").trim();
+        if (!itemName) return;
+
+        const parsedCount = countHeader ? parseCount(record[countHeader]) : NaN;
+        const increment = Number.isFinite(parsedCount) ? parsedCount : 1;
+        grouped.set(itemName, (grouped.get(itemName) || 0) + increment);
+      });
+
+      inventorySeries = Array.from(grouped.entries())
+        .map(([name, count]) => ({ name, count }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    };
+
+    const renderInventoryChart = (itemName) => {
+      const selected = inventorySeries.find((item) => item.name === itemName);
+      const maxCount = inventorySeries.length
+        ? Math.max(...inventorySeries.map((item) => item.count), 0)
+        : 0;
+      const selectedCount = selected ? selected.count : 0;
+      const width = maxCount > 0 ? (selectedCount / maxCount) * 100 : 0;
+
+      chartBar.style.width = `${width}%`;
+      chartBar.setAttribute("aria-valuemax", String(maxCount));
+      chartBar.setAttribute("aria-valuenow", String(selectedCount));
+
+      chartValue.textContent = selected
+        ? `${selected.name}: ${selected.count}`
+        : "Select an item to view its count.";
+    };
+
+    const populateItemSelector = () => {
+      itemSelect.innerHTML = "";
+
+      if (!inventorySeries.length) {
+        itemSelect.disabled = true;
+        itemSelect.innerHTML = `<option value="">No items available</option>`;
+        renderInventoryChart("");
+        return;
+      }
+
+      inventorySeries.forEach((item) => {
+        const option = document.createElement("option");
+        option.value = item.name;
+        option.textContent = item.name;
+        itemSelect.appendChild(option);
+      });
+
+      itemSelect.disabled = false;
+      renderInventoryChart(itemSelect.value);
+    };
+
     const loadSheet = async () => {
       try {
         const response = await fetch(csvUrl, { cache: "no-store" });
@@ -316,17 +445,25 @@ Search the live inventory spreadsheet and filter items by any text value.
         });
 
         populateColumnFilter();
+        buildInventorySeries();
+        populateItemSelector();
         renderTable(records);
       } catch (error) {
         thead.innerHTML = "";
         tbody.innerHTML = `<tr><td class="inventory-empty">Could not load sheet data. Ensure the sheet is published/shared for public viewing.</td></tr>`;
         meta.textContent = "Inventory load failed.";
+        itemSelect.innerHTML = `<option value="">Inventory unavailable</option>`;
+        itemSelect.disabled = true;
+        renderInventoryChart("");
         console.error("Inventory load failed:", error);
       }
     };
 
     searchInput.addEventListener("input", applyFilter);
     columnSelect.addEventListener("change", applyFilter);
+    itemSelect.addEventListener("change", () => {
+      renderInventoryChart(itemSelect.value);
+    });
     clearButton.addEventListener("click", () => {
       searchInput.value = "";
       columnSelect.value = "__all__";

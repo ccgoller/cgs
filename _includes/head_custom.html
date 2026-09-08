@@ -376,10 +376,9 @@
         button.type = "button";
         button.className = "theme-toggle";
         button.innerHTML = '<span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Dark theme</span>';
-        const header = document.querySelector(".site-header");
-        const nav = header ? header.querySelector(".main-header") || header.querySelector(".site-nav") || header : null;
-        if (nav) {
-          nav.appendChild(button);
+        const header = document.querySelector(".side-bar .site-header") || document.querySelector(".site-header");
+        if (header) {
+          header.appendChild(button);
           applyTheme(root.getAttribute("data-theme") || "light", button);
           button.addEventListener("click", function () {
             const next = (root.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";

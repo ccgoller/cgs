@@ -103,28 +103,45 @@ Search the live inventory spreadsheet and filter items by any text value.
     margin: 0 0 0.6rem 0;
     font-size: 1.1rem;
   }
-  .inventory-chart-panel {
-    margin-top: 0.7rem;
+  .inventory-chart-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.4rem;
+  }
+  .inventory-chart-summary {
+    margin: 0.75rem 0 0.6rem 0;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .inventory-chart-list {
+    display: grid;
+    gap: 0.55rem;
+  }
+  .inventory-chart-row {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr) auto;
+    gap: 0.7rem;
+    align-items: center;
+  }
+  .inventory-chart-name {
+    font-weight: 600;
+    overflow-wrap: anywhere;
   }
   .inventory-chart-track {
     width: 100%;
-    height: 1.55rem;
+    height: 1rem;
     border-radius: 999px;
     background: #ececec;
     overflow: hidden;
   }
-  .inventory-chart-bar {
+  .inventory-chart-fill {
     height: 100%;
-    width: 0;
     min-width: 0;
     background: linear-gradient(90deg, var(--brand-red), var(--brand-red-dark));
     border-radius: 999px;
-    transition: width 260ms ease;
   }
-  .inventory-chart-value {
-    margin-top: 0.45rem;
-    font-weight: 600;
-    color: var(--text);
+  .inventory-chart-total {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
   .inventory-table-wrap {
     overflow-x: auto;
@@ -162,6 +179,10 @@ Search the live inventory spreadsheet and filter items by any text value.
     .inventory-controls {
       grid-template-columns: 1fr;
     }
+    .inventory-chart-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
   }
 </style>
 
@@ -190,35 +211,30 @@ Search the live inventory spreadsheet and filter items by any text value.
 </form>
 
 <section class="inventory-chart" aria-labelledby="inventoryChartTitle">
-  <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Count Bar Graph</h2>
-  <div class="inventory-control">
-    <label class="inventory-label" for="inventoryChartModeSelect">Plot totals by</label>
-    <select id="inventoryChartModeSelect" class="inventory-select" disabled>
-      <option value="item">Inventory item</option>
-      <option value="category">Category</option>
-    </select>
-  </div>
-  <div class="inventory-control">
-    <label id="inventorySeriesSelectLabel" class="inventory-label" for="inventoryItemSelect">Select inventory item</label>
-    <select id="inventoryItemSelect" class="inventory-select" disabled>
-      <option value="">Loading items…</option>
-    </select>
-  </div>
-  <div class="inventory-chart-panel">
-    <div class="inventory-chart-track" aria-hidden="true">
-      <div
-        id="inventoryChartBar"
-        class="inventory-chart-bar"
-        role="progressbar"
-        aria-valuemin="0"
-        aria-valuemax="0"
-        aria-valuenow="0"
-      ></div>
+  <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Totals Chart</h2>
+  <div class="inventory-controls inventory-chart-controls" aria-label="Inventory chart controls">
+    <div class="inventory-control">
+      <label class="inventory-label" for="inventoryChartGroupSelect">Group totals by</label>
+      <select id="inventoryChartGroupSelect" class="inventory-select" disabled>
+        <option value="">Loading columns…</option>
+      </select>
     </div>
-    <p id="inventoryChartValue" class="inventory-chart-value" aria-live="polite">
-      Select an item to view its count.
-    </p>
+    <div class="inventory-control">
+      <label class="inventory-label" for="inventoryChartValueSelect">Total using</label>
+      <select id="inventoryChartValueSelect" class="inventory-select" disabled>
+        <option value="__rows__">Row count</option>
+      </select>
+    </div>
   </div>
+  <p id="inventoryChartSummary" class="inventory-chart-summary" aria-live="polite">
+    Loading chart…
+  </p>
+  <div id="inventoryChartList" class="inventory-chart-list" role="list" aria-live="polite">
+    <div class="inventory-empty" role="listitem">Loading chart…</div>
+  </div>
+  <p class="inventory-meta">
+    Choose any column to see grouped totals, or switch to row count when a numeric total is not needed.
+  </p>
 </section>
 
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
@@ -245,16 +261,13 @@ Search the live inventory spreadsheet and filter items by any text value.
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
     const meta = document.getElementById("inventoryMeta");
-    const chartModeSelect = document.getElementById("inventoryChartModeSelect");
-    const seriesSelectLabel = document.getElementById("inventorySeriesSelectLabel");
-    const itemSelect = document.getElementById("inventoryItemSelect");
-    const chartBar = document.getElementById("inventoryChartBar");
-    const chartValue = document.getElementById("inventoryChartValue");
+    const chartGroupSelect = document.getElementById("inventoryChartGroupSelect");
+    const chartValueSelect = document.getElementById("inventoryChartValueSelect");
+    const chartSummary = document.getElementById("inventoryChartSummary");
+    const chartList = document.getElementById("inventoryChartList");
 
     let headers = [];
     let records = [];
-    let inventorySeries = [];
-    let categorySeries = [];
 
     const parseCsv = (text) => {
       const rows = [];
@@ -380,107 +393,133 @@ Search the live inventory spreadsheet and filter items by any text value.
       return Number.isFinite(numeric) ? Math.max(0, numeric) : NaN;
     };
 
-    const buildInventorySeries = () => {
-      const itemHeader = findHeader(/item|reagent|name|material|product/i, headers[0] || "");
-      const countHeader = findHeader(/count|qty|quantity|stock|on\s*hand|amount|units?/i, "");
+    const getNumericHeaders = () =>
+      headers.filter((header) =>
+        records.some((record) => Number.isFinite(parseCount(record[header])))
+      );
+
+    const formatChartLabel = (value) => value || "(Blank)";
+
+    const formatChartTotal = (value) =>
+      Number.isInteger(value) ? String(value) : value.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+    const buildGroupedSeries = (groupHeader, valueHeader) => {
+      if (!groupHeader) return [];
+
       const grouped = new Map();
-
       records.forEach((record) => {
-        const itemName = String(record[itemHeader] ?? "").trim();
-        if (!itemName) return;
+        const groupName = formatChartLabel(String(record[groupHeader] ?? "").trim());
+        const increment = valueHeader === "__rows__"
+          ? 1
+          : parseCount(record[valueHeader]);
 
-        const parsedCount = countHeader ? parseCount(record[countHeader]) : NaN;
-        const increment = Number.isFinite(parsedCount) ? parsedCount : 1;
-        grouped.set(itemName, (grouped.get(itemName) || 0) + increment);
+        if (!Number.isFinite(increment) || increment <= 0) return;
+        grouped.set(groupName, (grouped.get(groupName) || 0) + increment);
       });
 
-      inventorySeries = Array.from(grouped.entries())
-        .map(([name, count]) => ({ name, count }))
-        .sort((a, b) => a.name.localeCompare(b.name));
+      return Array.from(grouped.entries())
+        .map(([name, total]) => ({ name, total }))
+        .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
     };
 
-    const buildCategorySeries = () => {
-      const categoryHeader = findHeader(/category|type|group|class|section|department/i, "");
-      const countHeader = findHeader(/count|qty|quantity|stock|on\s*hand|amount|units?/i, "");
-      const grouped = new Map();
-      if (!categoryHeader) {
-        categorySeries = [];
-        return;
-      }
+    const populateChartControls = () => {
+      const numericHeaders = getNumericHeaders();
+      const preferredGroupHeader =
+        chartGroupSelect.value ||
+        findHeader(/category|type|group|class|section|department/i, "") ||
+        findHeader(/item|reagent|name|material|product/i, "") ||
+        headers[0] ||
+        "";
+      const preferredValueHeader =
+        chartValueSelect.value ||
+        findHeader(/count|qty|quantity|stock|on\s*hand|amount|units?/i, "") ||
+        numericHeaders[0] ||
+        "__rows__";
 
-      records.forEach((record) => {
-        const categoryName = String(record[categoryHeader] ?? "").trim();
-        if (!categoryName) return;
-
-        const parsedCount = countHeader ? parseCount(record[countHeader]) : NaN;
-        const increment = Number.isFinite(parsedCount) ? parsedCount : 1;
-        grouped.set(categoryName, (grouped.get(categoryName) || 0) + increment);
-      });
-
-      categorySeries = Array.from(grouped.entries())
-        .map(([name, count]) => ({ name, count }))
-        .sort((a, b) => a.name.localeCompare(b.name));
-    };
-
-    const getSelectedSeries = () =>
-      chartModeSelect.value === "category" ? categorySeries : inventorySeries;
-
-    const renderInventoryChart = (seriesName) => {
-      const selectedSeries = getSelectedSeries();
-      const selected = selectedSeries.find((item) => item.name === seriesName);
-      const maxCount = selectedSeries.length
-        ? Math.max(...selectedSeries.map((item) => item.count), 0)
-        : 0;
-      const selectedCount = selected ? selected.count : 0;
-      const width = maxCount > 0 ? (selectedCount / maxCount) * 100 : 0;
-
-      chartBar.style.width = `${width}%`;
-      chartBar.setAttribute("aria-valuemax", String(maxCount));
-      chartBar.setAttribute("aria-valuenow", String(selectedCount));
-
-      chartValue.textContent = selected
-        ? `${selected.name}: ${selected.count}`
-        : chartModeSelect.value === "category"
-          ? "Select a category to view its total count."
-          : "Select an item to view its count.";
-    };
-
-    const updateChartModeOptions = () => {
-      const categoryOption = chartModeSelect.querySelector('option[value="category"]');
-      if (categoryOption) categoryOption.disabled = !categorySeries.length;
-
-      chartModeSelect.disabled = !inventorySeries.length && !categorySeries.length;
-      if (chartModeSelect.value === "category" && !categorySeries.length) {
-        chartModeSelect.value = "item";
-      } else if (chartModeSelect.value === "item" && !inventorySeries.length && categorySeries.length) {
-        chartModeSelect.value = "category";
-      }
-    };
-
-    const populateItemSelector = () => {
-      const selectedSeries = getSelectedSeries();
-      const optionLabel = chartModeSelect.value === "category" ? "category" : "item";
-
-      seriesSelectLabel.textContent =
-        chartModeSelect.value === "category" ? "Select category" : "Select inventory item";
-      itemSelect.innerHTML = "";
-
-      if (!selectedSeries.length) {
-        itemSelect.disabled = true;
-        itemSelect.innerHTML = `<option value="">No ${optionLabel}s available</option>`;
-        renderInventoryChart("");
-        return;
-      }
-
-      selectedSeries.forEach((item) => {
+      chartGroupSelect.innerHTML = "";
+      headers.forEach((header) => {
         const option = document.createElement("option");
-        option.value = item.name;
-        option.textContent = item.name;
-        itemSelect.appendChild(option);
+        option.value = header;
+        option.textContent = header || "(Unnamed column)";
+        chartGroupSelect.appendChild(option);
       });
 
-      itemSelect.disabled = false;
-      renderInventoryChart(itemSelect.value);
+      chartValueSelect.innerHTML = "";
+      const rowCountOption = document.createElement("option");
+      rowCountOption.value = "__rows__";
+      rowCountOption.textContent = "Row count";
+      chartValueSelect.appendChild(rowCountOption);
+
+      numericHeaders.forEach((header) => {
+        const option = document.createElement("option");
+        option.value = header;
+        option.textContent = header || "(Unnamed numeric column)";
+        chartValueSelect.appendChild(option);
+      });
+
+      chartGroupSelect.disabled = !headers.length;
+      chartValueSelect.disabled = !headers.length;
+
+      if (headers.includes(preferredGroupHeader)) {
+        chartGroupSelect.value = preferredGroupHeader;
+      } else if (headers.length) {
+        chartGroupSelect.value = headers[0];
+      }
+
+      if (preferredValueHeader === "__rows__" || numericHeaders.includes(preferredValueHeader)) {
+        chartValueSelect.value = preferredValueHeader;
+      } else {
+        chartValueSelect.value = "__rows__";
+      }
+    };
+
+    const renderInventoryChart = () => {
+      const groupHeader = chartGroupSelect.value;
+      const valueHeader = chartValueSelect.value;
+      const selectedSeries = buildGroupedSeries(groupHeader, valueHeader);
+
+      chartList.innerHTML = "";
+
+      if (!groupHeader || !selectedSeries.length) {
+        chartSummary.textContent = headers.length
+          ? "No totals are available for the selected chart settings."
+          : "Load inventory data to view totals.";
+        chartList.innerHTML = `<div class="inventory-empty" role="listitem">No grouped totals available.</div>`;
+        return;
+      }
+
+      const maxTotal = Math.max(...selectedSeries.map((item) => item.total), 0);
+      const valueLabel = valueHeader === "__rows__" ? "row count" : valueHeader;
+      chartSummary.textContent = `Showing ${selectedSeries.length} grouped total${selectedSeries.length === 1 ? "" : "s"} by ${groupHeader} using ${valueLabel}.`;
+
+      const fragment = document.createDocumentFragment();
+      selectedSeries.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "inventory-chart-row";
+        row.setAttribute("role", "listitem");
+
+        const name = document.createElement("div");
+        name.className = "inventory-chart-name";
+        name.textContent = item.name;
+
+        const track = document.createElement("div");
+        track.className = "inventory-chart-track";
+        track.setAttribute("aria-hidden", "true");
+
+        const fill = document.createElement("div");
+        fill.className = "inventory-chart-fill";
+        fill.style.width = `${maxTotal > 0 ? (item.total / maxTotal) * 100 : 0}%`;
+        track.appendChild(fill);
+
+        const total = document.createElement("div");
+        total.className = "inventory-chart-total";
+        total.textContent = formatChartTotal(item.total);
+
+        row.append(name, track, total);
+        fragment.appendChild(row);
+      });
+
+      chartList.appendChild(fragment);
     };
 
     const loadSheet = async () => {
@@ -501,32 +540,27 @@ Search the live inventory spreadsheet and filter items by any text value.
         });
 
         populateColumnFilter();
-        buildInventorySeries();
-        buildCategorySeries();
-        updateChartModeOptions();
-        populateItemSelector();
+        populateChartControls();
+        renderInventoryChart();
         renderTable(records);
       } catch (error) {
         thead.innerHTML = "";
         tbody.innerHTML = `<tr><td class="inventory-empty">Could not load sheet data. Ensure the sheet is published/shared for public viewing.</td></tr>`;
         meta.textContent = "Inventory load failed.";
-        chartModeSelect.value = "item";
-        chartModeSelect.disabled = true;
-        itemSelect.innerHTML = `<option value="">Inventory unavailable</option>`;
-        itemSelect.disabled = true;
-        renderInventoryChart("");
+        chartGroupSelect.innerHTML = `<option value="">Inventory unavailable</option>`;
+        chartGroupSelect.disabled = true;
+        chartValueSelect.innerHTML = `<option value="__rows__">Row count</option>`;
+        chartValueSelect.disabled = true;
+        chartSummary.textContent = "Inventory chart unavailable.";
+        chartList.innerHTML = `<div class="inventory-empty" role="listitem">Could not load chart data.</div>`;
         console.error("Inventory load failed:", error);
       }
     };
 
     searchInput.addEventListener("input", applyFilter);
     columnSelect.addEventListener("change", applyFilter);
-    chartModeSelect.addEventListener("change", () => {
-      populateItemSelector();
-    });
-    itemSelect.addEventListener("change", () => {
-      renderInventoryChart(itemSelect.value);
-    });
+    chartGroupSelect.addEventListener("change", renderInventoryChart);
+    chartValueSelect.addEventListener("change", renderInventoryChart);
     clearButton.addEventListener("click", () => {
       searchInput.value = "";
       columnSelect.value = "__all__";

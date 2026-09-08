@@ -28,6 +28,12 @@
     --toggle-thumb:    #ffffff;
     --link-color:      #990000;
     --link-hover:      #660000;
+    --nav-link:        #1f2328;
+    --nav-link-hover-bg:#f6d9da;
+    --nav-active-text: #7a0000;
+    --nav-active-bg:   #fbe9ea;
+    --nav-current-indicator:#cc0000;
+    --nav-title:       #424a53;
   }
 
   [data-theme="dark"] {
@@ -50,6 +56,12 @@
     --toggle-thumb:    #121214;
     --link-color:      #ff8f93;
     --link-hover:      #ffc2c5;
+    --nav-link:        #f4f4f4;
+    --nav-link-hover-bg:#3a1c1f;
+    --nav-active-text: #ffd6d8;
+    --nav-active-bg:   #4a1619;
+    --nav-current-indicator:#ff8f93;
+    --nav-title:       #e5e7eb;
   }
 
   body {
@@ -167,25 +179,39 @@
 
   /* All sidebar nav links */
   .nav-list .nav-list-link {
-    color: var(--text-main) !important;
+    color: var(--nav-link) !important;
   }
   .nav-list .nav-list-link:hover,
   .nav-list .nav-list-link:focus {
-    color: var(--text-main) !important;
-    background-color: rgba(224, 58, 62, 0.10) !important;
+    color: var(--nav-link) !important;
+    background-color: var(--nav-link-hover-bg) !important;
   }
 
   /* Active / current page link */
   .nav-list .nav-list-link.active {
-    color: var(--text-main) !important;
+    color: var(--nav-active-text) !important;
     font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.12em;
+    position: relative;
+    padding-left: 1.45rem;
     border-left: 3px solid var(--brand-red-bright);
-    background-color: rgba(224, 58, 62, 0.14) !important;
+    background-color: var(--nav-active-bg) !important;
+  }
+  .nav-list .nav-list-link.active::before {
+    content: "▸";
+    position: absolute;
+    left: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--nav-current-indicator);
+    font-weight: 800;
   }
 
   /* Section headers inside nav */
   .nav-list-title {
-    color: var(--text-muted) !important;
+    color: var(--nav-title) !important;
     text-transform: uppercase;
     letter-spacing: 0.07em;
     font-size: 0.75rem;

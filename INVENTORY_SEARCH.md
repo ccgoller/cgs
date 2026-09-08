@@ -23,9 +23,9 @@ Search the live inventory spreadsheet and filter items by any text value.
     border-radius: 6px;
     padding: 0.85rem 1.6rem;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 800;
     background: var(--brand-red);
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     transition: transform 0.15s, box-shadow 0.15s;
   }

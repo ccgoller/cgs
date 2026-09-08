@@ -16,6 +16,93 @@
     --white:           #FFFFFF;
     --focus-ring:      #CC0000;   /* matches home.html focus ring */
     --focus-ring-soft: rgba(204, 0, 0, 0.18);
+    --bg-page:         #ffffff;
+    --bg-sidebar:      #f1f3f5;
+    --border-sidebar:  #d0d7de;
+    --text-main:       #1a1a1a;
+    --text-muted:      #5f5f5f;
+    --surface-elevated:#ffffff;
+    --toggle-bg:       #ffffff;
+    --toggle-border:   #c5ccd3;
+  }
+
+  [data-theme="dark"] {
+    --brand-red-bright:#FF6B6F;
+    --brand-red-dark:  #B30000;
+    --brand-light:     #1f1f21;
+    --text:            #f4f4f4;
+    --muted:           #c8c8c8;
+    --focus-ring:      #FF6B6F;
+    --focus-ring-soft: rgba(255, 107, 111, 0.28);
+    --bg-page:         #121214;
+    --bg-sidebar:      #18181b;
+    --border-sidebar:  #313138;
+    --text-main:       #f4f4f4;
+    --text-muted:      #d1d5db;
+    --surface-elevated:#222228;
+    --toggle-bg:       #222228;
+    --toggle-border:   #52525b;
+  }
+
+  body {
+    background-color: var(--bg-page) !important;
+    color: var(--text-main) !important;
+  }
+
+  .main-content-wrap,
+  .main-content {
+    background-color: var(--bg-page) !important;
+    color: var(--text-main) !important;
+  }
+
+  .main-content p,
+  .main-content li,
+  .main-content dd,
+  .main-content dt,
+  .main-content td,
+  .main-content th,
+  .main-content blockquote {
+    color: var(--text-main) !important;
+  }
+
+  .main-content h1,
+  .main-content h2,
+  .main-content h3,
+  .main-content h4,
+  .main-content h5,
+  .main-content h6 {
+    color: var(--text-main) !important;
+  }
+
+  .main-content table,
+  .main-content pre,
+  .main-content .code-example,
+  .main-content .highlight,
+  .main-content blockquote {
+    background-color: var(--surface-elevated) !important;
+    border-color: var(--border-sidebar) !important;
+  }
+
+  .main-content hr {
+    border-color: var(--border-sidebar) !important;
+  }
+
+  /* ─── Skip link for all pages ────────────────────────────────── */
+  .skip-link-global {
+    position: absolute;
+    top: -999px;
+    left: 0;
+    z-index: 9999;
+    background: var(--focus-ring);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 4px 0;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  }
+  .skip-link-global:focus {
+    top: 0;
   }
 
   /* ─── Global focus style ──────────────────────────────────────
@@ -51,38 +138,38 @@
   .side-bar,
   nav.site-nav,
   .site-header {
-    background-color: #f1f3f5 !important;
-    border-right-color: #d0d7de !important;
+    background-color: var(--bg-sidebar) !important;
+    border-right-color: var(--border-sidebar) !important;
   }
 
   /* Site title / logo in sidebar */
   .site-title {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
     font-weight: 700;
   }
   .site-title:hover {
     background-color: rgba(224, 58, 62, 0.08) !important;
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
   }
 
   /* Top navigation bar (mobile) */
   .site-header .site-button {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
   }
 
   /* All sidebar nav links */
   .nav-list .nav-list-link {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
   }
   .nav-list .nav-list-link:hover,
   .nav-list .nav-list-link:focus {
-    color: #000000 !important;
+    color: var(--text-main) !important;
     background-color: rgba(224, 58, 62, 0.10) !important;
   }
 
   /* Active / current page link */
   .nav-list .nav-list-link.active {
-    color: #000000 !important;
+    color: var(--text-main) !important;
     font-weight: 700;
     border-left: 3px solid var(--brand-red-bright);
     background-color: rgba(224, 58, 62, 0.14) !important;
@@ -90,7 +177,7 @@
 
   /* Section headers inside nav */
   .nav-list-title {
-    color: #525252 !important;
+    color: var(--text-muted) !important;
     text-transform: uppercase;
     letter-spacing: 0.07em;
     font-size: 0.75rem;
@@ -99,28 +186,60 @@
   /* Auxiliary links (GitHub link, search bar area) */
   .aux-nav-list-item a,
   .aux-nav a {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
   }
   .aux-nav-list-item a:hover,
   .aux-nav a:hover {
-    color: #000000 !important;
+    color: var(--text-main) !important;
   }
 
   /* Search input in dark sidebar */
   .search-input {
-    background-color: #ffffff !important;
-    color: var(--brand-dark) !important;
-    border-color: #c5ccd3 !important;
+    background-color: var(--surface-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--toggle-border) !important;
   }
   .search-input::placeholder {
-    color: #6b7280 !important;
+    color: var(--text-muted) !important;
   }
 
-  /* ─── Sidebar active and hover link ──────────────────────────── */
+  .search-result {
+    background-color: var(--surface-elevated) !important;
+    color: var(--text-main) !important;
+  }
 
   /* ─── Inline code and table accents ──────────────────────────── */
   .main-content code {
-    border-color: #d1d5db;
+    border-color: var(--toggle-border);
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: 0.75rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--toggle-border);
+    background: var(--toggle-bg);
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+  .theme-toggle:hover {
+    background: rgba(224, 58, 62, 0.12);
+  }
+  .theme-toggle:focus-visible {
+    outline: 3px solid var(--focus-ring) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px var(--focus-ring-soft) !important;
+  }
+
+  @media (max-width: 799px) {
+    .theme-toggle {
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
   }
 
   /* ─── Reduced motion ──────────────────────────────────────────── */
@@ -131,3 +250,58 @@
     }
   }
 </style>
+
+<script>
+  (function () {
+    const THEME_KEY = "cgs-theme";
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const saved = localStorage.getItem(THEME_KEY);
+    const initial = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
+    root.setAttribute("data-theme", initial);
+
+    function applyTheme(theme, button) {
+      root.setAttribute("data-theme", theme);
+      localStorage.setItem(THEME_KEY, theme);
+      if (!button) return;
+      const isDark = theme === "dark";
+      button.setAttribute("aria-pressed", String(isDark));
+      button.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      button.textContent = isDark ? "Light theme" : "Dark theme";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const body = document.body;
+      if (body && !document.querySelector(".skip-link-global")) {
+        const skipLink = document.createElement("a");
+        skipLink.className = "skip-link-global";
+        skipLink.href = "#main-content";
+        skipLink.textContent = "Skip to main content";
+        body.insertBefore(skipLink, body.firstChild);
+      }
+
+      const mainContent = document.querySelector("#main-content") || document.querySelector("main");
+      if (mainContent && !mainContent.id) {
+        mainContent.id = "main-content";
+      }
+
+      if (!document.querySelector(".theme-toggle")) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-toggle";
+        const header = document.querySelector(".site-header");
+        const nav = header ? header.querySelector(".main-header") || header.querySelector(".site-nav") || header : null;
+        if (nav) {
+          nav.appendChild(button);
+          applyTheme(root.getAttribute("data-theme") || "light", button);
+          button.addEventListener("click", function () {
+            const next = (root.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";
+            applyTheme(next, button);
+          });
+        }
+      } else {
+        applyTheme(root.getAttribute("data-theme") || "light", document.querySelector(".theme-toggle"));
+      }
+    });
+  })();
+</script>

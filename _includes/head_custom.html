@@ -24,6 +24,10 @@
     --surface-elevated:#ffffff;
     --toggle-bg:       #ffffff;
     --toggle-border:   #c5ccd3;
+    --toggle-track:    #6b7280;
+    --toggle-thumb:    #ffffff;
+    --link-color:      #990000;
+    --link-hover:      #660000;
   }
 
   [data-theme="dark"] {
@@ -42,6 +46,10 @@
     --surface-elevated:#222228;
     --toggle-bg:       #222228;
     --toggle-border:   #52525b;
+    --toggle-track:    #FF6B6F;
+    --toggle-thumb:    #121214;
+    --link-color:      #ff8f93;
+    --link-hover:      #ffc2c5;
   }
 
   body {
@@ -123,10 +131,10 @@
      Just the Docs defaults to purple; override to brand red.
   ──────────────────────────────────────────────────────────────── */
   .main-content a {
-    color: var(--brand-red);
+    color: var(--link-color);
   }
   .main-content a:hover {
-    color: #990000;
+    color: var(--link-hover);
   }
 
   /* ─── Light navigation sidebar ───────────────────────────────
@@ -216,14 +224,16 @@
   .theme-toggle {
     margin-left: auto;
     margin-right: 0.75rem;
-    padding: 0.4rem 0.7rem;
+    padding: 0.2rem;
     border-radius: 999px;
     border: 1px solid var(--toggle-border);
     background: var(--toggle-bg);
     color: var(--text-main);
-    font-weight: 700;
-    font-size: 0.82rem;
-    line-height: 1.2;
+    width: 3.4rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
   }
   .theme-toggle:hover {
@@ -233,6 +243,41 @@
     outline: 3px solid var(--focus-ring) !important;
     outline-offset: 2px !important;
     box-shadow: 0 0 0 5px var(--focus-ring-soft) !important;
+  }
+  .theme-toggle-track {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--toggle-track);
+    transition: background-color 0.2s ease;
+  }
+  .theme-toggle-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.28);
+    transform: translateY(-50%);
+    transition: left 0.2s ease, background-color 0.2s ease;
+  }
+  .theme-toggle[aria-checked="true"] .theme-toggle-thumb {
+    left: calc(100% - 1.4rem);
+  }
+  .theme-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   @media (max-width: 799px) {
@@ -265,9 +310,10 @@
       localStorage.setItem(THEME_KEY, theme);
       if (!button) return;
       const isDark = theme === "dark";
-      button.setAttribute("aria-pressed", String(isDark));
-      button.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-      button.textContent = isDark ? "Light theme" : "Dark theme";
+      button.setAttribute("role", "switch");
+      button.setAttribute("aria-checked", String(isDark));
+      button.setAttribute("aria-label", "Dark theme");
+      button.setAttribute("title", isDark ? "Dark theme on" : "Dark theme off");
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -289,6 +335,7 @@
         const button = document.createElement("button");
         button.type = "button";
         button.className = "theme-toggle";
+        button.innerHTML = '<span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Dark theme</span>';
         const header = document.querySelector(".site-header");
         const nav = header ? header.querySelector(".main-header") || header.querySelector(".site-nav") || header : null;
         if (nav) {

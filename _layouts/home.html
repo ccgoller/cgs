@@ -54,6 +54,13 @@
       --toggle-bg:      #ffffff;
       --toggle-border:  #c5ccd3;
       --toggle-text:    #111111;
+      --toggle-track:   #6b7280;
+      --toggle-thumb:   #ffffff;
+      --nav-text:       #1a1a1a;
+      --nav-text-strong:#000000;
+      --link-color:     #990000;
+      --link-hover:     #660000;
+      --logo-accent:    #990000;
     }
 
     [data-theme="dark"] {
@@ -82,6 +89,13 @@
       --toggle-bg:      #26262b;
       --toggle-border:  #52525b;
       --toggle-text:    #f4f4f4;
+      --toggle-track:   #FF6B6F;
+      --toggle-thumb:   #111113;
+      --nav-text:       #f4f4f4;
+      --nav-text-strong:#ffffff;
+      --link-color:     #ff8f93;
+      --link-hover:     #ffc2c5;
+      --logo-accent:    #ff8f93;
     }
 
     /* ─── Skip link ─────────────────────────────────────────── */
@@ -114,12 +128,15 @@
     }
     p { max-width: 68ch; }
     a {
-      color: var(--brand-red);
+      color: var(--link-color);
       text-decoration: underline;
       text-underline-offset: 0.16em;
       text-decoration-thickness: 0.08em;
     }
-    a:hover { text-decoration: none; }
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: none;
+    }
 
     /* ─── Global focus style ─────────────────────────────────── */
     :focus-visible {
@@ -158,7 +175,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.65rem;
-      color: var(--brand-dark);
+      color: var(--nav-text);
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.015em;
@@ -185,7 +202,7 @@
       border-radius: 4px;
       background: rgba(224, 58, 62, 0.10);
     }
-    .site-nav .logo-link .logo-accent { color: var(--brand-red); }
+    .site-nav .logo-link .logo-accent { color: var(--logo-accent); }
     .nav-links {
       display: flex;
       gap: clamp(0.75rem, 1.8vw, 1.25rem);
@@ -196,7 +213,7 @@
       min-width: 0;
     }
     .nav-links a {
-      color: var(--brand-dark);
+      color: var(--nav-text);
       font-size: clamp(0.82rem, 1.4vw, 0.9rem);
       font-weight: 500;
       letter-spacing: 0.015em;
@@ -205,9 +222,9 @@
       padding: 0.25rem 0;
       border-bottom: 2px solid transparent;
     }
-    .nav-links a:hover { color: #000000; text-decoration: underline; }
+    .nav-links a:hover { color: var(--nav-text-strong); text-decoration: underline; }
     .nav-links a[aria-current="page"] {
-      color: #000000;
+      color: var(--nav-text-strong);
       border-bottom-color: var(--brand-red-bright);
     }
     .nav-links a:focus-visible {
@@ -220,19 +237,43 @@
       background: var(--toggle-bg);
       color: var(--toggle-text);
       border-radius: 999px;
-      font-size: 0.82rem;
-      line-height: 1.2;
-      font-weight: 700;
-      padding: 0.45rem 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem;
       cursor: pointer;
-      min-height: 40px;
-      min-width: 9.4rem;
+      width: 3.4rem;
+      height: 2rem;
     }
     .theme-toggle:hover {
       background: rgba(224, 58, 62, 0.12);
     }
     .theme-toggle:focus-visible {
       border-color: var(--focus-ring);
+    }
+    .theme-toggle-track {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--toggle-track);
+      transition: background-color 0.2s ease;
+    }
+    .theme-toggle-thumb {
+      position: absolute;
+      top: 50%;
+      left: 0.2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      background: var(--toggle-thumb);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.28);
+      transform: translateY(-50%);
+      transition: left 0.2s ease, background-color 0.2s ease;
+    }
+    .theme-toggle[aria-checked="true"] .theme-toggle-thumb {
+      left: calc(100% - 1.4rem);
     }
 
     /* ─── Hero ──────────────────────────────────────────────── */
@@ -309,7 +350,7 @@
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); text-decoration: none; }
     .btn-primary { background: var(--brand-red); color: #fff; border-color: var(--brand-red); }
-    .btn-primary:hover { background: var(--brand-red-bright); border-color: var(--brand-red-bright); }
+    .btn-primary:hover { background: var(--brand-red-dark); border-color: var(--brand-red-dark); }
     .btn-outline { border-color: #ffffff; color: #fff; }
     .btn-outline:hover { background: #ffffff; color: var(--brand-red); border-color: #ffffff; }
     .btn:focus-visible {
@@ -366,7 +407,7 @@
     .card a.card-link {
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--brand-red);
+      color: var(--link-color);
       text-decoration: underline;
     }
     .card a.card-link:hover { text-decoration: none; }
@@ -541,7 +582,10 @@
         <li><a href="{{ '/professional-development' | relative_url }}"{% if page.url == '/professional-development/' %} aria-current="page"{% endif %}>Professional Dev</a></li>
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
       </ul>
-      <button class="theme-toggle" type="button" aria-live="polite" aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark theme">
+        <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
+        <span class="sr-only">Dark theme</span>
+      </button>
     </nav>
   </header>
 
@@ -680,9 +724,8 @@
 
       function updateToggle(theme) {
         const isDark = theme === "dark";
-        toggle.textContent = isDark ? "Light theme" : "Dark theme";
-        toggle.setAttribute("aria-pressed", String(isDark));
-        toggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+        toggle.setAttribute("aria-checked", String(isDark));
+        toggle.setAttribute("title", isDark ? "Dark theme on" : "Dark theme off");
       }
 
       function setTheme(theme) {

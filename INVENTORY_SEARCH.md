@@ -38,8 +38,8 @@ Search the live inventory spreadsheet and filter items by any text value.
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     text-decoration: none;
-    background: var(--brand-red-bright);
-    border-color: var(--brand-red-bright);
+    background: var(--brand-red-dark);
+    border-color: var(--brand-red-dark);
     color: #fff;
   }
   .inventory-request-button:active {

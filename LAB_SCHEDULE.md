@@ -15,8 +15,9 @@ permalink: /schedule
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     margin: 1rem 0 1.5rem 0;
-    border: 1px solid #d8d8d8;
+    border: 1px solid var(--border-sidebar);
     border-radius: 0.2rem;
+    background-color: var(--surface-elevated);
   }
   .lab-availability-table {
     width: 100%;
@@ -25,9 +26,21 @@ permalink: /schedule
   }
   .lab-availability-table th,
   .lab-availability-table td {
-    border: 1px solid #4f4f4f;
+    border: 1px solid var(--border-sidebar);
     padding: 0.55rem;
     vertical-align: top;
+    color: var(--text-main);
+    background-color: var(--surface-elevated);
+  }
+  .lab-availability-table th {
+    background-color: #fbe9ea;
+    color: var(--text-main);
+  }
+  [data-theme="dark"] .lab-availability-table th {
+    background-color: #352124;
+  }
+  .lab-availability-table em {
+    color: var(--text-muted);
   }
   .available-slot {
     display: block;
@@ -48,7 +61,9 @@ permalink: /schedule
     width: 100%;
     max-width: 100%;
     min-height: 37.5rem;
-    border: 0;
+    border: 1px solid var(--border-sidebar);
+    border-radius: 0.2rem;
+    background-color: var(--surface-elevated);
   }
 </style>
 

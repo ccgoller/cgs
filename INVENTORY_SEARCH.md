@@ -18,19 +18,29 @@ Search the live inventory spreadsheet and filter items by any text value.
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 2.35rem;
-    border: 1px solid #0b4723;
-    border-radius: 0.2rem;
-    padding: 0.5rem 0.85rem;
+    min-height: 44px;
+    border: 2px solid var(--brand-red);
+    border-radius: 6px;
+    padding: 0.85rem 1.6rem;
     font-size: 0.95rem;
-    font-weight: 600;
-    background: #0f5f2f;
+    font-weight: 700;
+    background: var(--brand-red);
     color: #fff;
     text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
-  .inventory-request-button:hover,
+  .inventory-request-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    text-decoration: none;
+    background: var(--brand-red-bright);
+    border-color: var(--brand-red-bright);
+    color: #fff;
+  }
   .inventory-request-button:focus-visible {
-    background: #0b4723;
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(204,0,0,0.6), 0 0 0 10px rgba(255,255,255,0.25);
     color: #fff;
   }
   .inventory-controls {
@@ -115,6 +125,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   <a
     class="inventory-request-button"
     href="https://docs.google.com/spreadsheets/d/1ND5yHu2dxlJKNNGT6ja19kb7lLZpjMubFtNuRZ90mW4/edit?gid=85868532#gid=85868532"
+    aria-label="Add Reagent Request (opens in a new tab)"
     target="_blank"
     rel="noopener"
   >➕ Add Reagent Request</a>

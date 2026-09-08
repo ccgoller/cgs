@@ -9,10 +9,30 @@ permalink: /inventory
 Search the live inventory spreadsheet and filter items by any text value.
 
 > Source sheet: [Inventory spreadsheet](https://docs.google.com/spreadsheets/d/18TwnlgLCAB2be3Lkxc88MYYK7kQ2talrEXlg7IwrvVI/edit?usp=drivesdk)
->
-> Need something new? [Submit an Add Reagent Request](https://docs.google.com/spreadsheets/d/1ND5yHu2dxlJKNNGT6ja19kb7lLZpjMubFtNuRZ90mW4/edit?gid=85868532#gid=85868532)
 
 <style>
+  .inventory-request {
+    margin: 0.6rem 0 0.85rem 0;
+  }
+  .inventory-request-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.35rem;
+    border: 1px solid #0b4723;
+    border-radius: 0.2rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: #0f5f2f;
+    color: #fff;
+    text-decoration: none;
+  }
+  .inventory-request-button:hover,
+  .inventory-request-button:focus-visible {
+    background: #0b4723;
+    color: #fff;
+  }
   .inventory-controls {
     display: grid;
     grid-template-columns: 2fr 1fr auto;
@@ -81,11 +101,24 @@ Search the live inventory spreadsheet and filter items by any text value.
     color: var(--muted);
   }
   @media (max-width: 760px) {
+    .inventory-request-button {
+      display: flex;
+      width: 100%;
+    }
     .inventory-controls {
       grid-template-columns: 1fr;
     }
   }
 </style>
+
+<p class="inventory-request">
+  <a
+    class="inventory-request-button"
+    href="https://docs.google.com/spreadsheets/d/1ND5yHu2dxlJKNNGT6ja19kb7lLZpjMubFtNuRZ90mW4/edit?gid=85868532#gid=85868532"
+    target="_blank"
+    rel="noopener"
+  >➕ Add Reagent Request</a>
+</p>
 
 <form class="inventory-controls" aria-label="Inventory search controls" onsubmit="return false;">
   <div class="inventory-control">

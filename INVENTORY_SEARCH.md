@@ -107,6 +107,18 @@ Search the live inventory spreadsheet and filter items by any text value.
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 0.4rem;
   }
+  .inventory-chart-export {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .inventory-chart-export .inventory-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background: #b44;
+    border-color: #8f3434;
+  }
   .inventory-chart-summary {
     margin: 0.75rem 0 0.6rem 0;
     font-weight: 600;
@@ -229,6 +241,14 @@ Search the live inventory spreadsheet and filter items by any text value.
   <p id="inventoryChartSummary" class="inventory-chart-summary" aria-live="polite">
     Loading chart…
   </p>
+  <div class="inventory-chart-export" aria-label="Inventory chart export options">
+    <button id="inventoryChartExportImageButton" class="inventory-button" type="button" disabled>
+      Export chart as image
+    </button>
+    <button id="inventoryChartExportCsvButton" class="inventory-button" type="button" disabled>
+      Export chart as CSV
+    </button>
+  </div>
   <div id="inventoryChartList" class="inventory-chart-list" role="list" aria-live="polite">
     <div class="inventory-empty" role="listitem">Loading chart…</div>
   </div>
@@ -265,9 +285,12 @@ Search the live inventory spreadsheet and filter items by any text value.
     const chartValueSelect = document.getElementById("inventoryChartValueSelect");
     const chartSummary = document.getElementById("inventoryChartSummary");
     const chartList = document.getElementById("inventoryChartList");
+    const chartExportImageButton = document.getElementById("inventoryChartExportImageButton");
+    const chartExportCsvButton = document.getElementById("inventoryChartExportCsvButton");
 
     let headers = [];
     let records = [];
+    let currentChartSeries = [];
 
     const parseCsv = (text) => {
       const rows = [];
@@ -403,6 +426,144 @@ Search the live inventory spreadsheet and filter items by any text value.
     const formatChartTotal = (value) =>
       Number.isInteger(value) ? String(value) : value.toLocaleString(undefined, { maximumFractionDigits: 2 });
 
+    const sanitizeFilePart = (value) =>
+      String(value || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "") || "chart";
+
+    const chartExportBaseName = () => {
+      const groupPart = sanitizeFilePart(chartGroupSelect.value || "group");
+      const valuePart = chartValueSelect.value === "__rows__"
+        ? "row-count"
+        : sanitizeFilePart(chartValueSelect.value || "value");
+      return `inventory-totals-${groupPart}-${valuePart}`;
+    };
+
+    const downloadBlob = (blob, filename) => {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    };
+
+    const csvEscape = (value) => {
+      const text = String(value ?? "");
+      if (/[",\r\n]/.test(text)) return `"${text.replace(/"/g, "\"\"")}"`;
+      return text;
+    };
+
+    const exportChartCsv = () => {
+      if (!currentChartSeries.length) return;
+      const groupLabel = chartGroupSelect.value || "Group";
+      const valueLabel = chartValueSelect.value === "__rows__" ? "Row count" : chartValueSelect.value;
+      const lines = [
+        [groupLabel, valueLabel].map(csvEscape).join(","),
+        ...currentChartSeries.map((item) => [item.name, item.total].map(csvEscape).join(","))
+      ];
+      const csvContent = `${lines.join("\r\n")}\r\n`;
+      const csvBlob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      downloadBlob(csvBlob, `${chartExportBaseName()}.csv`);
+    };
+
+    const drawRoundedRect = (context, x, y, width, height, radius) => {
+      const r = Math.max(0, Math.min(radius, width / 2, height / 2));
+      context.beginPath();
+      context.moveTo(x + r, y);
+      context.lineTo(x + width - r, y);
+      context.arcTo(x + width, y, x + width, y + r, r);
+      context.lineTo(x + width, y + height - r);
+      context.arcTo(x + width, y + height, x + width - r, y + height, r);
+      context.lineTo(x + r, y + height);
+      context.arcTo(x, y + height, x, y + height - r, r);
+      context.lineTo(x, y + r);
+      context.arcTo(x, y, x + r, y, r);
+      context.closePath();
+    };
+
+    const clipText = (text, maxLength) => {
+      const value = String(text ?? "");
+      if (value.length <= maxLength) return value;
+      return `${value.slice(0, Math.max(0, maxLength - 1))}…`;
+    };
+
+    const exportChartImage = () => {
+      if (!currentChartSeries.length) return;
+
+      const padding = 28;
+      const titleHeight = 34;
+      const summaryHeight = 20;
+      const rowHeight = 34;
+      const labelWidth = 280;
+      const barWidth = 460;
+      const totalWidth = 120;
+      const width = padding * 2 + labelWidth + barWidth + totalWidth + 32;
+      const height = padding * 2 + titleHeight + summaryHeight + currentChartSeries.length * rowHeight + 16;
+      const canvas = document.createElement("canvas");
+      const scale = Math.max(1, window.devicePixelRatio || 1);
+      canvas.width = Math.ceil(width * scale);
+      canvas.height = Math.ceil(height * scale);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      const context = canvas.getContext("2d");
+      if (!context) return;
+      context.scale(scale, scale);
+
+      context.fillStyle = "#ffffff";
+      context.fillRect(0, 0, width, height);
+
+      context.fillStyle = "#1f2328";
+      context.font = "700 22px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+      context.fillText("Inventory Totals Chart", padding, padding + 20);
+
+      context.fillStyle = "#4f5966";
+      context.font = "500 13px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+      context.fillText(clipText(chartSummary.textContent || "", 130), padding, padding + titleHeight + 8);
+
+      const maxTotal = Math.max(...currentChartSeries.map((item) => item.total), 0);
+      const chartStartY = padding + titleHeight + summaryHeight + 10;
+      const barStartX = padding + labelWidth + 14;
+      const totalX = barStartX + barWidth + 16;
+      const gradient = context.createLinearGradient(barStartX, 0, barStartX + barWidth, 0);
+      gradient.addColorStop(0, "#cc0000");
+      gradient.addColorStop(1, "#7a0000");
+
+      currentChartSeries.forEach((item, index) => {
+        const rowY = chartStartY + index * rowHeight;
+        const centerY = rowY + rowHeight / 2;
+        const trackY = centerY - 7;
+        const fillWidth = maxTotal > 0 ? (item.total / maxTotal) * barWidth : 0;
+
+        context.fillStyle = "#1f2328";
+        context.font = "600 13px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+        context.textBaseline = "middle";
+        context.fillText(clipText(item.name, 38), padding, centerY);
+
+        context.fillStyle = "#e7e7e7";
+        drawRoundedRect(context, barStartX, trackY, barWidth, 14, 7);
+        context.fill();
+
+        context.fillStyle = gradient;
+        drawRoundedRect(context, barStartX, trackY, fillWidth, 14, 7);
+        context.fill();
+
+        context.fillStyle = "#1f2328";
+        context.textAlign = "right";
+        context.fillText(formatChartTotal(item.total), totalX + totalWidth - 4, centerY);
+        context.textAlign = "left";
+      });
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        downloadBlob(blob, `${chartExportBaseName()}.png`);
+      }, "image/png");
+    };
+
     const buildGroupedSeries = (groupHeader, valueHeader) => {
       if (!groupHeader) return [];
 
@@ -479,8 +640,12 @@ Search the live inventory spreadsheet and filter items by any text value.
       const selectedSeries = buildGroupedSeries(groupHeader, valueHeader);
 
       chartList.innerHTML = "";
+      currentChartSeries = selectedSeries;
+      const hasSeries = selectedSeries.length > 0;
+      chartExportImageButton.disabled = !hasSeries;
+      chartExportCsvButton.disabled = !hasSeries;
 
-      if (!groupHeader || !selectedSeries.length) {
+      if (!groupHeader || !hasSeries) {
         chartSummary.textContent = headers.length
           ? "No totals are available for the selected chart settings."
           : "Load inventory data to view totals.";
@@ -551,6 +716,8 @@ Search the live inventory spreadsheet and filter items by any text value.
         chartGroupSelect.disabled = true;
         chartValueSelect.innerHTML = `<option value="__rows__">Row count</option>`;
         chartValueSelect.disabled = true;
+        chartExportImageButton.disabled = true;
+        chartExportCsvButton.disabled = true;
         chartSummary.textContent = "Inventory chart unavailable.";
         chartList.innerHTML = `<div class="inventory-empty" role="listitem">Could not load chart data.</div>`;
         console.error("Inventory load failed:", error);
@@ -561,6 +728,8 @@ Search the live inventory spreadsheet and filter items by any text value.
     columnSelect.addEventListener("change", applyFilter);
     chartGroupSelect.addEventListener("change", renderInventoryChart);
     chartValueSelect.addEventListener("change", renderInventoryChart);
+    chartExportImageButton.addEventListener("click", exportChartImage);
+    chartExportCsvButton.addEventListener("click", exportChartCsv);
     clearButton.addEventListener("click", () => {
       searchInput.value = "";
       columnSelect.value = "__all__";

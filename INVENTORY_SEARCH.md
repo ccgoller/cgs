@@ -9,6 +9,8 @@ permalink: /inventory
 Search the live inventory spreadsheet and filter items by any text value.
 
 > Source sheet: [Inventory spreadsheet](https://docs.google.com/spreadsheets/d/18TwnlgLCAB2be3Lkxc88MYYK7kQ2talrEXlg7IwrvVI/edit?usp=drivesdk)
+>
+> Need something new? [Submit an Add Reagent Request](https://docs.google.com/spreadsheets/d/1ND5yHu2dxlJKNNGT6ja19kb7lLZpjMubFtNuRZ90mW4/edit?gid=85868532#gid=85868532)
 
 <style>
   .inventory-controls {

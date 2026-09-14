@@ -718,7 +718,7 @@
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
         <li>
           <details class="home-nav-more">
-            <summary aria-haspopup="true" aria-expanded="false">More</summary>
+            <summary aria-expanded="false">More</summary>
             <ul class="home-nav-more-menu" role="list" aria-label="More navigation links">
               <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
               <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
@@ -897,6 +897,11 @@
           if (event.key === "Escape") {
             moreDetails.open = false;
             moreSummary.focus();
+          }
+        });
+        moreDetails.addEventListener("focusout", function (event) {
+          if (!moreDetails.contains(event.relatedTarget)) {
+            moreDetails.open = false;
           }
         });
         document.addEventListener("click", function (event) {

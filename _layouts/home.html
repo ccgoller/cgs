@@ -721,7 +721,7 @@
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
         <li>
           <div class="home-nav-more">
-            <button class="home-nav-more-toggle" type="button" aria-controls="home-nav-more-menu" aria-expanded="false">More</button>
+            <button class="home-nav-more-toggle" type="button" aria-controls="home-nav-more-menu" aria-expanded="false" aria-label="More navigation links">More</button>
             <ul id="home-nav-more-menu" class="home-nav-more-menu" role="list" aria-label="More navigation links" hidden>
               <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
               <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
@@ -920,20 +920,14 @@
             }
           }, 0);
         });
-      }
-
-      if (!window.__cgsMoreOutsideClickBound) {
-        window.__cgsMoreOutsideClickBound = true;
-        document.addEventListener("click", function (event) {
-          const activeMoreWrap = document.querySelector(".home-nav-more");
-          const activeMoreToggle = document.querySelector(".home-nav-more-toggle");
-          const activeMoreMenu = document.querySelector("#home-nav-more-menu");
-          if (!activeMoreWrap || !activeMoreToggle || !activeMoreMenu) return;
-          if (activeMoreToggle.getAttribute("aria-expanded") === "true" && !activeMoreWrap.contains(event.target)) {
-            activeMoreToggle.setAttribute("aria-expanded", "false");
-            activeMoreMenu.hidden = true;
-          }
-        });
+        if (!moreMenuWrap.dataset.outsideClickBound) {
+          moreMenuWrap.dataset.outsideClickBound = "true";
+          document.addEventListener("click", function (event) {
+            if (moreToggle.getAttribute("aria-expanded") === "true" && !moreMenuWrap.contains(event.target)) {
+              setMoreOpen(false);
+            }
+          });
+        }
       }
     })();
   </script>

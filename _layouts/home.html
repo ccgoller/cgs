@@ -899,10 +899,12 @@
             moreSummary.focus();
           }
         });
-        moreDetails.addEventListener("focusout", function (event) {
-          if (event.relatedTarget && !moreDetails.contains(event.relatedTarget)) {
-            moreDetails.open = false;
-          }
+        moreDetails.addEventListener("focusout", function () {
+          window.setTimeout(function () {
+            if (moreDetails.open && !moreDetails.contains(document.activeElement)) {
+              moreDetails.open = false;
+            }
+          }, 0);
         });
         document.addEventListener("click", function (event) {
           if (moreDetails.open && !moreDetails.contains(event.target)) {

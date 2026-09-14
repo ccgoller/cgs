@@ -52,6 +52,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   }
   .inventory-table-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid #d8d8d8;
     border-radius: 0.2rem;
   }

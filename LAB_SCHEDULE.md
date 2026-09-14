@@ -13,6 +13,7 @@ permalink: /schedule
 <style>
   .lab-availability-table {
     width: 100%;
+    min-width: 34rem;
     border-collapse: collapse;
     margin: 1rem 0 1.5rem 0;
   }

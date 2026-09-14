@@ -49,8 +49,8 @@
 
   /* Sidebar background */
   .side-bar,
-  nav.site-nav,
-  .site-header {
+  .side-bar .site-header,
+  .main-header {
     background-color: #f1f3f5 !important;
     border-right-color: #d0d7de !important;
   }
@@ -69,13 +69,22 @@
   .site-header .site-button {
     color: var(--brand-dark) !important;
   }
+  .site-header .site-button:hover,
+  .site-header .site-button:focus,
+  .site-header .site-button:focus-visible {
+    color: #000000 !important;
+    background-color: rgba(224, 58, 62, 0.10) !important;
+  }
 
   /* All sidebar nav links */
   .nav-list .nav-list-link {
     color: var(--brand-dark) !important;
   }
   .nav-list .nav-list-link:hover,
-  .nav-list .nav-list-link:focus {
+  .nav-list .nav-list-link:focus,
+  .nav-list .nav-list-expander:hover,
+  .nav-list .nav-list-expander:focus,
+  .nav-list .nav-list-expander:focus-visible {
     color: #000000 !important;
     background-color: rgba(224, 58, 62, 0.10) !important;
   }

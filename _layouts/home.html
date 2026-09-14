@@ -718,7 +718,7 @@
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
         <li>
           <details class="home-nav-more">
-            <summary aria-controls="home-nav-more-menu">More</summary>
+            <summary aria-controls="home-nav-more-menu" aria-expanded="false">More</summary>
             <ul id="home-nav-more-menu" class="home-nav-more-menu" role="list" aria-label="More navigation links">
               <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
               <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
@@ -888,6 +888,11 @@
       }
 
       if (moreDetails && moreSummary) {
+        const syncMoreExpanded = function () {
+          moreSummary.setAttribute("aria-expanded", String(moreDetails.open));
+        };
+        syncMoreExpanded();
+        moreDetails.addEventListener("toggle", syncMoreExpanded);
         moreDetails.addEventListener("keydown", function (event) {
           if (event.key === "Escape") {
             moreDetails.open = false;
@@ -909,7 +914,7 @@
         });
         if (!moreDetails.dataset.outsideClickBound) {
           moreDetails.dataset.outsideClickBound = "true";
-          document.addEventListener("click", function (event) {
+          document.addEventListener("pointerdown", function (event) {
             if (moreDetails.open && !moreDetails.contains(event.target)) {
               moreDetails.open = false;
             }

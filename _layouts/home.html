@@ -870,6 +870,7 @@
       const moreMenuWrap = document.querySelector(".home-nav-more");
       const moreToggle = document.querySelector(".home-nav-more-toggle");
       const moreMenu = document.querySelector("#home-nav-more-menu");
+      const moreOpenSetters = new WeakMap();
 
       if (toggle) {
         function updateToggle(theme) {
@@ -895,10 +896,9 @@
         let isPointerInteractingWithinMore = false;
         const setMoreOpen = function (isOpen) {
           moreToggle.setAttribute("aria-expanded", String(isOpen));
-          moreToggle.setAttribute("aria-label", isOpen ? "More navigation links, expanded" : "More navigation links, collapsed");
           moreMenu.hidden = !isOpen;
         };
-        moreMenuWrap.__setMoreOpen = setMoreOpen;
+        moreOpenSetters.set(moreMenuWrap, setMoreOpen);
         setMoreOpen(false);
         moreToggle.addEventListener("click", function () {
           const isOpen = moreToggle.getAttribute("aria-expanded") === "true";
@@ -932,8 +932,9 @@
             if (!toggleButton) return;
             const isOpen = toggleButton.getAttribute("aria-expanded") === "true";
             if (isOpen && !menuWrap.contains(event.target)) {
-              if (typeof menuWrap.__setMoreOpen === "function") {
-                menuWrap.__setMoreOpen(false);
+              const setMoreOpen = moreOpenSetters.get(menuWrap);
+              if (setMoreOpen) {
+                setMoreOpen(false);
               }
             }
           });

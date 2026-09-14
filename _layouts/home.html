@@ -213,10 +213,15 @@
       display: flex;
       gap: clamp(0.75rem, 1.8vw, 1.25rem);
       list-style: none;
+      align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
       flex: 1 1 34rem;
       min-width: 0;
+    }
+    .home-nav-links > li {
+      min-width: 0;
+      position: relative;
     }
     .home-nav-links a {
       display: inline-flex;
@@ -247,6 +252,64 @@
     .home-nav-links a:focus-visible {
       border-bottom-color: var(--focus-ring);
       background: var(--nav-link-hover-bg);
+    }
+    .home-nav-more > summary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.25rem;
+      color: var(--nav-text);
+      font-size: clamp(0.82rem, 1.4vw, 0.9rem);
+      font-weight: 500;
+      letter-spacing: 0.015em;
+      text-decoration: none;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: var(--nav-link-bg);
+      cursor: pointer;
+      list-style: none;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+    .home-nav-more > summary::-webkit-details-marker { display: none; }
+    .home-nav-more > summary::after {
+      content: "▾";
+      font-size: 0.82em;
+      line-height: 1;
+    }
+    .home-nav-more > summary:hover,
+    .home-nav-more[open] > summary {
+      color: var(--nav-text-strong);
+      text-decoration: underline;
+      background: var(--nav-link-hover-bg);
+    }
+    .home-nav-more > summary:focus-visible {
+      border-bottom-color: var(--focus-ring);
+      background: var(--nav-link-hover-bg);
+    }
+    .home-nav-more-menu {
+      list-style: none;
+      margin: 0.45rem 0 0;
+      padding: 0.4rem;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      display: grid;
+      gap: 0.35rem;
+      min-width: 11.25rem;
+      max-width: min(16rem, calc(100vw - 2rem));
+      background: var(--bg-header);
+      border: 1px solid var(--line-soft);
+      border-radius: 0.65rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      z-index: 120;
+    }
+    .home-nav-more-menu a {
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 0.5rem;
     }
     .theme-toggle {
       border: 1px solid var(--toggle-border);
@@ -300,6 +363,7 @@
         url("{{ '/assets/hero-genomics.svg' | relative_url }}")
         center / cover no-repeat;
       border-bottom: 4px solid var(--brand-red-bright);
+      box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.16);
       color: var(--white);
       text-align: center;
       padding: clamp(4rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 5rem);
@@ -587,8 +651,15 @@
         gap: 0.65rem;
       }
       .home-nav-links {
+        width: 100%;
         justify-content: center;
         flex-basis: 100%;
+        gap: 0.65rem;
+      }
+      .home-nav-more-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 
@@ -596,6 +667,24 @@
       .home-site-nav { flex-direction: column; align-items: center; padding: 0.9rem 1rem; gap: 0.6rem; }
       .home-site-nav .logo-link { white-space: normal; justify-content: center; text-align: center; }
       .home-nav-links { width: 100%; flex-wrap: wrap; gap: 0.75rem 0.6rem; justify-content: center; }
+      .home-nav-more-menu {
+        position: static;
+        transform: none;
+        margin-top: 0.5rem;
+        max-width: 100%;
+      }
+      .theme-toggle {
+        width: 2.85rem;
+        height: 1.7rem;
+      }
+      .theme-toggle-thumb {
+        left: 0.16rem;
+        width: 1rem;
+        height: 1rem;
+      }
+      .theme-toggle[aria-checked="true"] .theme-toggle-thumb {
+        left: calc(100% - 1.16rem);
+      }
       .section { padding: 3.5rem 1rem; }
       .hero {
         padding-inline: 1rem;
@@ -623,12 +712,19 @@
         <span class="logo-mark" aria-hidden="true">CGs</span> <span class="logo-accent">Gordy–Goller</span> Lab
       </a>
       <ul class="home-nav-links" role="list">
-        <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
         <li><a href="{{ '/schedule' | relative_url }}"{% if page.url == '/schedule/' %} aria-current="page"{% endif %}>Schedule</a></li>
         <li><a href="{{ '/protocols' | relative_url }}"{% if page.url == '/protocols/' %} aria-current="page"{% endif %}>Protocols</a></li>
-        <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
         <li><a href="{{ '/professional-development' | relative_url }}"{% if page.url == '/professional-development/' %} aria-current="page"{% endif %}>Professional Dev</a></li>
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
+        <li>
+          <details class="home-nav-more">
+            <summary aria-haspopup="true" aria-expanded="false">More</summary>
+            <ul class="home-nav-more-menu" role="list" aria-label="More navigation links">
+              <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
+              <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
+            </ul>
+          </details>
+        </li>
       </ul>
       <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark theme">
         <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
@@ -768,25 +864,47 @@
       const THEME_KEY = "cgs-theme";
       const root = document.documentElement;
       const toggle = document.querySelector(".theme-toggle");
-      if (!toggle) return;
+      const moreDetails = document.querySelector(".home-nav-more");
+      const moreSummary = moreDetails ? moreDetails.querySelector("summary") : null;
 
-      function updateToggle(theme) {
-        const isDark = theme === "dark";
-        toggle.setAttribute("aria-checked", String(isDark));
-        toggle.setAttribute("title", isDark ? "Dark theme on" : "Dark theme off");
+      if (toggle) {
+        function updateToggle(theme) {
+          const isDark = theme === "dark";
+          toggle.setAttribute("aria-checked", String(isDark));
+          toggle.setAttribute("title", isDark ? "Dark theme on" : "Dark theme off");
+        }
+
+        function setTheme(theme) {
+          root.setAttribute("data-theme", theme);
+          localStorage.setItem(THEME_KEY, theme);
+          updateToggle(theme);
+        }
+
+        updateToggle(root.getAttribute("data-theme") || "light");
+        toggle.addEventListener("click", function () {
+          const next = (root.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";
+          setTheme(next);
+        });
       }
 
-      function setTheme(theme) {
-        root.setAttribute("data-theme", theme);
-        localStorage.setItem(THEME_KEY, theme);
-        updateToggle(theme);
+      if (moreDetails && moreSummary) {
+        const syncMoreExpanded = function () {
+          moreSummary.setAttribute("aria-expanded", String(moreDetails.open));
+        };
+        syncMoreExpanded();
+        moreDetails.addEventListener("toggle", syncMoreExpanded);
+        moreDetails.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            moreDetails.open = false;
+            moreSummary.focus();
+          }
+        });
+        document.addEventListener("click", function (event) {
+          if (moreDetails.open && !moreDetails.contains(event.target)) {
+            moreDetails.open = false;
+          }
+        });
       }
-
-      updateToggle(root.getAttribute("data-theme") || "light");
-      toggle.addEventListener("click", function () {
-        const next = (root.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";
-        setTheme(next);
-      });
     })();
   </script>
 

@@ -898,6 +898,7 @@
           moreToggle.setAttribute("aria-label", isOpen ? "More navigation links, expanded" : "More navigation links, collapsed");
           moreMenu.hidden = !isOpen;
         };
+        moreMenuWrap.__setMoreOpen = setMoreOpen;
         setMoreOpen(false);
         moreToggle.addEventListener("click", function () {
           const isOpen = moreToggle.getAttribute("aria-expanded") === "true";
@@ -921,14 +922,22 @@
             setMoreOpen(false);
           }
         });
-        if (!document.documentElement.dataset.cgsMoreOutsideClickBound) {
-          document.documentElement.dataset.cgsMoreOutsideClickBound = "true";
-          document.addEventListener("click", function (event) {
-            if (moreToggle.getAttribute("aria-expanded") === "true" && !moreMenuWrap.contains(event.target)) {
-              setMoreOpen(false);
+      }
+
+      if (!document.documentElement.dataset.cgsMoreOutsideClickBound) {
+        document.documentElement.dataset.cgsMoreOutsideClickBound = "true";
+        document.addEventListener("click", function (event) {
+          document.querySelectorAll(".home-nav-more").forEach(function (menuWrap) {
+            const toggleButton = menuWrap.querySelector(".home-nav-more-toggle");
+            if (!toggleButton) return;
+            const isOpen = toggleButton.getAttribute("aria-expanded") === "true";
+            if (isOpen && !menuWrap.contains(event.target)) {
+              if (typeof menuWrap.__setMoreOpen === "function") {
+                menuWrap.__setMoreOpen(false);
+              }
             }
           });
-        }
+        });
       }
     })();
   </script>

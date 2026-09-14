@@ -389,8 +389,12 @@
       const siteBaseUrl = "{{ site.baseurl | default: '' }}";
       const normalizeNavPath = function (value) {
         if (!value) return "";
-        const parsed = new URL(value, window.location.origin);
-        let pathname = parsed.pathname || "/";
+        let pathname = "";
+        try {
+          pathname = new URL(value, window.location.origin).pathname || "/";
+        } catch (error) {
+          return "";
+        }
         if (siteBaseUrl && pathname.indexOf(siteBaseUrl) === 0) {
           pathname = pathname.slice(siteBaseUrl.length) || "/";
         }

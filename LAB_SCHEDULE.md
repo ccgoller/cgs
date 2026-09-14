@@ -11,24 +11,36 @@ permalink: /schedule
 {% include download_links.html markdown_url="/downloads/lab-availability.md" pdf_url="/downloads/lab-availability.pdf" %}
 
 <style>
-  .lab-availability-table {
-    width: 100%;
-    min-width: 34rem;
-    border-collapse: collapse;
-    margin: 1rem 0 1.5rem 0;
-  }
   .lab-availability-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border: 1px solid rgba(79, 79, 79, 0.25);
-    border-radius: 0.2rem;
     margin: 1rem 0 1.5rem 0;
+    border: 1px solid var(--border-sidebar);
+    border-radius: 0.2rem;
+    background-color: var(--surface-elevated);
+  }
+  .lab-availability-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 34rem;
   }
   .lab-availability-table th,
   .lab-availability-table td {
-    border: 1px solid #4f4f4f;
+    border: 1px solid var(--border-sidebar);
     padding: 0.55rem;
     vertical-align: top;
+    color: var(--text-main);
+    background-color: var(--surface-elevated);
+  }
+  .lab-availability-table th {
+    background-color: #fbe9ea;
+    color: var(--text-main);
+  }
+  [data-theme="dark"] .lab-availability-table th {
+    background-color: #352124;
+  }
+  .lab-availability-table em {
+    color: var(--text-muted);
   }
   .available-slot {
     display: block;
@@ -49,13 +61,15 @@ permalink: /schedule
     width: 100%;
     max-width: 100%;
     min-height: 37.5rem;
-    border: 0;
+    border: 1px solid var(--border-sidebar);
+    border-radius: 0.2rem;
+    background-color: var(--surface-elevated);
   }
 </style>
 
 ## 📚 Thomas Hall Weekly Lab Schedule (Fall Semester)
 
-<div class="lab-availability-table-wrap" tabindex="0" aria-label="Weekly research availability table. Scroll horizontally to view all columns.">
+<div class="lab-availability-table-wrap" tabindex="0" aria-label="Scrollable weekly research availability table for Labs 1503 and 1512 (Thomas Hall)">
   <table class="lab-availability-table" aria-label="Weekly research availability for Labs 1503 and 1512 (Thomas Hall)">
     <thead>
       <tr>
@@ -101,7 +115,9 @@ permalink: /schedule
 
 If the embedded calendar is difficult to use on your device, open the [CGS Lab live calendar directly in Google Calendar](https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York).
 
-<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" class="calendar-frame" height="600" scrolling="no" loading="lazy"><a href="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York">Open the CGS Lab live calendar in Google Calendar.</a></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" class="calendar-frame" height="600" scrolling="no" loading="lazy">
+  View the <a href="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York">CGS Lab live calendar in Google Calendar</a>.
+</iframe>
 
 ## 📚 Repository Wiki
 

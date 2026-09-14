@@ -11,6 +11,48 @@ Search the live inventory spreadsheet and filter items by any text value.
 > Source sheet: [Inventory spreadsheet](https://docs.google.com/spreadsheets/d/18TwnlgLCAB2be3Lkxc88MYYK7kQ2talrEXlg7IwrvVI/edit?usp=drivesdk)
 
 <style>
+  .inventory-request {
+    margin: 0.6rem 0 0.85rem 0;
+  }
+  .inventory-request-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border: 2px solid var(--brand-red);
+    border-radius: 6px;
+    padding: 0.85rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    background: var(--brand-red);
+    color: #fff !important;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .inventory-request-button:visited {
+    background: var(--brand-red);
+    border-color: var(--brand-red);
+    color: #fff;
+  }
+  .inventory-request-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    text-decoration: none;
+    background: var(--brand-red-dark);
+    border-color: var(--brand-red-dark);
+    color: #fff;
+  }
+  .inventory-request-button:active {
+    background: var(--brand-red-dark);
+    border-color: var(--brand-red-dark);
+    color: #fff;
+  }
+  .inventory-request-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(204,0,0,0.6), 0 0 0 10px rgba(255,255,255,0.25);
+    color: #fff;
+  }
   .inventory-controls {
     display: grid;
     grid-template-columns: 2fr 1fr auto;
@@ -50,6 +92,69 @@ Search the live inventory spreadsheet and filter items by any text value.
     color: var(--muted);
     font-size: 0.9rem;
   }
+  .inventory-chart {
+    margin: 1.1rem 0 1rem 0;
+    padding: 0.9rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 0.35rem;
+    background: rgba(255, 255, 255, 0.45);
+  }
+  .inventory-chart-title {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.1rem;
+  }
+  .inventory-chart-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.4rem;
+  }
+  .inventory-chart-export {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .inventory-chart-export .inventory-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background: #b44;
+    border-color: #8f3434;
+  }
+  .inventory-chart-summary {
+    margin: 0.75rem 0 0.6rem 0;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .inventory-chart-list {
+    display: grid;
+    gap: 0.55rem;
+  }
+  .inventory-chart-row {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr) auto;
+    gap: 0.7rem;
+    align-items: center;
+  }
+  .inventory-chart-name {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  .inventory-chart-track {
+    width: 100%;
+    height: 1rem;
+    border-radius: 999px;
+    background: #ececec;
+    overflow: hidden;
+  }
+  .inventory-chart-fill {
+    height: 100%;
+    min-width: 0;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-red-dark));
+    border-radius: 999px;
+  }
+  .inventory-chart-total {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
   .inventory-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -79,11 +184,29 @@ Search the live inventory spreadsheet and filter items by any text value.
     color: var(--muted);
   }
   @media (max-width: 760px) {
+    .inventory-request-button {
+      display: flex;
+      width: 100%;
+    }
     .inventory-controls {
       grid-template-columns: 1fr;
     }
+    .inventory-chart-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
   }
 </style>
+
+<p class="inventory-request">
+  <a
+    class="inventory-request-button"
+    href="https://docs.google.com/spreadsheets/d/1ND5yHu2dxlJKNNGT6ja19kb7lLZpjMubFtNuRZ90mW4/edit?gid=85868532#gid=85868532"
+    aria-label="Add Reagent Request (opens in a new tab)"
+    target="_blank"
+    rel="noopener"
+  >➕ Add Reagent Request</a>
+</p>
 
 <form class="inventory-controls" aria-label="Inventory search controls" onsubmit="return false;">
   <div class="inventory-control">
@@ -99,9 +222,44 @@ Search the live inventory spreadsheet and filter items by any text value.
   <button id="inventoryClearButton" class="inventory-button" type="button">Clear search</button>
 </form>
 
+<section class="inventory-chart" aria-labelledby="inventoryChartTitle">
+  <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Totals Chart</h2>
+  <div class="inventory-controls inventory-chart-controls" aria-label="Inventory chart controls">
+    <div class="inventory-control">
+      <label class="inventory-label" for="inventoryChartGroupSelect">Group totals by</label>
+      <select id="inventoryChartGroupSelect" class="inventory-select" disabled>
+        <option value="">Loading columns…</option>
+      </select>
+    </div>
+    <div class="inventory-control">
+      <label class="inventory-label" for="inventoryChartValueSelect">Total using</label>
+      <select id="inventoryChartValueSelect" class="inventory-select" disabled>
+        <option value="__rows__">Row count</option>
+      </select>
+    </div>
+  </div>
+  <p id="inventoryChartSummary" class="inventory-chart-summary" aria-live="polite">
+    Loading chart…
+  </p>
+  <div class="inventory-chart-export" aria-label="Inventory chart export options">
+    <button id="inventoryChartExportImageButton" class="inventory-button" type="button" disabled>
+      Export chart as image
+    </button>
+    <button id="inventoryChartExportCsvButton" class="inventory-button" type="button" disabled>
+      Export chart as CSV
+    </button>
+  </div>
+  <div id="inventoryChartList" class="inventory-chart-list" role="list" aria-live="polite">
+    <div class="inventory-empty" role="listitem">Loading chart…</div>
+  </div>
+  <p class="inventory-meta">
+    Choose any column to see grouped totals, or switch to row count when a numeric total is not needed.
+  </p>
+</section>
+
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
 
-<div class="inventory-table-wrap" tabindex="0" aria-label="Inventory results table. Scroll horizontally to view all columns.">
+<div class="inventory-table-wrap" tabindex="0" aria-label="Scrollable inventory results table">
   <table id="inventoryTable" class="inventory-table" aria-label="Inventory results">
     <thead></thead>
     <tbody>
@@ -123,9 +281,16 @@ Search the live inventory spreadsheet and filter items by any text value.
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
     const meta = document.getElementById("inventoryMeta");
+    const chartGroupSelect = document.getElementById("inventoryChartGroupSelect");
+    const chartValueSelect = document.getElementById("inventoryChartValueSelect");
+    const chartSummary = document.getElementById("inventoryChartSummary");
+    const chartList = document.getElementById("inventoryChartList");
+    const chartExportImageButton = document.getElementById("inventoryChartExportImageButton");
+    const chartExportCsvButton = document.getElementById("inventoryChartExportCsvButton");
 
     let headers = [];
     let records = [];
+    let currentChartSeries = [];
 
     const parseCsv = (text) => {
       const rows = [];
@@ -242,6 +407,286 @@ Search the live inventory spreadsheet and filter items by any text value.
       });
     };
 
+    const findHeader = (pattern, fallback = "") =>
+      headers.find((header) => pattern.test(String(header || ""))) || fallback;
+
+    const parseCount = (value) => {
+      const cleaned = String(value ?? "").replace(/[^0-9.-]/g, "");
+      const numeric = Number.parseFloat(cleaned);
+      return Number.isFinite(numeric) ? Math.max(0, numeric) : NaN;
+    };
+
+    const getNumericHeaders = () =>
+      headers.filter((header) =>
+        records.some((record) => Number.isFinite(parseCount(record[header])))
+      );
+
+    const formatChartLabel = (value) => value || "(Blank)";
+
+    const formatChartTotal = (value) =>
+      Number.isInteger(value) ? String(value) : value.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+    const sanitizeFilePart = (value) =>
+      String(value || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "") || "chart";
+
+    const chartExportBaseName = () => {
+      const groupPart = sanitizeFilePart(chartGroupSelect.value || "group");
+      const valuePart = chartValueSelect.value === "__rows__"
+        ? "row-count"
+        : sanitizeFilePart(chartValueSelect.value || "value");
+      return `inventory-totals-${groupPart}-${valuePart}`;
+    };
+
+    const downloadBlob = (blob, filename) => {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    };
+
+    const csvEscape = (value) => {
+      const text = String(value ?? "");
+      if (/[",\r\n]/.test(text)) return `"${text.replace(/"/g, "\"\"")}"`;
+      return text;
+    };
+
+    const exportChartCsv = () => {
+      if (!currentChartSeries.length) return;
+      const groupLabel = chartGroupSelect.value || "Group";
+      const valueLabel = chartValueSelect.value === "__rows__" ? "Row count" : chartValueSelect.value;
+      const lines = [
+        [groupLabel, valueLabel].map(csvEscape).join(","),
+        ...currentChartSeries.map((item) => [item.name, item.total].map(csvEscape).join(","))
+      ];
+      const csvContent = `${lines.join("\r\n")}\r\n`;
+      const csvBlob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      downloadBlob(csvBlob, `${chartExportBaseName()}.csv`);
+    };
+
+    const drawRoundedRect = (context, x, y, width, height, radius) => {
+      const r = Math.max(0, Math.min(radius, width / 2, height / 2));
+      context.beginPath();
+      context.moveTo(x + r, y);
+      context.lineTo(x + width - r, y);
+      context.arcTo(x + width, y, x + width, y + r, r);
+      context.lineTo(x + width, y + height - r);
+      context.arcTo(x + width, y + height, x + width - r, y + height, r);
+      context.lineTo(x + r, y + height);
+      context.arcTo(x, y + height, x, y + height - r, r);
+      context.lineTo(x, y + r);
+      context.arcTo(x, y, x + r, y, r);
+      context.closePath();
+    };
+
+    const clipText = (text, maxLength) => {
+      const value = String(text ?? "");
+      if (value.length <= maxLength) return value;
+      return `${value.slice(0, Math.max(0, maxLength - 1))}…`;
+    };
+
+    const exportChartImage = () => {
+      if (!currentChartSeries.length) return;
+
+      const padding = 28;
+      const titleHeight = 34;
+      const summaryHeight = 20;
+      const rowHeight = 34;
+      const labelWidth = 280;
+      const barWidth = 460;
+      const totalWidth = 120;
+      const width = padding * 2 + labelWidth + barWidth + totalWidth + 32;
+      const height = padding * 2 + titleHeight + summaryHeight + currentChartSeries.length * rowHeight + 16;
+      const canvas = document.createElement("canvas");
+      const scale = Math.max(1, window.devicePixelRatio || 1);
+      canvas.width = Math.ceil(width * scale);
+      canvas.height = Math.ceil(height * scale);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      const context = canvas.getContext("2d");
+      if (!context) return;
+      context.scale(scale, scale);
+
+      context.fillStyle = "#ffffff";
+      context.fillRect(0, 0, width, height);
+
+      context.fillStyle = "#1f2328";
+      context.font = "700 22px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+      context.fillText("Inventory Totals Chart", padding, padding + 20);
+
+      context.fillStyle = "#4f5966";
+      context.font = "500 13px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+      context.fillText(clipText(chartSummary.textContent || "", 130), padding, padding + titleHeight + 8);
+
+      const maxTotal = Math.max(...currentChartSeries.map((item) => item.total), 0);
+      const chartStartY = padding + titleHeight + summaryHeight + 10;
+      const barStartX = padding + labelWidth + 14;
+      const totalX = barStartX + barWidth + 16;
+      const gradient = context.createLinearGradient(barStartX, 0, barStartX + barWidth, 0);
+      gradient.addColorStop(0, "#cc0000");
+      gradient.addColorStop(1, "#7a0000");
+
+      currentChartSeries.forEach((item, index) => {
+        const rowY = chartStartY + index * rowHeight;
+        const centerY = rowY + rowHeight / 2;
+        const trackY = centerY - 7;
+        const fillWidth = maxTotal > 0 ? (item.total / maxTotal) * barWidth : 0;
+
+        context.fillStyle = "#1f2328";
+        context.font = "600 13px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+        context.textBaseline = "middle";
+        context.fillText(clipText(item.name, 38), padding, centerY);
+
+        context.fillStyle = "#e7e7e7";
+        drawRoundedRect(context, barStartX, trackY, barWidth, 14, 7);
+        context.fill();
+
+        context.fillStyle = gradient;
+        drawRoundedRect(context, barStartX, trackY, fillWidth, 14, 7);
+        context.fill();
+
+        context.fillStyle = "#1f2328";
+        context.textAlign = "right";
+        context.fillText(formatChartTotal(item.total), totalX + totalWidth - 4, centerY);
+        context.textAlign = "left";
+      });
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        downloadBlob(blob, `${chartExportBaseName()}.png`);
+      }, "image/png");
+    };
+
+    const buildGroupedSeries = (groupHeader, valueHeader) => {
+      if (!groupHeader) return [];
+
+      const grouped = new Map();
+      records.forEach((record) => {
+        const groupName = formatChartLabel(String(record[groupHeader] ?? "").trim());
+        const increment = valueHeader === "__rows__"
+          ? 1
+          : parseCount(record[valueHeader]);
+
+        if (!Number.isFinite(increment) || increment <= 0) return;
+        grouped.set(groupName, (grouped.get(groupName) || 0) + increment);
+      });
+
+      return Array.from(grouped.entries())
+        .map(([name, total]) => ({ name, total }))
+        .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+    };
+
+    const populateChartControls = () => {
+      const numericHeaders = getNumericHeaders();
+      const preferredGroupHeader =
+        chartGroupSelect.value ||
+        findHeader(/category|type|group|class|section|department/i, "") ||
+        findHeader(/item|reagent|name|material|product/i, "") ||
+        headers[0] ||
+        "";
+      const preferredValueHeader =
+        chartValueSelect.value ||
+        findHeader(/count|qty|quantity|stock|on\s*hand|amount|units?/i, "") ||
+        numericHeaders[0] ||
+        "__rows__";
+
+      chartGroupSelect.innerHTML = "";
+      headers.forEach((header) => {
+        const option = document.createElement("option");
+        option.value = header;
+        option.textContent = header || "(Unnamed column)";
+        chartGroupSelect.appendChild(option);
+      });
+
+      chartValueSelect.innerHTML = "";
+      const rowCountOption = document.createElement("option");
+      rowCountOption.value = "__rows__";
+      rowCountOption.textContent = "Row count";
+      chartValueSelect.appendChild(rowCountOption);
+
+      numericHeaders.forEach((header) => {
+        const option = document.createElement("option");
+        option.value = header;
+        option.textContent = header || "(Unnamed numeric column)";
+        chartValueSelect.appendChild(option);
+      });
+
+      chartGroupSelect.disabled = !headers.length;
+      chartValueSelect.disabled = !headers.length;
+
+      if (headers.includes(preferredGroupHeader)) {
+        chartGroupSelect.value = preferredGroupHeader;
+      } else if (headers.length) {
+        chartGroupSelect.value = headers[0];
+      }
+
+      if (preferredValueHeader === "__rows__" || numericHeaders.includes(preferredValueHeader)) {
+        chartValueSelect.value = preferredValueHeader;
+      } else {
+        chartValueSelect.value = "__rows__";
+      }
+    };
+
+    const renderInventoryChart = () => {
+      const groupHeader = chartGroupSelect.value;
+      const valueHeader = chartValueSelect.value;
+      const selectedSeries = buildGroupedSeries(groupHeader, valueHeader);
+
+      chartList.innerHTML = "";
+      currentChartSeries = selectedSeries;
+      const hasSeries = selectedSeries.length > 0;
+      chartExportImageButton.disabled = !hasSeries;
+      chartExportCsvButton.disabled = !hasSeries;
+
+      if (!groupHeader || !hasSeries) {
+        chartSummary.textContent = headers.length
+          ? "No totals are available for the selected chart settings."
+          : "Load inventory data to view totals.";
+        chartList.innerHTML = `<div class="inventory-empty" role="listitem">No grouped totals available.</div>`;
+        return;
+      }
+
+      const maxTotal = Math.max(...selectedSeries.map((item) => item.total), 0);
+      const valueLabel = valueHeader === "__rows__" ? "row count" : valueHeader;
+      chartSummary.textContent = `Showing ${selectedSeries.length} grouped total${selectedSeries.length === 1 ? "" : "s"} by ${groupHeader} using ${valueLabel}.`;
+
+      const fragment = document.createDocumentFragment();
+      selectedSeries.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "inventory-chart-row";
+        row.setAttribute("role", "listitem");
+
+        const name = document.createElement("div");
+        name.className = "inventory-chart-name";
+        name.textContent = item.name;
+
+        const track = document.createElement("div");
+        track.className = "inventory-chart-track";
+        track.setAttribute("aria-hidden", "true");
+
+        const fill = document.createElement("div");
+        fill.className = "inventory-chart-fill";
+        fill.style.width = `${maxTotal > 0 ? (item.total / maxTotal) * 100 : 0}%`;
+        track.appendChild(fill);
+
+        const total = document.createElement("div");
+        total.className = "inventory-chart-total";
+        total.textContent = formatChartTotal(item.total);
+
+        row.append(name, track, total);
+        fragment.appendChild(row);
+      });
+
+      chartList.appendChild(fragment);
+    };
+
     const loadSheet = async () => {
       try {
         const response = await fetch(csvUrl, { cache: "no-store" });
@@ -260,17 +705,31 @@ Search the live inventory spreadsheet and filter items by any text value.
         });
 
         populateColumnFilter();
+        populateChartControls();
+        renderInventoryChart();
         renderTable(records);
       } catch (error) {
         thead.innerHTML = "";
         tbody.innerHTML = `<tr><td class="inventory-empty">Could not load sheet data. Ensure the sheet is published/shared for public viewing.</td></tr>`;
         meta.textContent = "Inventory load failed.";
+        chartGroupSelect.innerHTML = `<option value="">Inventory unavailable</option>`;
+        chartGroupSelect.disabled = true;
+        chartValueSelect.innerHTML = `<option value="__rows__">Row count</option>`;
+        chartValueSelect.disabled = true;
+        chartExportImageButton.disabled = true;
+        chartExportCsvButton.disabled = true;
+        chartSummary.textContent = "Inventory chart unavailable.";
+        chartList.innerHTML = `<div class="inventory-empty" role="listitem">Could not load chart data.</div>`;
         console.error("Inventory load failed:", error);
       }
     };
 
     searchInput.addEventListener("input", applyFilter);
     columnSelect.addEventListener("change", applyFilter);
+    chartGroupSelect.addEventListener("change", renderInventoryChart);
+    chartValueSelect.addEventListener("change", renderInventoryChart);
+    chartExportImageButton.addEventListener("click", exportChartImage);
+    chartExportCsvButton.addEventListener("click", exportChartCsv);
     clearButton.addEventListener("click", () => {
       searchInput.value = "";
       columnSelect.value = "__all__";

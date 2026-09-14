@@ -16,6 +16,113 @@
     --white:           #FFFFFF;
     --focus-ring:      #CC0000;   /* matches home.html focus ring */
     --focus-ring-soft: rgba(204, 0, 0, 0.18);
+    --bg-page:         #ffffff;
+    --bg-sidebar:      #f1f3f5;
+    --border-sidebar:  #d0d7de;
+    --text-main:       #1a1a1a;
+    --text-muted:      #5f5f5f;
+    --surface-elevated:#ffffff;
+    --toggle-bg:       #ffffff;
+    --toggle-border:   #c5ccd3;
+    --toggle-track:    #6b7280;
+    --toggle-thumb:    #ffffff;
+    --link-color:      #990000;
+    --link-hover:      #660000;
+    --nav-link:        #1f2328;
+    --nav-link-hover-bg:#f6d9da;
+    --nav-active-text: #7a0000;
+    --nav-active-bg:   #fbe9ea;
+    --nav-current-indicator:#cc0000;
+    --nav-title:       #424a53;
+  }
+
+  [data-theme="dark"] {
+    --brand-red-bright:#FF6B6F;
+    --brand-red-dark:  #B30000;
+    --brand-light:     #1f1f21;
+    --text:            #f4f4f4;
+    --muted:           #c8c8c8;
+    --focus-ring:      #FF6B6F;
+    --focus-ring-soft: rgba(255, 107, 111, 0.28);
+    --bg-page:         #121214;
+    --bg-sidebar:      #18181b;
+    --border-sidebar:  #313138;
+    --text-main:       #f4f4f4;
+    --text-muted:      #d1d5db;
+    --surface-elevated:#222228;
+    --toggle-bg:       #222228;
+    --toggle-border:   #52525b;
+    --toggle-track:    #FF6B6F;
+    --toggle-thumb:    #121214;
+    --link-color:      #ff8f93;
+    --link-hover:      #ffc2c5;
+    --nav-link:        #ffffff;
+    --nav-link-hover-bg:#4a2226;
+    --nav-active-text: #ffffff;
+    --nav-active-bg:   #5c2025;
+    --nav-current-indicator:#ff8f93;
+    --nav-title:       #f3f4f6;
+  }
+
+  body {
+    background-color: var(--bg-page) !important;
+    color: var(--text-main) !important;
+  }
+
+  .main-content-wrap,
+  .main-content {
+    background-color: var(--bg-page) !important;
+    color: var(--text-main) !important;
+  }
+
+  .main-content p,
+  .main-content li,
+  .main-content dd,
+  .main-content dt,
+  .main-content td,
+  .main-content th,
+  .main-content blockquote {
+    color: var(--text-main) !important;
+  }
+
+  .main-content h1,
+  .main-content h2,
+  .main-content h3,
+  .main-content h4,
+  .main-content h5,
+  .main-content h6 {
+    color: var(--text-main) !important;
+  }
+
+  .main-content table,
+  .main-content pre,
+  .main-content .code-example,
+  .main-content .highlight,
+  .main-content blockquote {
+    background-color: var(--surface-elevated) !important;
+    border-color: var(--border-sidebar) !important;
+  }
+
+  .main-content hr {
+    border-color: var(--border-sidebar) !important;
+  }
+
+  /* ─── Skip link for all pages ────────────────────────────────── */
+  .skip-link-global {
+    position: absolute;
+    top: -999px;
+    left: 0;
+    z-index: 9999;
+    background: var(--focus-ring);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 4px 0;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  }
+  .skip-link-global:focus {
+    top: 0;
   }
 
   /* ─── Global focus style ──────────────────────────────────────
@@ -36,10 +143,10 @@
      Just the Docs defaults to purple; override to brand red.
   ──────────────────────────────────────────────────────────────── */
   .main-content a {
-    color: var(--brand-red);
+    color: var(--link-color);
   }
   .main-content a:hover {
-    color: #990000;
+    color: var(--link-hover);
   }
 
   /* ─── Light navigation sidebar ───────────────────────────────
@@ -49,57 +156,76 @@
 
   /* Sidebar background */
   .side-bar,
-  .site-header,
-  .main-header {
-    background-color: #f1f3f5 !important;
-    border-right-color: #d0d7de !important;
+  nav.site-nav,
+  .site-header {
+    background-color: var(--bg-sidebar) !important;
+    border-right-color: var(--border-sidebar) !important;
   }
 
   /* Site title / logo in sidebar */
   .site-title {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
     font-weight: 700;
   }
   .site-title:hover {
     background-color: rgba(224, 58, 62, 0.08) !important;
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
+  }
+  [data-theme="dark"] .site-title:hover {
+    background-color: rgba(255, 107, 111, 0.2) !important;
   }
 
   /* Top navigation bar (mobile) */
   .site-header .site-button {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
   }
   .site-header .site-button:hover,
-  .site-header .site-button:focus,
-  .site-header .site-button:focus-visible {
-    color: #000000 !important;
-    background-color: rgba(224, 58, 62, 0.10) !important;
+  .site-header .site-button:focus {
+    background-color: var(--nav-link-hover-bg) !important;
   }
 
   /* All sidebar nav links */
   .nav-list .nav-list-link {
-    color: var(--brand-dark) !important;
+    color: var(--nav-link) !important;
   }
   .nav-list .nav-list-link:hover,
-  .nav-list .nav-list-link:focus,
-  .nav-list .nav-list-expander:hover,
-  .nav-list .nav-list-expander:focus,
-  .nav-list .nav-list-expander:focus-visible {
-    color: #000000 !important;
-    background-color: rgba(224, 58, 62, 0.10) !important;
+  .nav-list .nav-list-link:focus {
+    color: var(--nav-link) !important;
+    background-color: var(--nav-link-hover-bg) !important;
+  }
+  .nav-list .nav-list-item > .nav-list-expander {
+    color: var(--nav-link) !important;
+  }
+  .nav-list .nav-list-item > .nav-list-expander:hover,
+  .nav-list .nav-list-item > .nav-list-expander:focus {
+    background-color: var(--nav-link-hover-bg) !important;
   }
 
   /* Active / current page link */
   .nav-list .nav-list-link.active {
-    color: #000000 !important;
+    color: var(--nav-active-text) !important;
     font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.12em;
+    position: relative;
+    padding-left: 1.45rem;
     border-left: 3px solid var(--brand-red-bright);
-    background-color: rgba(224, 58, 62, 0.14) !important;
+    background-color: var(--nav-active-bg) !important;
+  }
+  .nav-list .nav-list-link.active::before {
+    content: "▸";
+    position: absolute;
+    left: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--nav-current-indicator);
+    font-weight: 800;
   }
 
   /* Section headers inside nav */
   .nav-list-title {
-    color: #525252 !important;
+    color: var(--nav-title) !important;
     text-transform: uppercase;
     letter-spacing: 0.07em;
     font-size: 0.75rem;
@@ -108,28 +234,97 @@
   /* Auxiliary links (GitHub link, search bar area) */
   .aux-nav-list-item a,
   .aux-nav a {
-    color: var(--brand-dark) !important;
+    color: var(--text-main) !important;
   }
   .aux-nav-list-item a:hover,
   .aux-nav a:hover {
-    color: #000000 !important;
+    color: var(--text-main) !important;
   }
 
   /* Search input in dark sidebar */
   .search-input {
-    background-color: #ffffff !important;
-    color: var(--brand-dark) !important;
-    border-color: #c5ccd3 !important;
+    background-color: var(--surface-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--toggle-border) !important;
   }
   .search-input::placeholder {
-    color: #6b7280 !important;
+    color: var(--text-muted) !important;
   }
 
-  /* ─── Sidebar active and hover link ──────────────────────────── */
+  .search-result {
+    background-color: var(--surface-elevated) !important;
+    color: var(--text-main) !important;
+  }
 
   /* ─── Inline code and table accents ──────────────────────────── */
   .main-content code {
-    border-color: #d1d5db;
+    border-color: var(--toggle-border);
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: 0.75rem;
+    padding: 0.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--toggle-border);
+    background: var(--toggle-bg);
+    color: var(--text-main);
+    width: 3.4rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .theme-toggle:hover {
+    background: rgba(224, 58, 62, 0.12);
+  }
+  .theme-toggle:focus-visible {
+    outline: 3px solid var(--focus-ring) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px var(--focus-ring-soft) !important;
+  }
+  .theme-toggle-track {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--toggle-track);
+    transition: background-color 0.2s ease;
+  }
+  .theme-toggle-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.28);
+    transform: translateY(-50%);
+    transition: left 0.2s ease, background-color 0.2s ease;
+  }
+  .theme-toggle[aria-checked="true"] .theme-toggle-thumb {
+    left: calc(100% - 1.4rem);
+  }
+  .theme-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 799px) {
+    .theme-toggle {
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
   }
 
   /* ─── Reduced motion ──────────────────────────────────────────── */
@@ -140,11 +335,59 @@
     }
   }
 </style>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const main = document.querySelector("main");
-    if (main && !main.id) {
-      main.id = "main-content";
+  (function () {
+    const THEME_KEY = "cgs-theme";
+    const root = document.documentElement;
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const saved = localStorage.getItem(THEME_KEY);
+    const initial = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
+    root.setAttribute("data-theme", initial);
+
+    function applyTheme(theme, button) {
+      root.setAttribute("data-theme", theme);
+      localStorage.setItem(THEME_KEY, theme);
+      if (!button) return;
+      const isDark = theme === "dark";
+      button.setAttribute("role", "switch");
+      button.setAttribute("aria-checked", String(isDark));
+      button.setAttribute("aria-label", "Dark theme");
+      button.setAttribute("title", isDark ? "Dark theme on" : "Dark theme off");
     }
-  });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const body = document.body;
+      if (body && !document.querySelector(".skip-link-global")) {
+        const skipLink = document.createElement("a");
+        skipLink.className = "skip-link-global";
+        skipLink.href = "#main-content";
+        skipLink.textContent = "Skip to main content";
+        body.insertBefore(skipLink, body.firstChild);
+      }
+
+      const mainContent = document.querySelector("#main-content") || document.querySelector("main");
+      if (mainContent && !mainContent.id) {
+        mainContent.id = "main-content";
+      }
+
+      if (!document.querySelector(".theme-toggle")) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "theme-toggle";
+        button.innerHTML = '<span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Dark theme</span>';
+        const header = document.querySelector(".side-bar .site-header") || document.querySelector(".site-header");
+        if (header) {
+          header.appendChild(button);
+          applyTheme(root.getAttribute("data-theme") || "light", button);
+          button.addEventListener("click", function () {
+            const next = (root.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";
+            applyTheme(next, button);
+          });
+        }
+      } else {
+        applyTheme(root.getAttribute("data-theme") || "light", document.querySelector(".theme-toggle"));
+      }
+    });
+  })();
 </script>

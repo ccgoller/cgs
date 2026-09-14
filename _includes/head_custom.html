@@ -189,6 +189,10 @@
   }
 
   /* All sidebar nav links */
+  .site-nav .nav-list-link,
+  .site-nav .nav-list-expander {
+    background-image: none !important;
+  }
   .nav-list .nav-list-link {
     color: var(--nav-link) !important;
   }
@@ -206,7 +210,8 @@
   }
 
   /* Active / current page link */
-  .nav-list .nav-list-link.active {
+  .nav-list .nav-list-link.active,
+  .nav-list .nav-list-link[aria-current="page"] {
     color: var(--nav-active-text) !important;
     font-weight: 700;
     text-decoration: underline;
@@ -217,7 +222,8 @@
     border-left: 3px solid var(--brand-red-bright);
     background-color: var(--nav-active-bg) !important;
   }
-  .nav-list .nav-list-link.active::before {
+  .nav-list .nav-list-link.active::before,
+  .nav-list .nav-list-link[aria-current="page"]::before {
     content: "▸";
     position: absolute;
     left: 0.55rem;
@@ -379,6 +385,30 @@
       if (mainContent && !mainContent.id) {
         mainContent.id = "main-content";
       }
+
+      const siteBaseUrl = "{{ site.baseurl | default: '' }}";
+      const normalizeNavPath = function (value) {
+        if (!value) return "";
+        const parsed = new URL(value, window.location.origin);
+        let pathname = parsed.pathname || "/";
+        if (siteBaseUrl && pathname.indexOf(siteBaseUrl) === 0) {
+          pathname = pathname.slice(siteBaseUrl.length) || "/";
+        }
+        return pathname
+          .replace(/index\.html$/, "")
+          .replace(/\.html$/, "")
+          .replace(/\/+$/, "") || "/";
+      };
+
+      const currentPath = normalizeNavPath(window.location.pathname);
+      document.querySelectorAll(".site-nav .nav-list-link").forEach(function (link) {
+        const linkPath = normalizeNavPath(link.getAttribute("href") || link.href);
+        if (linkPath === currentPath) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
 
       if (!document.querySelector(".theme-toggle")) {
         const button = document.createElement("button");

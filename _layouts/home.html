@@ -253,7 +253,7 @@
       border-bottom-color: var(--focus-ring);
       background: var(--nav-link-hover-bg);
     }
-    .home-nav-more > summary {
+    .home-nav-more-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -273,19 +273,18 @@
       gap: 0.35rem;
       white-space: nowrap;
     }
-    .home-nav-more > summary::-webkit-details-marker { display: none; }
-    .home-nav-more > summary::after {
+    .home-nav-more-toggle::after {
       content: "▾";
       font-size: 0.82em;
       line-height: 1;
     }
-    .home-nav-more > summary:hover,
-    .home-nav-more[open] > summary {
+    .home-nav-more-toggle:hover,
+    .home-nav-more-toggle[aria-expanded="true"] {
       color: var(--nav-text-strong);
       text-decoration: underline;
       background: var(--nav-link-hover-bg);
     }
-    .home-nav-more > summary:focus-visible {
+    .home-nav-more-toggle:focus-visible {
       border-bottom-color: var(--focus-ring);
       background: var(--nav-link-hover-bg);
     }
@@ -311,6 +310,7 @@
       justify-content: flex-start;
       border-radius: 0.5rem;
     }
+    .home-nav-more-menu[hidden] { display: none; }
     .theme-toggle {
       border: 1px solid var(--toggle-border);
       background: var(--toggle-bg);
@@ -717,13 +717,13 @@
         <li><a href="{{ '/professional-development' | relative_url }}"{% if page.url == '/professional-development/' %} aria-current="page"{% endif %}>Professional Dev</a></li>
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
         <li>
-          <details class="home-nav-more">
-            <summary aria-controls="home-nav-more-menu">More</summary>
-            <ul id="home-nav-more-menu" class="home-nav-more-menu" role="list" aria-label="More navigation links">
+          <div class="home-nav-more">
+            <button class="home-nav-more-toggle" type="button" aria-controls="home-nav-more-menu" aria-expanded="false">More</button>
+            <ul id="home-nav-more-menu" class="home-nav-more-menu" role="list" aria-label="More navigation links" hidden>
               <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
               <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
             </ul>
-          </details>
+          </div>
         </li>
       </ul>
       <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark theme">
@@ -864,8 +864,9 @@
       const THEME_KEY = "cgs-theme";
       const root = document.documentElement;
       const toggle = document.querySelector(".theme-toggle");
-      const moreDetails = document.querySelector(".home-nav-more");
-      const moreSummary = moreDetails ? moreDetails.querySelector("summary") : null;
+      const moreMenuWrap = document.querySelector(".home-nav-more");
+      const moreToggle = document.querySelector(".home-nav-more-toggle");
+      const moreMenu = document.querySelector("#home-nav-more-menu");
 
       if (toggle) {
         function updateToggle(theme) {
@@ -887,35 +888,42 @@
         });
       }
 
-      if (moreDetails && moreSummary) {
-        moreDetails.addEventListener("keydown", function (event) {
+      if (moreMenuWrap && moreToggle && moreMenu) {
+        const setMoreOpen = function (isOpen) {
+          moreToggle.setAttribute("aria-expanded", String(isOpen));
+          moreMenu.hidden = !isOpen;
+        };
+        setMoreOpen(false);
+        moreToggle.addEventListener("click", function () {
+          const isOpen = moreToggle.getAttribute("aria-expanded") === "true";
+          setMoreOpen(!isOpen);
+        });
+        moreMenuWrap.addEventListener("keydown", function (event) {
           if (event.key === "Escape") {
-            moreDetails.open = false;
-            moreSummary.focus();
+            setMoreOpen(false);
+            moreToggle.focus();
           }
         });
-        moreDetails.addEventListener("focusout", function (event) {
+        moreMenuWrap.addEventListener("focusout", function (event) {
           if (event.relatedTarget) {
-            if (!moreDetails.contains(event.relatedTarget)) {
-              moreDetails.open = false;
+            if (!moreMenuWrap.contains(event.relatedTarget)) {
+              setMoreOpen(false);
             }
             return;
           }
           window.setTimeout(function () {
-            if (moreDetails.open && !moreDetails.contains(document.activeElement)) {
-              moreDetails.open = false;
+            if (!moreMenuWrap.contains(document.activeElement)) {
+              setMoreOpen(false);
             }
           }, 0);
         });
-        if (!moreDetails.dataset.outsideClickBound) {
-          moreDetails.dataset.outsideClickBound = "true";
-          const closeOnOutsideInteraction = function (event) {
-            if (moreDetails.open && !moreDetails.contains(event.target)) {
-              moreDetails.open = false;
+        if (!moreMenuWrap.dataset.outsideClickBound) {
+          moreMenuWrap.dataset.outsideClickBound = "true";
+          document.addEventListener("click", function (event) {
+            if (moreToggle.getAttribute("aria-expanded") === "true" && !moreMenuWrap.contains(event.target)) {
+              setMoreOpen(false);
             }
-          };
-          document.addEventListener("pointerdown", closeOnOutsideInteraction);
-          document.addEventListener("click", closeOnOutsideInteraction);
+          });
         }
       }
     })();

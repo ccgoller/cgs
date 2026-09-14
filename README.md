@@ -10,29 +10,29 @@ Welcome to the **Gordy–Goller Lab** teaching repository. This hub brings toget
 
 > **New to the lab?** Use this page to complete onboarding, prepare for weekly work, and explore the research themes that connect lab learning with active discovery.
 
-> **Site URL:** Open the hub at **https://delftia.org/**.
+> **Site URL:** Open the hub at **https://ccgoller.github.io/cgs/** (the `/cgs/` path is required).
 
 ---
 
 ## Start Here
 
-- **Complete required safety training** in the [Safety Training Checklist](https://delftia.org/safety) before handling equipment or samples.
-- **Review lab meeting times and expectations** in the [Lab Schedule](https://delftia.org/schedule).
-- **Set up your records early** with the [Electronic Lab Notebook Template](https://delftia.org/eln).
-- **Prepare for core techniques** with the [Common Protocols guide](https://delftia.org/protocols).
-- **Learn instrument basics and care** with the [Equipment Tutorials](https://delftia.org/equipment-tutorials).
-- **Plan your growth as a scientist** with the [Professional Development resources](https://delftia.org/professional-development).
+- **Complete required safety training** in the [Safety Training Checklist](https://ccgoller.github.io/cgs/safety) before handling equipment or samples.
+- **Review lab meeting times and expectations** in the [Lab Schedule](https://ccgoller.github.io/cgs/schedule).
+- **Set up your records early** with the [Electronic Lab Notebook Template](https://ccgoller.github.io/cgs/eln).
+- **Prepare for core techniques** with the [Common Protocols guide](https://ccgoller.github.io/cgs/protocols).
+- **Learn instrument basics and care** with the [Equipment Tutorials](https://ccgoller.github.io/cgs/equipment-tutorials).
+- **Plan your growth as a scientist** with the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development).
 
 ---
 
 ## Getting Started Checklist
 
-1. Read the [Safety Training Checklist](https://delftia.org/safety) and complete every required training.
-2. Check the [Lab Schedule](https://delftia.org/schedule) for section times, office hours, and important deadlines.
-3. Build your notebook structure using the [Electronic Lab Notebook Template](https://delftia.org/eln).
-4. Review the [Common Protocols guide](https://delftia.org/protocols) before your first wet-lab session.
-5. Review the [Equipment Tutorials](https://delftia.org/equipment-tutorials) before using shared instruments.
-6. Use the [Professional Development resources](https://delftia.org/professional-development) to set goals for the semester.
+1. Read the [Safety Training Checklist](https://ccgoller.github.io/cgs/safety) and complete every required training.
+2. Check the [Lab Schedule](https://ccgoller.github.io/cgs/schedule) for section times, office hours, and important deadlines.
+3. Build your notebook structure using the [Electronic Lab Notebook Template](https://ccgoller.github.io/cgs/eln).
+4. Review the [Common Protocols guide](https://ccgoller.github.io/cgs/protocols) before your first wet-lab session.
+5. Review the [Equipment Tutorials](https://ccgoller.github.io/cgs/equipment-tutorials) before using shared instruments.
+6. Use the [Professional Development resources](https://ccgoller.github.io/cgs/professional-development) to set goals for the semester.
 
 ---
 
@@ -65,7 +65,7 @@ Study *Delftia* species through questions in microbial ecology, genetics, and fu
 
 ## Contact and Communication
 
-- **Contact us:** Visit the [Contact Us page](https://delftia.org/contact) for the best ways to reach the lab team.
+- **Contact us:** Visit the [Contact Us page](https://ccgoller.github.io/cgs/contact) for the best ways to reach the lab team.
 - **Lab questions:** Post in the course discussion board before emailing the faculty.
 - **Safety concerns:** Contact your TA, peer mentor, or faculty immediately.
 - **Hub improvements:** Use [GitHub Issues](https://github.com/ccgoller/cgs/issues) to report broken links or suggest updates.

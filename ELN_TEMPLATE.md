@@ -167,4 +167,4 @@ LastName_FirstName_YYYYMMDD_ExperimentTitle.ext
 
 ---
 
-*Return to [Hub Home](/)*
+*Return to [Hub Home](/cgs/)*

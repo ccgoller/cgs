@@ -83,4 +83,4 @@ All organisms used in this course are **BSL-1** unless otherwise noted.
 
 ---
 
-*Return to [Hub Home](/)*
+*Return to [Hub Home](/cgs/)*

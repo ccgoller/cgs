@@ -100,7 +100,7 @@ Search the live inventory spreadsheet and filter items by any text value.
 
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
 
-<div class="inventory-table-wrap">
+<div class="inventory-table-wrap" tabindex="0" aria-label="Inventory results table. Scroll horizontally to view all columns.">
   <table id="inventoryTable" class="inventory-table" aria-label="Inventory results">
     <thead></thead>
     <tbody>

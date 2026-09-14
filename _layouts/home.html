@@ -867,9 +867,7 @@
       const THEME_KEY = "cgs-theme";
       const root = document.documentElement;
       const toggle = document.querySelector(".theme-toggle");
-      const moreMenuWrap = document.querySelector(".home-nav-more");
-      const moreToggle = document.querySelector(".home-nav-more-toggle");
-      const moreMenu = document.querySelector("#home-nav-more-menu");
+      const moreMenuWraps = document.querySelectorAll(".home-nav-more");
       const moreOpenSetters = new WeakMap();
 
       if (toggle) {
@@ -892,7 +890,10 @@
         });
       }
 
-      if (moreMenuWrap && moreToggle && moreMenu) {
+      moreMenuWraps.forEach(function (moreMenuWrap) {
+        const moreToggle = moreMenuWrap.querySelector(".home-nav-more-toggle");
+        const moreMenu = moreMenuWrap.querySelector(".home-nav-more-menu");
+        if (!moreToggle || !moreMenu) return;
         let isPointerInteractingWithinMore = false;
         const setMoreOpen = function (isOpen) {
           moreToggle.setAttribute("aria-expanded", String(isOpen));
@@ -922,7 +923,7 @@
             setMoreOpen(false);
           }
         });
-      }
+      });
 
       if (!document.documentElement.dataset.cgsMoreOutsideClickBound) {
         document.documentElement.dataset.cgsMoreOutsideClickBound = "true";

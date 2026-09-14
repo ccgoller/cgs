@@ -718,8 +718,8 @@
         <li><a href="{{ '/maintenance' | relative_url }}"{% if page.url == '/maintenance/' %} aria-current="page"{% endif %}>Lab Maintenance</a></li>
         <li>
           <details class="home-nav-more">
-            <summary aria-expanded="false">More</summary>
-            <ul class="home-nav-more-menu" role="list" aria-label="More navigation links">
+            <summary aria-controls="home-nav-more-menu" aria-expanded="false">More</summary>
+            <ul id="home-nav-more-menu" class="home-nav-more-menu" role="list" aria-label="More navigation links">
               <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
               <li><a href="{{ '/eln' | relative_url }}"{% if page.url == '/eln/' %} aria-current="page"{% endif %}>ELN</a></li>
             </ul>
@@ -900,7 +900,7 @@
           }
         });
         moreDetails.addEventListener("focusout", function (event) {
-          if (!moreDetails.contains(event.relatedTarget)) {
+          if (event.relatedTarget && !moreDetails.contains(event.relatedTarget)) {
             moreDetails.open = false;
           }
         });

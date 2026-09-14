@@ -386,7 +386,7 @@
         mainContent.id = "main-content";
       }
 
-      const siteBaseUrl = "{{ site.baseurl | default: '' }}";
+      const siteBaseUrl = ("{{ site.baseurl | default: '' }}" || "").replace(/\/+$/, "");
       const normalizeNavPath = function (value) {
         if (!value) return "";
         let pathname = "";
@@ -395,7 +395,7 @@
         } catch (error) {
           return "";
         }
-        if (siteBaseUrl && pathname.indexOf(siteBaseUrl) === 0) {
+        if (siteBaseUrl && (pathname === siteBaseUrl || pathname.indexOf(siteBaseUrl + "/") === 0)) {
           pathname = pathname.slice(siteBaseUrl.length) || "/";
         }
         return pathname

@@ -197,4 +197,4 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-*Return to [Hub Home](/cgs/)*
+*Return to [Hub Home](/)*

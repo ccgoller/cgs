@@ -97,4 +97,4 @@ If the embedded calendar is difficult to use on your device, open the [CGS Lab l
 
 [View the CGS Wiki](https://github.com/ccgoller/cgs/wiki)
 
-*Return to [Hub Home](/cgs/)*
+*Return to [Hub Home](/)*

@@ -1,7 +1,7 @@
 title: "Gordy–Goller Lab"
 description: "Undergraduate research-integrated teaching in genetics and microbiology at NC State University."
-baseurl: "/cgs"
-url: "https://ccgoller.github.io"
+baseurl: ""
+url: "https://delftia.org"
 
 theme: just-the-docs
 

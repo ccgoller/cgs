@@ -220,4 +220,4 @@ A biology degree opens many doors beyond academia.
 
 ---
 
-*Return to [Hub Home](/cgs/)*
+*Return to [Hub Home](/)*

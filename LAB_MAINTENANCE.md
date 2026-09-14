@@ -119,4 +119,4 @@ permalink: /maintenance
 
 ---
 
-*Return to [Hub Home](/cgs/)*
+*Return to [Hub Home](/)*

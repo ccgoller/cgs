@@ -202,4 +202,4 @@ Review the [E-Gel video](https://youtu.be/6_TtIGAm45w).
 
 ---
 
-*Return to [Hub Home](/cgs/)*
+*Return to [Hub Home](/)*

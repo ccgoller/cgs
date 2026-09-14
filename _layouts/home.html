@@ -80,7 +80,7 @@
     }
 
     /* ─── Top Nav Bar ───────────────────────────────────────── */
-    .site-header {
+    .home-site-header {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -89,7 +89,7 @@
       box-shadow: 0 8px 24px rgba(17,17,17,0.08);
       backdrop-filter: blur(10px);
     }
-    .site-nav {
+    .home-site-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -100,8 +100,8 @@
       max-width: var(--content-max);
       margin: 0 auto;
     }
-    .site-nav > * { min-width: 0; }
-    .site-nav .logo-link {
+    .home-site-nav > * { min-width: 0; }
+    .home-site-nav .home-logo-link {
       display: inline-flex;
       align-items: center;
       gap: 0.65rem;
@@ -112,7 +112,7 @@
       white-space: nowrap;
       text-decoration: none;
     }
-    .site-nav .logo-mark {
+    .home-site-nav .home-logo-mark {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -127,13 +127,13 @@
       letter-spacing: 0.02em;
       line-height: 1;
     }
-    .site-nav .logo-link:hover { text-decoration: underline; }
-    .site-nav .logo-link:focus-visible {
+    .home-site-nav .home-logo-link:hover { text-decoration: underline; }
+    .home-site-nav .home-logo-link:focus-visible {
       border-radius: 4px;
       background: rgba(224, 58, 62, 0.10);
     }
-    .site-nav .logo-link .logo-accent { color: var(--brand-red); }
-    .nav-links {
+    .home-site-nav .home-logo-link .home-logo-accent { color: var(--brand-red); }
+    .home-nav-links {
       display: flex;
       gap: clamp(0.75rem, 1.8vw, 1.25rem);
       list-style: none;
@@ -142,7 +142,7 @@
       flex: 1 1 34rem;
       min-width: 0;
     }
-    .nav-links a {
+    .home-nav-links a {
       color: var(--brand-dark);
       font-size: clamp(0.82rem, 1.4vw, 0.9rem);
       font-weight: 500;
@@ -152,12 +152,12 @@
       padding: 0.25rem 0;
       border-bottom: 2px solid transparent;
     }
-    .nav-links a:hover { color: #000000; text-decoration: underline; }
-    .nav-links a[aria-current="page"] {
+    .home-nav-links a:hover { color: #000000; text-decoration: underline; }
+    .home-nav-links a[aria-current="page"] {
       color: #000000;
       border-bottom-color: var(--brand-red-bright);
     }
-    .nav-links a:focus-visible {
+    .home-nav-links a:focus-visible {
       border-bottom-color: var(--focus-ring);
       background: rgba(224, 58, 62, 0.10);
       border-radius: 4px;
@@ -387,11 +387,11 @@
 
     /* ─── Mobile nav ─────────────────────────────────────────── */
     @media (max-width: 980px) {
-      .site-nav {
+      .home-site-nav {
         justify-content: center;
         gap: 0.65rem;
       }
-      .nav-links {
+      .home-nav-links {
         width: 100%;
         justify-content: center;
         flex-basis: 100%;
@@ -400,27 +400,27 @@
     }
 
     @media (max-width: 640px) {
-      .site-nav {
+      .home-site-nav {
         flex-direction: column;
         align-items: stretch;
         padding: 0.9rem 1rem 1rem;
         gap: 0.75rem;
       }
-      .site-nav .logo-link {
+      .home-site-nav .home-logo-link {
         justify-content: center;
         white-space: normal;
         text-align: center;
       }
-      .nav-links {
+      .home-nav-links {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.65rem;
         width: 100%;
       }
-      .nav-links li {
+      .home-nav-links li {
         min-width: 0;
       }
-      .nav-links a {
+      .home-nav-links a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -447,7 +447,7 @@
     }
 
     @media (max-width: 420px) {
-      .nav-links {
+      .home-nav-links {
         grid-template-columns: 1fr;
       }
     }
@@ -459,12 +459,12 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ── Site Header / Navigation ── -->
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a class="logo-link" href="{{ '/' | relative_url }}" aria-label="Gordy–Goller Lab — Home">
-        <span class="logo-mark" aria-hidden="true">CGs</span> <span class="logo-accent">Gordy–Goller</span> Lab
+  <header class="home-site-header">
+    <nav class="home-site-nav" aria-label="Primary navigation">
+      <a class="home-logo-link" href="{{ '/' | relative_url }}" aria-label="Gordy–Goller Lab — Home">
+        <span class="home-logo-mark" aria-hidden="true">CGs</span> <span class="home-logo-accent">Gordy–Goller</span> Lab
       </a>
-      <ul class="nav-links" role="list">
+      <ul class="home-nav-links" role="list">
         <li><a href="{{ '/safety' | relative_url }}"{% if page.url == '/safety/' %} aria-current="page"{% endif %}>Safety</a></li>
         <li><a href="{{ '/schedule' | relative_url }}"{% if page.url == '/schedule/' %} aria-current="page"{% endif %}>Schedule</a></li>
         <li><a href="{{ '/protocols' | relative_url }}"{% if page.url == '/protocols/' %} aria-current="page"{% endif %}>Protocols</a></li>

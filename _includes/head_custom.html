@@ -49,7 +49,7 @@
 
   /* Sidebar background */
   .side-bar,
-  .side-bar .site-header,
+  .site-header,
   .main-header {
     background-color: #f1f3f5 !important;
     border-right-color: #d0d7de !important;
@@ -140,3 +140,11 @@
     }
   }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const main = document.querySelector("main");
+    if (main && !main.id) {
+      main.id = "main-content";
+    }
+  });
+</script>

@@ -101,7 +101,7 @@ permalink: /schedule
 
 If the embedded calendar is difficult to use on your device, open the [CGS Lab live calendar directly in Google Calendar](https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York).
 
-<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" class="calendar-frame" height="600" scrolling="no" loading="lazy">Open the CGS Lab live calendar in Google Calendar if the embedded view does not load.</iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York" title="CGS Lab live calendar" class="calendar-frame" height="600" scrolling="no" loading="lazy"><a href="https://calendar.google.com/calendar/embed?src=c_add37d4dc47d54008e45d38199feaf017c89b71f1ad8242fd212457171aeabdb%40group.calendar.google.com&ctz=America%2FNew_York">Open the CGS Lab live calendar in Google Calendar.</a></iframe>
 
 ## 📚 Repository Wiki
 

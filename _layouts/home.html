@@ -908,17 +908,9 @@
           }
         });
         moreMenuWrap.addEventListener("focusout", function (event) {
-          if (event.relatedTarget) {
-            if (!moreMenuWrap.contains(event.relatedTarget)) {
-              setMoreOpen(false);
-            }
-            return;
+          if (event.relatedTarget && !moreMenuWrap.contains(event.relatedTarget)) {
+            setMoreOpen(false);
           }
-          window.setTimeout(function () {
-            if (!moreMenuWrap.contains(document.activeElement)) {
-              setMoreOpen(false);
-            }
-          }, 0);
         });
       }
 

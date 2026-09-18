@@ -68,6 +68,17 @@ Search the live inventory spreadsheet and filter items by any text value.
     font-size: 0.9rem;
     font-weight: 600;
   }
+  .inventory-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   .inventory-input,
   .inventory-select,
   .inventory-button {
@@ -208,7 +219,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   >➕ Add Reagent Request</a>
 </p>
 
-<div class="inventory-controls" role="search" aria-label="Inventory search controls">
+<form id="inventorySearchForm" class="inventory-controls" role="search" aria-label="Inventory search controls">
   <div class="inventory-control">
     <label class="inventory-label" for="inventorySearchInput">Search inventory</label>
     <input id="inventorySearchInput" class="inventory-input" type="search" placeholder="Enter text to match">
@@ -220,7 +231,8 @@ Search the live inventory spreadsheet and filter items by any text value.
     </select>
   </div>
   <button id="inventoryClearButton" class="inventory-button" type="button">Clear search</button>
-</div>
+  <button class="inventory-visually-hidden" type="submit">Submit inventory search</button>
+</form>
 
 <section class="inventory-chart" aria-labelledby="inventoryChartTitle">
   <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Totals Chart</h2>
@@ -275,6 +287,7 @@ Search the live inventory spreadsheet and filter items by any text value.
     const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=${SHEET_GID}`;
 
     const searchInput = document.getElementById("inventorySearchInput");
+    const searchForm = document.getElementById("inventorySearchForm");
     const columnSelect = document.getElementById("inventoryColumnSelect");
     const clearButton = document.getElementById("inventoryClearButton");
     const table = document.getElementById("inventoryTable");
@@ -725,6 +738,10 @@ Search the live inventory spreadsheet and filter items by any text value.
     };
 
     searchInput.addEventListener("input", applyFilter);
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      applyFilter();
+    });
     columnSelect.addEventListener("change", applyFilter);
     chartGroupSelect.addEventListener("change", renderInventoryChart);
     chartValueSelect.addEventListener("change", renderInventoryChart);

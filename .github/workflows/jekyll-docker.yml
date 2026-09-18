@@ -20,15 +20,21 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-    - name: Run accessibility audit (WCAG 2.2 A/AA baseline)
+    - name: Run accessibility audit (WCAG 2.0 AA baseline)
       run: |
         python -m http.server 4000 --directory _site &
         SERVER_PID=$!
         trap "kill $SERVER_PID" EXIT
+        SERVER_READY=0
         for i in {1..20}; do
           if curl --silent --fail http://127.0.0.1:4000/index.html > /dev/null; then
+            SERVER_READY=1
             break
           fi
           sleep 1
         done
+        if [ "$SERVER_READY" -ne 1 ]; then
+          echo "Local _site server did not become ready in time."
+          exit 1
+        fi
         npx --yes pa11y-ci --config .pa11yci.json

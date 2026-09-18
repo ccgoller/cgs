@@ -381,7 +381,7 @@
       background-size: 240px 240px, 100% 100%, 100% 100%, 100% 100%;
       animation: heroPatternFloat 40s ease-in-out infinite alternate;
       will-change: transform, opacity, background-position;
-      opacity: 0.38;
+      opacity: 0.46;
       pointer-events: none;
     }
     .hero::after {
@@ -389,12 +389,12 @@
       position: absolute;
       inset: -10% -5%;
       background:
-        radial-gradient(circle at 25% 30%, rgba(255, 107, 111, 0.13) 0%, transparent 28%),
-        radial-gradient(circle at 72% 18%, rgba(204, 0, 0, 0.10) 0%, transparent 24%),
-        radial-gradient(circle at 52% 72%, rgba(255, 255, 255, 0.05) 0%, transparent 22%);
-      filter: blur(8px);
+        radial-gradient(circle at 25% 30%, rgba(255, 107, 111, 0.20) 0%, transparent 28%),
+        radial-gradient(circle at 72% 18%, rgba(204, 0, 0, 0.18) 0%, transparent 24%),
+        radial-gradient(circle at 52% 72%, rgba(255, 255, 255, 0.06) 0%, transparent 22%);
+      filter: blur(9px);
       mix-blend-mode: screen;
-      opacity: 0.18;
+      opacity: 0.26;
       animation: heroGlowPulse 28s ease-in-out infinite;
       pointer-events: none;
     }
@@ -412,12 +412,12 @@
     .hero h1 em {
       font-style: normal;
       color: #fff1f2;
-      background: linear-gradient(120deg, #fffaf8 0%, #ffe3e5 12%, #ffb7bb 26%, #ff7077 42%, #d00018 65%, #820000 100%);
+      background: linear-gradient(120deg, #fffefc 0%, #ffe7e8 12%, #ffb8be 24%, #ff7d83 40%, #d80d25 62%, #880013 82%, #4a0009 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 12px rgba(255, 119, 124, 0.18), 0 0 18px rgba(204, 0, 0, 0.12);
-      filter: drop-shadow(0 0 1px rgba(255,255,255,0.7));
+      text-shadow: 0 0 16px rgba(255, 118, 124, 0.24), 0 0 28px rgba(148, 0, 0, 0.22);
+      filter: drop-shadow(0 0 1px rgba(255,255,255,0.75));
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
@@ -594,11 +594,11 @@
     @keyframes heroGlowPulse {
       0%, 100% {
         transform: translate3d(0, 0, 0) scale(1);
-        opacity: 0.14;
+        opacity: 0.18;
       }
       50% {
         transform: translate3d(0, -4px, 0) scale(1.015);
-        opacity: 0.2;
+        opacity: 0.28;
       }
     }
 

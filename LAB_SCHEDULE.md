@@ -47,13 +47,13 @@ permalink: /schedule
     margin: 0.2rem 0;
     padding: 0.3rem 0.45rem;
     color: #ffffff;
-    background-color: var(--brand-red);
+    background-color: #8f0000;
     background-image: repeating-linear-gradient(
       -45deg,
-      rgba(255, 255, 255, 0.24) 0 6px,
+      rgba(255, 255, 255, 0.12) 0 6px,
       rgba(255, 255, 255, 0) 6px 12px
     );
-    border: 1px solid #7a0000;
+    border: 1px solid #5c0000;
     border-radius: 0.15rem;
     font-weight: 600;
   }
@@ -69,7 +69,7 @@ permalink: /schedule
 
 ## 📚 Thomas Hall Weekly Lab Schedule (Fall Semester)
 
-<div class="lab-availability-table-wrap" tabindex="0" aria-label="Scrollable weekly research availability table for Labs 1503 and 1512 (Thomas Hall)">
+<div class="lab-availability-table-wrap" role="region" tabindex="0" aria-label="Scrollable weekly research availability table for Labs 1503 and 1512 (Thomas Hall)">
   <table class="lab-availability-table" aria-label="Weekly research availability for Labs 1503 and 1512 (Thomas Hall)">
     <thead>
       <tr>

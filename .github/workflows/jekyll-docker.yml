@@ -16,3 +16,13 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && bundle install && bundle exec jekyll build --future"
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    - name: Run accessibility audit (WCAG 2.2 A/AA baseline)
+      run: |
+        python -m http.server 4000 --directory _site &
+        SERVER_PID=$!
+        trap "kill $SERVER_PID" EXIT
+        npx --yes pa11y-ci --config .pa11yci.json

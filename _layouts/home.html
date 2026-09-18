@@ -359,8 +359,7 @@
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
       background:
-        linear-gradient(150deg, rgba(20, 0, 3, 0.94) 0%, rgba(44, 5, 12, 0.95) 45%, rgba(16, 1, 4, 0.97) 100%),
-        linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.64)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(10, 10, 10, 0.94) 100%),
         url("{{ '/assets/hero-genomics.svg' | relative_url }}")
         center / cover no-repeat;
       border-bottom: 4px solid var(--brand-red-bright);
@@ -374,7 +373,7 @@
     }
     /* Genetic motif overlay + restrained ambient glow */
     .hero::before {
-      content: "";
+      content: none;
       position: absolute;
       inset: 0;
       background-image:
@@ -386,7 +385,7 @@
       pointer-events: none;
     }
     .hero::after {
-      content: "";
+      content: none;
       position: absolute;
       inset: -10% -5%;
       background:
@@ -694,8 +693,7 @@
         padding-top: clamp(3rem, 10vw, 5rem);
         padding-bottom: clamp(2.5rem, 8vw, 4rem);
         background:
-          linear-gradient(150deg, rgba(22, 0, 4, 0.92) 0%, rgba(42, 4, 11, 0.93) 52%, rgba(16, 1, 4, 0.95) 100%),
-          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.58)),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%),
           url("{{ '/assets/hero-genomics.svg' | relative_url }}")
           center top / cover no-repeat;
       }

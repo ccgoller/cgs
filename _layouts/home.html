@@ -377,10 +377,7 @@
       position: absolute;
       inset: 0;
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23FF8A8D' stroke-opacity='.1'%3E%3Cpath d='M0 40H240M0 120H240M0 200H240'/%3E%3Cpath d='M40 0V240M120 0V240M200 0V240'/%3E%3C/g%3E%3Cg fill='none' stroke='%23CC0000' stroke-linecap='round'%3E%3Cpath d='M52 12C82 34 82 56 52 78C22 100 22 122 52 144C82 166 82 188 52 210' stroke-opacity='.26' stroke-width='1.8'/%3E%3Cpath d='M104 12C74 34 74 56 104 78C134 100 134 122 104 144C74 166 74 188 104 210' stroke-opacity='.2' stroke-width='1.8'/%3E%3Cpath d='M155 30H209M162 62H202M155 94H209M162 126H202M155 158H209M162 190H202' stroke-opacity='.16' stroke-width='1.4'/%3E%3Cpath d='M157 12C187 34 187 56 157 78C127 100 127 122 157 144C187 166 187 188 157 210' stroke-opacity='.22' stroke-width='1.7'/%3E%3Cpath d='M209 12C179 34 179 56 209 78C239 100 239 122 209 144C179 166 179 188 209 210' stroke-opacity='.18' stroke-width='1.7'/%3E%3Cpath d='M52 30H104M59 62H97M52 94H104M59 126H97M52 158H104M59 190H97' stroke-opacity='.18' stroke-width='1.4'/%3E%3C/g%3E%3Cg fill='%23FFB3B5'%3E%3Ccircle cx='52' cy='30' r='2.3' fill-opacity='.34'/%3E%3Ccircle cx='104' cy='30' r='2.3' fill-opacity='.22'/%3E%3Ccircle cx='59' cy='126' r='2.1' fill-opacity='.26'/%3E%3Ccircle cx='97' cy='126' r='2.1' fill-opacity='.18'/%3E%3Ccircle cx='157' cy='94' r='2.2' fill-opacity='.28'/%3E%3Ccircle cx='209' cy='94' r='2.2' fill-opacity='.18'/%3E%3Ccircle cx='162' cy='190' r='2' fill-opacity='.24'/%3E%3Ccircle cx='202' cy='190' r='2' fill-opacity='.16'/%3E%3C/g%3E%3C/svg%3E"),
-        radial-gradient(ellipse 65% 55% at 50% 0%, rgba(204, 0, 0, 0.14) 0%, transparent 72%),
-        radial-gradient(circle at 18% 24%, rgba(255, 138, 141, 0.11) 0%, transparent 30%),
-        radial-gradient(circle at 80% 18%, rgba(204, 0, 0, 0.09) 0%, transparent 28%);
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23FF8A8D' stroke-opacity='.1'%3E%3Cpath d='M0 [..]" );
       background-size: 240px 240px, 100% 100%, 100% 100%, 100% 100%;
       animation: heroPatternFloat 40s ease-in-out infinite alternate;
       will-change: transform, opacity, background-position;
@@ -409,13 +406,18 @@
       letter-spacing: -0.025em;
       position: relative;
       z-index: 2;
-      color: var(--white);
+      color: #fff7f7;
       text-shadow: 0 2px 10px rgba(0,0,0,0.75);
     }
     .hero h1 em {
       font-style: normal;
-      color: #ffd9db;
-      text-shadow: 0 0 14px rgba(204, 0, 0, 0.15);
+      color: #fff1f2;
+      background: linear-gradient(120deg, #fffaf8 0%, #ffdfe1 12%, #ffb2b6 30%, #fd6d72 50%, #b3001a 73%, #fff2f3 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 18px rgba(255, 119, 124, 0.42), 0 0 32px rgba(204, 0, 0, 0.18);
+      filter: drop-shadow(0 0 1px rgba(255,255,255,0.9));
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);

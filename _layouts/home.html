@@ -359,7 +359,7 @@
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
       background:
-        linear-gradient(rgba(0,0,0,0.92), rgba(12,0,0,0.95)),
+        linear-gradient(rgba(0,0,0,0.97), rgba(8,0,0,0.98)),
         url("{{ '/assets/hero-genomics.svg' | relative_url }}")
         center / cover no-repeat;
       border-bottom: 4px solid var(--brand-red-bright);
@@ -384,7 +384,7 @@
       background-size: 240px 240px, 100% 100%, 100% 100%, 100% 100%;
       animation: heroPatternFloat 40s ease-in-out infinite alternate;
       will-change: transform, opacity, background-position;
-      opacity: 0.82;
+      opacity: 0.62;
       pointer-events: none;
     }
     .hero::after {
@@ -397,7 +397,7 @@
         radial-gradient(circle at 52% 72%, rgba(255, 255, 255, 0.08) 0%, transparent 22%);
       filter: blur(10px);
       mix-blend-mode: screen;
-      opacity: 0.42;
+      opacity: 0.28;
       animation: heroGlowPulse 28s ease-in-out infinite;
       pointer-events: none;
     }
@@ -414,7 +414,7 @@
     }
     .hero h1 em {
       font-style: normal;
-      color: var(--brand-red-bright);
+      color: #ffd9db;
       text-shadow: 0 0 14px rgba(204, 0, 0, 0.15);
     }
     .hero p {
@@ -446,9 +446,9 @@
       min-height: 44px;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); text-decoration: none; }
-    .btn-primary { background: var(--brand-red); color: #fff; border-color: var(--brand-red); }
-    .btn-primary:hover { background: var(--brand-red-dark); border-color: var(--brand-red-dark); }
-    .btn-outline { border-color: #ffffff; color: #fff; }
+    .btn-primary { background: #8f0000; color: #fff; border-color: #8f0000; }
+    .btn-primary:hover { background: #6f0000; border-color: #6f0000; }
+    .btn-outline { border-color: #ffffff; color: #fff; background: rgba(0, 0, 0, 0.5); }
     .btn-outline:hover { background: #ffffff; color: var(--brand-red); border-color: #ffffff; }
     .btn:focus-visible {
       outline: 3px solid #ffffff;

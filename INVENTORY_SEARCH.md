@@ -208,7 +208,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   >➕ Add Reagent Request</a>
 </p>
 
-<form class="inventory-controls" aria-label="Inventory search controls" onsubmit="return false;">
+<div class="inventory-controls" role="search" aria-label="Inventory search controls">
   <div class="inventory-control">
     <label class="inventory-label" for="inventorySearchInput">Search inventory</label>
     <input id="inventorySearchInput" class="inventory-input" type="search" placeholder="Enter text to match">
@@ -220,11 +220,11 @@ Search the live inventory spreadsheet and filter items by any text value.
     </select>
   </div>
   <button id="inventoryClearButton" class="inventory-button" type="button">Clear search</button>
-</form>
+</div>
 
 <section class="inventory-chart" aria-labelledby="inventoryChartTitle">
   <h2 id="inventoryChartTitle" class="inventory-chart-title">Inventory Totals Chart</h2>
-  <div class="inventory-controls inventory-chart-controls" aria-label="Inventory chart controls">
+  <div class="inventory-controls inventory-chart-controls" role="group" aria-label="Inventory chart controls">
     <div class="inventory-control">
       <label class="inventory-label" for="inventoryChartGroupSelect">Group totals by</label>
       <select id="inventoryChartGroupSelect" class="inventory-select" disabled>
@@ -241,7 +241,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   <p id="inventoryChartSummary" class="inventory-chart-summary" aria-live="polite">
     Loading chart…
   </p>
-  <div class="inventory-chart-export" aria-label="Inventory chart export options">
+  <div class="inventory-chart-export" role="group" aria-label="Inventory chart export options">
     <button id="inventoryChartExportImageButton" class="inventory-button" type="button" disabled>
       Export chart as image
     </button>
@@ -259,7 +259,7 @@ Search the live inventory spreadsheet and filter items by any text value.
 
 <p id="inventoryMeta" class="inventory-meta" aria-live="polite">Loading inventory…</p>
 
-<div class="inventory-table-wrap" tabindex="0" aria-label="Scrollable inventory results table">
+<div class="inventory-table-wrap" role="region" tabindex="0" aria-label="Scrollable inventory results table">
   <table id="inventoryTable" class="inventory-table" aria-label="Inventory results">
     <thead></thead>
     <tbody>

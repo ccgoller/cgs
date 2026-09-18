@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 750,
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox"
+      ]
+    },
+    "ignore": [
+      "frame-tested"
+    ]
+  },
+  "urls": [
+    "http://127.0.0.1:4000/index.html",
+    "http://127.0.0.1:4000/safety.html",
+    "http://127.0.0.1:4000/schedule.html",
+    "http://127.0.0.1:4000/inventory.html",
+    "http://127.0.0.1:4000/protocols.html",
+    "http://127.0.0.1:4000/eln.html",
+    "http://127.0.0.1:4000/equipment-tutorials.html",
+    "http://127.0.0.1:4000/professional-development.html",
+    "http://127.0.0.1:4000/maintenance.html",
+    "http://127.0.0.1:4000/contact.html",
+    "http://127.0.0.1:4000/about.html"
+  ]
+}

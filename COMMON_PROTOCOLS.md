@@ -120,7 +120,7 @@ permalink: /protocols
 | Annealing | *Tm − 5 °C* | 30 s | 30× |
 | Extension | 72 °C | 1 min/kb | 30× |
 | Final extension | 72 °C | 5 min | 1× |
-| Hold | 4 °C | ∞ | — |
+| Hold | 4 °C | N/A | — |
 
 ---
 

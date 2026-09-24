@@ -412,12 +412,19 @@
     .hero h1 em {
       font-style: normal;
       color: #fff1f2;
-      background: linear-gradient(120deg, #fffefc 0%, #ffe8ea 14%, #ffbec4 30%, #e34b5b 48%, #ab1328 68%, #70010f 86%, #430007 100%);
+      display: inline-block;
+      padding-inline: 0.08em;
+      background: linear-gradient(115deg, #fffefe 0%, #fff0f2 14%, #ffd4da 30%, #ff9aa8 46%, #f15a6d 62%, #ca2138 80%, #a2081d 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 8px rgba(172, 35, 45, 0.16), 0 0 16px rgba(115, 8, 22, 0.12);
-      filter: drop-shadow(0 0 1px rgba(255,255,255,0.58));
+      text-shadow:
+        0 0 10px rgba(255, 219, 224, 0.24),
+        0 0 22px rgba(241, 90, 109, 0.3),
+        0 0 34px rgba(162, 8, 29, 0.24);
+      filter:
+        drop-shadow(0 0 2px rgba(255,255,255,0.72))
+        drop-shadow(0 0 8px rgba(241, 90, 109, 0.28));
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);

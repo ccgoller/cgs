@@ -444,24 +444,6 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .hero h1 em::before {
-        content: "";
-        position: absolute;
-        inset: -12% -32%;
-        z-index: 1;
-        background: linear-gradient(
-          102deg,
-          rgba(255, 255, 255, 0) 26%,
-          rgba(255, 255, 255, 0.72) 48%,
-          rgba(255, 245, 248, 0.2) 56%,
-          rgba(255, 255, 255, 0) 72%
-        );
-        mix-blend-mode: screen;
-        opacity: 0.72;
-        transform: translateX(-24%);
-        animation: heroMetalSheen 6.6s ease-in-out infinite;
-        pointer-events: none;
-      }
     }
     .hero h1 em::after {
       content: "";
@@ -661,20 +643,6 @@
         opacity: 0.17;
       }
     }
-    @keyframes heroMetalSheen {
-      0%, 100% {
-        transform: translateX(-24%);
-        opacity: 0.34;
-      }
-      46% {
-        transform: translateX(15%);
-        opacity: 0.76;
-      }
-      54% {
-        transform: translateX(21%);
-        opacity: 0.86;
-      }
-    }
     @keyframes heroSparkleTwinkle {
       0%, 100% {
         opacity: 0.32;
@@ -713,11 +681,6 @@
       .hero::after {
         animation: none !important;
         transform: none !important;
-      }
-      .hero h1 em::before {
-        animation: none !important;
-        transform: none !important;
-        opacity: 0.24;
       }
     }
 

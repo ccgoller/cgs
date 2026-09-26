@@ -359,11 +359,11 @@
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
       background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.88) 0%, rgba(10, 10, 10, 0.94) 100%),
+        linear-gradient(180deg, rgba(14, 7, 12, 0.78) 0%, rgba(16, 8, 14, 0.88) 100%),
         url("{{ '/assets/hero-genomics.svg' | relative_url }}")
         center / cover no-repeat;
       border-bottom: 4px solid var(--brand-red-bright);
-      box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 0 0 999px rgba(26, 8, 16, 0.14);
       color: var(--white);
       text-align: center;
       padding: clamp(4rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 5rem);
@@ -373,28 +373,28 @@
     }
     /* Genetic motif overlay + restrained ambient glow */
     .hero::before {
-      content: none;
+      content: "";
       position: absolute;
       inset: 0;
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='260' viewBox='0 0 360 260'%3E%3Cg fill='none' stroke='%23d77a82' stroke-opacity='.16' stroke-width='1'%3E%3Cpath d='M18 34 C44 12 66 56 92 34 C118 12 142 56 168 34'/%3E%3Cpath d='M18 60 C44 38 66 82 92 60 C118 38 142 82 168 60'/%3E%3Cpath d='M26 38 L84 56 M34 30 L92 48 M42 22 L100 40 M58 26 L116 44 M66 34 L124 52'/%3E%3C/g%3E%3Cg fill='none' stroke='%23b24d5c' stroke-opacity='.14' stroke-width='1'%3E%3Cpath d='M208 30 L232 54 L208 78 L184 54 Z'/%3E%3Cpath d='M280 158 L302 180 L280 202 L258 180 Z'/%3E%3Cpath d='M214 164 C236 136 270 144 292 118'/%3E%3Cpath d='M46 154 C62 138 86 142 102 126'/%3E%3C/g%3E%3Cg fill='%23f2c5ca' fill-opacity='.12'%3E%3Ccircle cx='236' cy='64' r='2.4'/%3E%3Ccircle cx='246' cy='70' r='1.9'/%3E%3Ccircle cx='227' cy='74' r='1.6'/%3E%3Ccircle cx='136' cy='176' r='1.8'/%3E%3Ccircle cx='146' cy='184' r='1.5'/%3E%3Ccircle cx='128' cy='186' r='1.3'/%3E%3C/g%3E%3Cg fill='none' stroke='%23de8d97' stroke-opacity='.1'%3E%3Cpath d='M0 0 L360 260 M360 0 L0 260'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 360px 260px;
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='280' viewBox='0 0 420 280'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M44 34 C88 8 132 92 176 64 C220 36 264 120 308 92 C340 72 364 26 392 40' stroke='%23ffd7df' stroke-opacity='.34' stroke-width='2.4'/%3E%3Cpath d='M44 86 C88 60 132 144 176 116 C220 88 264 172 308 144 C340 124 364 78 392 92' stroke='%23ff6d83' stroke-opacity='.3' stroke-width='2.4'/%3E%3Cpath d='M66 49 L66 71 M92 38 L92 95 M118 40 L118 109 M144 57 L144 119 M170 75 L170 108 M196 74 L196 97 M222 62 L222 114 M248 79 L248 140 M274 98 L274 159 M300 111 L300 141 M326 96 L326 129 M352 68 L352 113' stroke='%23ffe8ee' stroke-opacity='.28' stroke-width='1.5'/%3E%3Cpath d='M28 186 C70 156 114 214 156 184 C198 154 242 212 284 182 C322 154 356 192 396 164' stroke='%23ffcad6' stroke-opacity='.2' stroke-width='1.9'/%3E%3Cpath d='M28 224 C70 194 114 252 156 222 C198 192 242 250 284 220 C322 192 356 230 396 202' stroke='%23ff8698' stroke-opacity='.18' stroke-width='1.9'/%3E%3Cpath d='M52 198 L52 212 M80 185 L80 230 M108 183 L108 243 M136 197 L136 233 M164 210 L164 225 M192 205 L192 221 M220 194 L220 238 M248 207 L248 247 M276 221 L276 232 M304 211 L304 227 M332 194 L332 216 M360 180 L360 214' stroke='%23fff4f7' stroke-opacity='.2' stroke-width='1.3'/%3E%3C/g%3E%3Cg fill='%23ffeef3' fill-opacity='.32'%3E%3Ccircle cx='92' cy='38' r='4'/%3E%3Ccircle cx='170' cy='108' r='3.6'/%3E%3Ccircle cx='248' cy='79' r='3.8'/%3E%3Ccircle cx='352' cy='113' r='3.7'/%3E%3Ccircle cx='80' cy='230' r='3.5'/%3E%3Ccircle cx='220' cy='194' r='4'/%3E%3Ccircle cx='332' cy='216' r='3.6'/%3E%3C/g%3E%3Cg fill='none' stroke='%23ffd7df' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M0 24 H420 M0 140 H420 M0 256 H420'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 420px 280px;
       animation: heroPatternFloat 40s ease-in-out infinite alternate;
       will-change: transform, opacity, background-position;
-      opacity: 0.26;
+      opacity: 0.42;
       pointer-events: none;
     }
     .hero::after {
-      content: none;
+      content: "";
       position: absolute;
       inset: -10% -5%;
       background:
-        radial-gradient(circle at 24% 34%, rgba(178, 35, 46, 0.16) 0%, transparent 30%),
-        radial-gradient(circle at 70% 22%, rgba(125, 10, 24, 0.15) 0%, transparent 27%),
-        radial-gradient(circle at 52% 74%, rgba(255, 220, 225, 0.05) 0%, transparent 24%);
-      filter: blur(10px);
+        radial-gradient(circle at 20% 30%, rgba(255, 122, 146, 0.26) 0%, transparent 34%),
+        radial-gradient(circle at 72% 22%, rgba(255, 170, 188, 0.18) 0%, transparent 28%),
+        radial-gradient(circle at 54% 76%, rgba(255, 235, 240, 0.1) 0%, transparent 24%);
+      filter: blur(14px);
       mix-blend-mode: soft-light;
-      opacity: 0.18;
+      opacity: 0.3;
       animation: heroGlowPulse 28s ease-in-out infinite;
       pointer-events: none;
     }
@@ -406,25 +406,25 @@
       letter-spacing: -0.025em;
       position: relative;
       z-index: 2;
-      color: #ffd9de;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      color: #f8c8d0;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.82);
     }
     .hero h1 em {
       font-style: normal;
       font-size: 1.24em;
       font-weight: 950;
       letter-spacing: -0.03em;
-      color: #ff4b5c;
+      color: #ff3e54;
       display: inline-block;
       padding-inline: 0.08em;
       position: relative;
       isolation: isolate;
       text-decoration: none;
       text-shadow:
-        0 2px 0 rgba(72, 0, 10, 0.75),
-        0 0 6px rgba(255, 239, 241, 0.28),
-        0 0 18px rgba(255, 95, 120, 0.34);
-      filter: drop-shadow(0 0 5px rgba(255, 126, 147, 0.3));
+        0 2px 0 rgba(56, 0, 10, 0.85),
+        0 0 8px rgba(255, 239, 241, 0.24),
+        0 0 20px rgba(255, 102, 126, 0.28);
+      filter: drop-shadow(0 0 6px rgba(255, 104, 130, 0.26));
     }
     .hero h1 em::after {
       content: "";
@@ -444,12 +444,12 @@
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #f5f5f5;
+      color: #ecd9de;
       max-width: 680px;
       margin: 0 auto 2.25rem;
       position: relative;
       z-index: 2;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+      text-shadow: 0 1px 10px rgba(0,0,0,0.78);
     }
     .hero-cta {
       display: inline-flex;
@@ -726,7 +726,7 @@
         padding-top: clamp(3rem, 10vw, 5rem);
         padding-bottom: clamp(2.5rem, 8vw, 4rem);
         background:
-          linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%),
+          linear-gradient(180deg, rgba(14, 7, 12, 0.82) 0%, rgba(16, 8, 14, 0.9) 100%),
           url("{{ '/assets/hero-genomics.svg' | relative_url }}")
           center top / cover no-repeat;
       }

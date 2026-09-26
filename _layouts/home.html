@@ -359,11 +359,11 @@
     /* ─── Hero ──────────────────────────────────────────────── */
     .hero {
       background:
-        linear-gradient(180deg, rgba(14, 7, 12, 0.78) 0%, rgba(16, 8, 14, 0.88) 100%),
+        linear-gradient(180deg, rgba(8, 3, 7, 0.9) 0%, rgba(12, 5, 10, 0.95) 52%, rgba(14, 6, 11, 0.98) 100%),
         url("{{ '/assets/hero-genomics.svg' | relative_url }}")
         center / cover no-repeat;
       border-bottom: 4px solid var(--brand-red-bright);
-      box-shadow: inset 0 0 0 999px rgba(26, 8, 16, 0.14);
+      box-shadow: inset 0 0 0 999px rgba(12, 4, 10, 0.28);
       color: var(--white);
       text-align: center;
       padding: clamp(4rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 5rem);
@@ -381,7 +381,7 @@
       background-size: 420px 280px;
       animation: heroPatternFloat 40s ease-in-out infinite alternate;
       will-change: transform, opacity, background-position;
-      opacity: 0.42;
+      opacity: 0.22;
       pointer-events: none;
     }
     .hero::after {
@@ -394,7 +394,7 @@
         radial-gradient(circle at 54% 76%, rgba(255, 235, 240, 0.1) 0%, transparent 24%);
       filter: blur(14px);
       mix-blend-mode: soft-light;
-      opacity: 0.3;
+      opacity: 0.18;
       animation: heroGlowPulse 28s ease-in-out infinite;
       pointer-events: none;
     }
@@ -726,7 +726,7 @@
         padding-top: clamp(3rem, 10vw, 5rem);
         padding-bottom: clamp(2.5rem, 8vw, 4rem);
         background:
-          linear-gradient(180deg, rgba(14, 7, 12, 0.82) 0%, rgba(16, 8, 14, 0.9) 100%),
+          linear-gradient(180deg, rgba(8, 3, 7, 0.92) 0%, rgba(12, 5, 10, 0.96) 52%, rgba(14, 6, 11, 0.99) 100%),
           url("{{ '/assets/hero-genomics.svg' | relative_url }}")
           center top / cover no-repeat;
       }

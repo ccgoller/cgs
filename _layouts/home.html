@@ -414,17 +414,35 @@
       font-size: 1.24em;
       font-weight: 950;
       letter-spacing: -0.03em;
-      color: var(--brand-red);
+      color: #f6f8ff;
       display: inline-block;
       padding-inline: 0.08em;
       position: relative;
       isolation: isolate;
       text-decoration: none;
       text-shadow:
-        0 2px 0 rgba(56, 0, 10, 0.85),
-        0 0 8px rgba(255, 239, 241, 0.24),
-        0 0 20px rgba(204, 0, 0, 0.26);
-      filter: drop-shadow(0 0 6px rgba(204, 0, 0, 0.24));
+        0 2px 0 rgba(36, 7, 16, 0.82),
+        0 0 10px rgba(255, 248, 250, 0.35),
+        0 0 24px rgba(255, 184, 200, 0.38);
+      filter: drop-shadow(0 0 9px rgba(255, 196, 211, 0.34));
+    }
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .hero h1 em {
+        background:
+          linear-gradient(
+            108deg,
+            #fefefe 0%,
+            #d3d8e3 20%,
+            #ffffff 36%,
+            #aeb4c0 52%,
+            #ffe0e6 66%,
+            #fdfdff 82%,
+            #c0c7d6 100%
+          );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
     .hero h1 em::after {
       content: "";
@@ -433,12 +451,12 @@
       z-index: -1;
       border-radius: 999px;
       background:
-        radial-gradient(circle at 16% 28%, rgba(255, 255, 255, 0.85) 0 0.06em, transparent 0.08em),
-        radial-gradient(circle at 50% 12%, rgba(255, 245, 247, 0.7) 0 0.05em, transparent 0.075em),
-        radial-gradient(circle at 80% 64%, rgba(255, 255, 255, 0.78) 0 0.055em, transparent 0.08em),
-        radial-gradient(circle, rgba(204, 0, 0, 0.18) 0%, rgba(204, 0, 0, 0) 72%);
+        radial-gradient(circle at 16% 28%, rgba(255, 255, 255, 0.92) 0 0.06em, transparent 0.08em),
+        radial-gradient(circle at 50% 12%, rgba(255, 252, 253, 0.78) 0 0.05em, transparent 0.075em),
+        radial-gradient(circle at 80% 64%, rgba(255, 255, 255, 0.86) 0 0.055em, transparent 0.08em),
+        radial-gradient(circle, rgba(255, 194, 210, 0.26) 0%, rgba(255, 194, 210, 0) 72%);
       filter: blur(0.35px);
-      opacity: 0.45;
+      opacity: 0.56;
       pointer-events: none;
       animation: heroSparkleTwinkle 8s ease-in-out infinite;
     }

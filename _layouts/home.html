@@ -415,20 +415,6 @@
       font-weight: 950;
       letter-spacing: -0.03em;
       color: #f6f8ff;
-      background:
-        linear-gradient(
-          108deg,
-          #fefefe 0%,
-          #d3d8e3 20%,
-          #ffffff 36%,
-          #aeb4c0 52%,
-          #ffe0e6 66%,
-          #fdfdff 82%,
-          #c0c7d6 100%
-        );
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
       display: inline-block;
       padding-inline: 0.08em;
       position: relative;
@@ -440,6 +426,24 @@
         0 0 10px rgba(255, 248, 250, 0.35),
         0 0 24px rgba(255, 184, 200, 0.38);
       filter: drop-shadow(0 0 9px rgba(255, 196, 211, 0.34));
+    }
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .hero h1 em {
+        background:
+          linear-gradient(
+            108deg,
+            #fefefe 0%,
+            #d3d8e3 20%,
+            #ffffff 36%,
+            #aeb4c0 52%,
+            #ffe0e6 66%,
+            #fdfdff 82%,
+            #c0c7d6 100%
+          );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
     .hero h1 em::before {
       content: "";

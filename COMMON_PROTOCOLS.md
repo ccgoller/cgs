@@ -134,7 +134,7 @@ permalink: /protocols
 | Hold | 4 °C | N/A | — |
 
 ---
-## 5a. 16S or ITS Colony PCR
+### 5a. 16S or ITS Colony PCR
 
 **Purpose:** Amplify 16S (bacteria) or ITS (yeast/fungi) regions for identification of microbes.
 

@@ -20,6 +20,7 @@ permalink: /protocols
 3. [Preparing Agar Plates](#3-preparing-agar-plates)
 4. [Bacterial Transformation (Heat Shock)](#4-bacterial-transformation-heat-shock)
 5. [PCR Amplification](#5-pcr-amplification)
+
    5a. [16S or ITS Colony PCR](#5a-16s-or-its-colony-pcr)
 6. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
 7. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
@@ -93,7 +94,7 @@ permalink: /protocols
 3. Incubate on ice for 30 min.
 4. Heat shock at **42 °C for exactly 45 s** in a water bath.
 5. Return to ice for 2 min.
-6. Add 950 µL room-temperature SOC medium.
+6. Add 950 µL of room-temperature SOC medium.
 7. Incubate at 37 °C, 200 rpm, for 1 h (recovery).
 8. Plate 100–200 µL on selective plates; spread with sterile beads or a spreader.
 9. Incubate plates inverted at 37 °C overnight.

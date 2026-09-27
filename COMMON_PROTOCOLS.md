@@ -21,7 +21,7 @@ permalink: /protocols
 4. [Bacterial Transformation (Heat Shock)](#4-bacterial-transformation-heat-shock)
 5. [PCR Amplification](#5-pcr-amplification)
 
-   i.[16S or ITS Colony PCR](#5a-16s-or-its-colony-pcr)
+   1.[16S or ITS Colony PCR](#5a-16s-or-its-colony-pcr)
 7. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
 8. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
 9. [Gram Staining](#8-gram-staining)

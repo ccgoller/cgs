@@ -83,7 +83,7 @@ jobs:
                   [
                       "pandoc",
                       str(markdown_path),
-                      "--from=markdown",
+                      "--from=markdown-yaml_metadata_block",
                       "--to=pdf",
                       "--pdf-engine=wkhtmltopdf",
                       "--metadata",

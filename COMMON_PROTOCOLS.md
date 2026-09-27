@@ -20,11 +20,12 @@ permalink: /protocols
 3. [Preparing Agar Plates](#3-preparing-agar-plates)
 4. [Bacterial Transformation (Heat Shock)](#4-bacterial-transformation-heat-shock)
 5. [PCR Amplification](#5-pcr-amplification)
-6. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
-7. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
-8. [Gram Staining](#8-gram-staining)
-9. [Serial Dilution and Plate Counting](#9-serial-dilution-and-plate-counting)
-10. [Micropipette Calibration and Usage](#10-micropipette-calibration-and-usage)
+   a. [16S or ITS Colony PCR] (#5a-colony-pcr)
+7. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
+8. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
+9. [Gram Staining](#8-gram-staining)
+10. [Serial Dilution and Plate Counting](#9-serial-dilution-and-plate-counting)
+11. [Micropipette Calibration and Usage](#10-micropipette-calibration-and-usage)
 
 ---
 
@@ -111,7 +112,44 @@ permalink: /protocols
 | Template DNA | 1.0 µL |
 | Nuclease-free H₂O | 9.5 µL |
 
+**Typical 50 µL reaction:**
+
+| Component | Volume |
+|---|---|
+| 2× Master Mix | 25 µL |
+| Forward primer (10 µM) | 2.0 µL |
+| Reverse primer (10 µM) | 2.0 µL |
+| Template DNA | 2.0 µL |
+| Nuclease-free H₂O | 19 µL |
 **Cycling conditions (adjust annealing Tm as directed):**
+
+| Step | Temp | Time | Cycles |
+|---|---|---|---|
+| Initial denaturation | 95 °C | 3 min | 1× |
+| Denaturation | 95 °C | 30 s | 30× |
+| Annealing | *Tm − 5 °C* | 30 s | 30× |
+| Extension | 72 °C | 1 min/kb | 30× |
+| Final extension | 72 °C | 5 min | 1× |
+| Hold | 4 °C | N/A | — |
+
+---
+## 5a. 16S or ITS Colony PCR
+
+**Purpose:** Amplify 16S (bacteria) or ITS (yeast/fungi) regions for identification of microbes.
+
+**Materials:** Plates with isolated colonies, unused plates containing the same medium as the plates with isolated colonies, sterile pipet tips, PCR tubes, 2x Phusion polymerase master mix, nuclease-free water, 10 uM primers (27F and 1492R for 16S; ITS1F and ITS4 for ITS).
+
+**Procedure:**
+1. Prepare 50 µL reaction master mix as described above in 5. Increase nuclease-free water by 2 µL, and omit template DNA.
+2. Select an isolated colony on plate. Circle the colony on the bottom of the plate. If selecting more than one colony, circle and number each colony.
+3. Gently touch the selected colony with a sterile pipet tip. Do not "scoop" the entire colony off the plate.
+4. Gently touch the pipet tip to the unused plate.
+5. Place the pipet tip into the PCR tube containing the 50 µL master mix and gently swirl.
+6. Dispose of pipet tip.
+7. Using another sterile pipet tip or sterile loop, streak the microbes transferred to the new plate following standard T-streaking technique.
+8. Incubate new plate at 30-37C.
+   
+ **Cycling conditions (adjust annealing Tm as directed):**
 
 | Step | Temp | Time | Cycles |
 |---|---|---|---|

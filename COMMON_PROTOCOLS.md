@@ -21,11 +21,11 @@ permalink: /protocols
 4. [Bacterial Transformation (Heat Shock)](#4-bacterial-transformation-heat-shock)
 5. [PCR Amplification](#5-pcr-amplification)
    5a. [16S or ITS Colony PCR](#5a-16s-or-its-colony-pcr)
-7. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
-8. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
-9. [Gram Staining](#8-gram-staining)
-10. [Serial Dilution and Plate Counting](#9-serial-dilution-and-plate-counting)
-11. [Micropipette Calibration and Usage](#10-micropipette-calibration-and-usage)
+6. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
+7. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
+8. [Gram Staining](#8-gram-staining)
+9. [Serial Dilution and Plate Counting](#9-serial-dilution-and-plate-counting)
+10. [Micropipette Calibration and Usage](#10-micropipette-calibration-and-usage)
 
 ---
 

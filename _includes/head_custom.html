@@ -456,46 +456,16 @@
         const results = document.getElementById("protocol-search-results");
 
         if (searchInput && clearButton && status && results) {
-          const protocolHeadingPattern = /^\s*\d+(?:[a-z]|\.\d+)*\.\s+/i;
-          const usedIds = new Set(
-            Array.from(document.querySelectorAll("[id]"))
-              .map(function (element) { return element.id; })
-              .filter(function (id) { return id && id.length > 0; })
-          );
-          const slugify = function (value) {
-            return value
-              .toLowerCase()
-              .trim()
-              .replace(/[^\w\s-]/g, "")
-              .replace(/\s+/g, "-")
-              .replace(/-+/g, "-");
-          };
-          const ensureHeadingId = function (heading) {
-            if (heading.id) {
-              usedIds.add(heading.id);
-              return heading.id;
-            }
-            let baseId = slugify(heading.textContent);
-            if (!baseId) baseId = "protocol";
-            let candidateId = baseId;
-            let counter = 2;
-            while (usedIds.has(candidateId) || document.getElementById(candidateId)) {
-              candidateId = baseId + "-" + counter;
-              counter += 1;
-            }
-            heading.id = candidateId;
-            usedIds.add(heading.id);
-            return heading.id;
-          };
+          const protocolHeadingPattern = /^\s*(?:\d+[a-z]?|\d+(?:\.\d+)+)\.\s+/i;
           const buildProtocolSections = function () {
             return Array.from(mainContent.querySelectorAll("h2, h3"))
               .filter(function (heading) {
-                return protocolHeadingPattern.test(heading.textContent);
+                return heading.id && protocolHeadingPattern.test(heading.textContent);
               })
               .map(function (heading) {
                 return {
                   title: heading.textContent.trim(),
-                  id: ensureHeadingId(heading),
+                  id: heading.id,
                   searchableText: (heading.textContent || "").toLowerCase()
                 };
               });

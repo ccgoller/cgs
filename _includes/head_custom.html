@@ -523,7 +523,11 @@
           if (protocolSections.length > 0) {
             renderResults("");
           } else {
-            status.textContent = "No auto-indexed protocols found; fallback links are shown.";
+            results.innerHTML = "";
+            const li = document.createElement("li");
+            li.textContent = "No protocol headings were auto-indexed.";
+            results.appendChild(li);
+            status.textContent = "No auto-indexed protocols found.";
           }
         }
       }

@@ -22,10 +22,8 @@ permalink: /protocols
     <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
     <button id="protocol-search-clear" type="button">Clear</button>
   </form>
-  <div id="protocol-search-live" role="status" aria-live="polite">
-    <p id="protocol-search-status">Loading protocol links…</p>
-    <ul id="protocol-search-results"></ul>
-  </div>
+  <p id="protocol-search-status" role="status" aria-live="polite">Loading protocol links…</p>
+  <ul id="protocol-search-results"></ul>
   <noscript><p>JavaScript is off. Use your browser's Find feature (Ctrl/Cmd+F) to search this page.</p></noscript>
 </nav>
 

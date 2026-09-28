@@ -36,7 +36,7 @@ permalink: /protocols
   </ul>
 </nav>
 
-<p><em>Update note for maintainers:</em> this navigator auto-indexes numbered protocol H2/H3 headings below. Keep protocol headings consistently numbered so new entries are picked up automatically.</p>
+<p><em>Update note for maintainers:</em> this navigator auto-indexes numbered protocol H2/H3 headings below. Keep headings consistently numbered (for example <code>5.</code>, <code>5a.</code>, or <code>5.1.</code>) and also add a matching fallback link in the static list above for non-JavaScript readers.</p>
 
 ---
 

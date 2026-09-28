@@ -15,18 +15,29 @@ permalink: /protocols
 
 ## Table of Contents
 
-1. [Aseptic Technique](#1-aseptic-technique)
-2. [Preparing Liquid Media](#2-preparing-liquid-media)
-3. [Preparing Agar Plates](#3-preparing-agar-plates)
-4. [Bacterial Transformation (Heat Shock)](#4-bacterial-transformation-heat-shock)
-5. [PCR Amplification](#5-pcr-amplification)
-
-   1.[16S or ITS Colony PCR](#5a-16s-or-its-colony-pcr)
-7. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
-8. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
-9. [Gram Staining](#8-gram-staining)
-10. [Serial Dilution and Plate Counting](#9-serial-dilution-and-plate-counting)
-11. [Micropipette Calibration and Usage](#10-micropipette-calibration-and-usage)
+<nav id="protocol-navigator" class="protocol-navigator" aria-label="Protocol navigator">
+  <p><strong>Find a protocol quickly:</strong> filter by protocol title keywords.</p>
+  <form aria-label="Protocol title filter">
+    <label for="protocol-search"><strong>Search protocols</strong></label><br>
+    <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off" aria-describedby="protocol-search-status">
+    <button id="protocol-search-clear" type="button">Clear</button>
+  </form>
+  <p id="protocol-search-status" role="status" aria-live="polite">Loading protocol links…</p>
+  <ul id="protocol-search-results">
+    <li><a href="#1-aseptic-technique">1. Aseptic Technique</a></li>
+    <li><a href="#2-preparing-liquid-media">2. Preparing Liquid Media</a></li>
+    <li><a href="#3-preparing-agar-plates">3. Preparing Agar Plates</a></li>
+    <li><a href="#4-bacterial-transformation-heat-shock">4. Bacterial Transformation (Heat Shock)</a></li>
+    <li><a href="#5-pcr-amplification">5. PCR Amplification</a></li>
+    <li><a href="#5a-16s-or-its-colony-pcr">5a. 16S or ITS Colony PCR</a></li>
+    <li><a href="#6-agarose-gel-electrophoresis-using-e-gel-system">6. Agarose Gel Electrophoresis using E-Gel System</a></li>
+    <li><a href="#7-restriction-enzyme-digest">7. Restriction Enzyme Digest</a></li>
+    <li><a href="#8-gram-staining">8. Gram Staining</a></li>
+    <li><a href="#9-serial-dilution-and-plate-counting">9. Serial Dilution and Plate Counting</a></li>
+    <li><a href="#10-micropipette-calibration-and-usage">10. Micropipette Calibration and Usage</a></li>
+  </ul>
+  <noscript><p>JavaScript is off. Use your browser's Find feature (Ctrl/Cmd+F) to search this page.</p></noscript>
+</nav>
 
 ---
 

@@ -343,6 +343,43 @@
     }
   }
 
+  #protocol-navigator {
+    border: 1px solid var(--border-sidebar);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--surface-elevated);
+  }
+
+  #protocol-search {
+    width: min(100%, 30rem);
+    margin: 0.25rem 0;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--toggle-border);
+    border-radius: 4px;
+    background-color: var(--surface-elevated);
+    color: var(--text-main);
+  }
+
+  #protocol-search-clear {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--toggle-border);
+    border-radius: 4px;
+    background-color: var(--surface-elevated);
+    color: var(--text-main);
+    cursor: pointer;
+  }
+
+  #protocol-search-results {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  #protocol-search-results li {
+    margin-bottom: 0.35rem;
+  }
+
   /* ─── Reduced motion ──────────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -410,6 +447,110 @@
           link.removeAttribute("aria-current");
         }
       });
+
+      const protocolNavigator = document.getElementById("protocol-navigator");
+      if (protocolNavigator && mainContent) {
+        const searchInput = document.getElementById("protocol-search");
+        const clearButton = document.getElementById("protocol-search-clear");
+        const status = document.getElementById("protocol-search-status");
+        const results = document.getElementById("protocol-search-results");
+
+        if (searchInput && clearButton && status && results) {
+          // Numbered protocol headings (e.g., "5.", "5a.", "5.1.") are indexed automatically.
+          const protocolHeadingPattern = /^\s*\d.*\.\s+/i;
+          const buildProtocolSections = function () {
+            return Array.from(mainContent.querySelectorAll("h2, h3"))
+              .filter(function (heading) {
+                return heading.id && protocolHeadingPattern.test(heading.textContent);
+              })
+              .map(function (heading) {
+                return {
+                  title: heading.textContent.trim(),
+                  id: heading.id,
+                  searchableText: (heading.textContent || "").toLowerCase()
+                };
+              });
+          };
+
+          const protocolSections = buildProtocolSections();
+          const updateProtocolCurrentLink = function () {
+            const hash = (window.location.hash || "").replace(/^#/, "");
+            let activeId = hash;
+            try {
+              activeId = decodeURIComponent(hash);
+            } catch (error) {
+              activeId = hash;
+            }
+            results.querySelectorAll("a").forEach(function (link) {
+              const hrefId = (link.getAttribute("href") || "").replace(/^#/, "");
+              if (activeId && hrefId === activeId) {
+                link.setAttribute("aria-current", "location");
+              } else {
+                link.removeAttribute("aria-current");
+              }
+            });
+          };
+
+          const renderResults = function (query) {
+            const normalizedQuery = query.trim().toLowerCase();
+            const filtered = normalizedQuery
+              ? protocolSections.filter(function (section) {
+                  return section.searchableText.includes(normalizedQuery);
+                })
+              : protocolSections;
+
+            results.replaceChildren();
+            filtered.forEach(function (section) {
+              const li = document.createElement("li");
+              const link = document.createElement("a");
+              link.href = "#" + section.id;
+              link.textContent = section.title;
+              li.appendChild(link);
+              results.appendChild(li);
+            });
+
+            if (filtered.length === 0) {
+              const li = document.createElement("li");
+              li.textContent = "No matching protocols found.";
+              results.appendChild(li);
+            }
+
+            status.textContent =
+              normalizedQuery.length > 0
+                ? filtered.length + " protocol" + (filtered.length === 1 ? "" : "s") + " matched."
+                : protocolSections.length + " protocol" + (protocolSections.length === 1 ? "" : "s") + " listed.";
+
+            updateProtocolCurrentLink();
+          };
+
+          searchInput.addEventListener("input", function (event) {
+            renderResults(event.target.value);
+          });
+
+          if (searchInput.form) {
+            searchInput.form.addEventListener("submit", function (event) {
+              event.preventDefault();
+            });
+          }
+
+          clearButton.addEventListener("click", function () {
+            searchInput.value = "";
+            searchInput.focus();
+            renderResults("");
+          });
+          window.addEventListener("hashchange", updateProtocolCurrentLink);
+
+          if (protocolSections.length > 0) {
+            renderResults("");
+          } else {
+            results.replaceChildren();
+            const li = document.createElement("li");
+            li.textContent = "No protocol headings were auto-indexed.";
+            results.appendChild(li);
+            status.textContent = "No auto-indexed protocols found.";
+          }
+        }
+      }
 
       if (!document.querySelector(".theme-toggle")) {
         const button = document.createElement("button");

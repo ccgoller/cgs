@@ -22,7 +22,7 @@ permalink: /protocols
     <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
     <button id="protocol-search-clear" type="button">Clear</button>
   </div>
-  <p id="protocol-search-status" role="status" aria-live="polite"></p>
+  <p id="protocol-search-status" role="status" aria-live="polite">Showing protocol links.</p>
   <ul id="protocol-search-results">
     <li><a href="#1-aseptic-technique">1. Aseptic Technique</a></li>
     <li><a href="#2-preparing-liquid-media">2. Preparing Liquid Media</a></li>

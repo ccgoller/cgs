@@ -343,6 +343,43 @@
     }
   }
 
+  #protocol-navigator {
+    border: 1px solid var(--border-sidebar);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--surface-elevated);
+  }
+
+  #protocol-search {
+    width: min(100%, 30rem);
+    margin: 0.25rem 0;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--toggle-border);
+    border-radius: 4px;
+    background-color: var(--surface-elevated);
+    color: var(--text-main);
+  }
+
+  #protocol-search-clear {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--toggle-border);
+    border-radius: 4px;
+    background-color: var(--surface-elevated);
+    color: var(--text-main);
+    cursor: pointer;
+  }
+
+  #protocol-search-results {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  #protocol-search-results li {
+    margin-bottom: 0.35rem;
+  }
+
   /* ─── Reduced motion ──────────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -410,6 +447,102 @@
           link.removeAttribute("aria-current");
         }
       });
+
+      const protocolNavigator = document.getElementById("protocol-navigator");
+      if (protocolNavigator && mainContent) {
+        const searchInput = document.getElementById("protocol-search");
+        const clearButton = document.getElementById("protocol-search-clear");
+        const status = document.getElementById("protocol-search-status");
+        const results = document.getElementById("protocol-search-results");
+
+        if (searchInput && clearButton && status && results) {
+          const usedIds = new Set();
+          const slugify = function (value) {
+            return value
+              .toLowerCase()
+              .trim()
+              .replace(/[^\w\s-]/g, "")
+              .replace(/\s+/g, "-")
+              .replace(/-+/g, "-");
+          };
+
+          const protocolSections = Array.from(mainContent.querySelectorAll("h2"))
+            .filter(function (heading) {
+              return /^\d+(\.\d+)?\.\s+/.test(heading.textContent.trim());
+            })
+            .map(function (heading) {
+              if (!heading.id) {
+                let baseId = slugify(heading.textContent);
+                if (!baseId) baseId = "protocol";
+                let candidateId = baseId;
+                let counter = 2;
+                while (usedIds.has(candidateId)) {
+                  candidateId = baseId + "-" + counter;
+                  counter += 1;
+                }
+                heading.id = candidateId;
+              }
+              usedIds.add(heading.id);
+
+              let sectionText = heading.textContent || "";
+              let node = heading.nextElementSibling;
+              while (node && node.tagName !== "H2") {
+                sectionText += " " + (node.textContent || "");
+                node = node.nextElementSibling;
+              }
+
+              return {
+                title: heading.textContent.trim(),
+                id: heading.id,
+                searchableText: sectionText.toLowerCase()
+              };
+            });
+
+          const renderResults = function (query) {
+            const normalizedQuery = query.trim().toLowerCase();
+            const filtered = normalizedQuery
+              ? protocolSections.filter(function (section) {
+                  return section.searchableText.includes(normalizedQuery);
+                })
+              : protocolSections;
+
+            results.innerHTML = "";
+            filtered.forEach(function (section) {
+              const li = document.createElement("li");
+              const link = document.createElement("a");
+              link.href = "#" + section.id;
+              link.textContent = section.title;
+              li.appendChild(link);
+              results.appendChild(li);
+            });
+
+            if (filtered.length === 0) {
+              const li = document.createElement("li");
+              li.textContent = "No matching protocols found.";
+              results.appendChild(li);
+            }
+
+            status.textContent =
+              normalizedQuery.length > 0
+                ? filtered.length + " protocol" + (filtered.length === 1 ? "" : "s") + " match \"" + query.trim() + "\"."
+                : protocolSections.length + " protocol" + (protocolSections.length === 1 ? "" : "s") + " listed.";
+          };
+
+          searchInput.addEventListener("input", function (event) {
+            renderResults(event.target.value);
+          });
+
+          clearButton.addEventListener("click", function () {
+            searchInput.value = "";
+            searchInput.focus();
+            renderResults("");
+          });
+
+          if (protocolSections.length > 0) {
+            renderResults("");
+          }
+        }
+      }
 
       if (!document.querySelector(".theme-toggle")) {
         const button = document.createElement("button");

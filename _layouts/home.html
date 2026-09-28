@@ -451,6 +451,7 @@
       filter: blur(0.35px);
       opacity: 0.56;
       pointer-events: none;
+      will-change: transform, opacity, background-position;
       animation: heroSparkleTwinkle 8s ease-in-out infinite;
     }
     .hero p {
@@ -645,12 +646,31 @@
     }
     @keyframes heroSparkleTwinkle {
       0%, 100% {
-        opacity: 0.32;
-        transform: scale(0.98);
+        opacity: 0.34;
+        transform: translate3d(-0.02em, 0.015em, 0) scale(0.98);
+        background-position:
+          0 0,
+          0 0,
+          0 0,
+          0 0;
       }
-      50% {
-        opacity: 0.6;
-        transform: scale(1.03);
+      42% {
+        opacity: 0.62;
+        transform: translate3d(0.035em, -0.015em, 0) scale(1.03);
+        background-position:
+          0.08em -0.03em,
+          -0.03em 0.02em,
+          0.02em -0.02em,
+          0 0;
+      }
+      68% {
+        opacity: 0.5;
+        transform: translate3d(0.085em, -0.04em, 0) scale(1.01);
+        background-position:
+          0.14em -0.06em,
+          -0.01em 0.04em,
+          0.07em -0.03em,
+          0 0;
       }
     }
 

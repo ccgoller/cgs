@@ -457,7 +457,7 @@
 
         if (searchInput && clearButton && status && results) {
           // Numbered protocol headings (e.g., "5.", "5a.", "5.1.") are indexed automatically.
-          const protocolHeadingPattern = /^\s*\d+(?:\.\d+)*(?:[a-z])?\.\s+/i;
+          const protocolHeadingPattern = /^\s*\d+(?:\.\d+)*(?:[a-z])?\.?\s+/i;
           const buildProtocolSections = function () {
             return Array.from(mainContent.querySelectorAll("h2, h3"))
               .filter(function (heading) {

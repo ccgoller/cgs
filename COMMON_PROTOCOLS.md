@@ -22,20 +22,9 @@ permalink: /protocols
     <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
     <button id="protocol-search-clear" type="button">Clear</button>
   </form>
-  <p id="protocol-search-status" role="status" aria-live="polite">Showing protocol links.</p>
-  <ul id="protocol-search-results">
-    <li><a href="#1-aseptic-technique">1. Aseptic Technique</a></li>
-    <li><a href="#2-preparing-liquid-media">2. Preparing Liquid Media</a></li>
-    <li><a href="#3-preparing-agar-plates">3. Preparing Agar Plates</a></li>
-    <li><a href="#4-bacterial-transformation-heat-shock">4. Bacterial Transformation (Heat Shock)</a></li>
-    <li><a href="#5-pcr-amplification">5. PCR Amplification</a></li>
-    <li><a href="#5a-16s-or-its-colony-pcr">5a. 16S or ITS Colony PCR</a></li>
-    <li><a href="#6-agarose-gel-electrophoresis-using-e-gel-system">6. Agarose Gel Electrophoresis using E-Gel System</a></li>
-    <li><a href="#7-restriction-enzyme-digest">7. Restriction Enzyme Digest</a></li>
-    <li><a href="#8-gram-staining">8. Gram Staining</a></li>
-    <li><a href="#9-serial-dilution-and-plate-counting">9. Serial Dilution and Plate Counting</a></li>
-    <li><a href="#10-micropipette-calibration-and-usage">10. Micropipette Calibration and Usage</a></li>
-  </ul>
+  <p id="protocol-search-status" role="status" aria-live="polite">Loading protocol links…</p>
+  <ul id="protocol-search-results"></ul>
+  <noscript><p>JavaScript is off. Use your browser's Find feature (Ctrl/Cmd+F) to search this page.</p></noscript>
 </nav>
 
 ---

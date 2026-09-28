@@ -16,7 +16,7 @@ permalink: /protocols
 ## Table of Contents
 
 <nav id="protocol-navigator" class="protocol-navigator" aria-label="Protocol navigator">
-  <p><strong>Find a protocol quickly:</strong> filter by protocol name or content keywords.</p>
+  <p><strong>Find a protocol quickly:</strong> filter by protocol title keywords.</p>
   <label for="protocol-search"><strong>Search protocols</strong></label><br>
   <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
   <button id="protocol-search-clear" type="button">Clear</button>
@@ -36,7 +36,7 @@ permalink: /protocols
   </ul>
 </nav>
 
-<p><em>Update note for maintainers:</em> this navigator auto-indexes only numbered H2/H3 headings that match this rule: starts with a number, optional single letter, a period, then a space (for example <code>## 6. Title</code>, <code>### 1. Substep</code>, <code>### 5a. Title</code>, or <code>### 5A. Title</code>).</p>
+<p><em>Update note for maintainers:</em> this navigator auto-indexes numbered protocol H2/H3 headings below. Keep protocol headings consistently numbered so new entries are picked up automatically.</p>
 
 ---
 

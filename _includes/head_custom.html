@@ -456,7 +456,11 @@
         const results = document.getElementById("protocol-search-results");
 
         if (searchInput && clearButton && status && results) {
-          const usedIds = new Set();
+          const usedIds = new Set(
+            Array.from(document.querySelectorAll("[id]"))
+              .map(function (element) { return element.id; })
+              .filter(function (id) { return id && id.length > 0; })
+          );
           const slugify = function (value) {
             return value
               .toLowerCase()
@@ -476,7 +480,7 @@
                 if (!baseId) baseId = "protocol";
                 let candidateId = baseId;
                 let counter = 2;
-                while (usedIds.has(candidateId)) {
+                while (usedIds.has(candidateId) || document.getElementById(candidateId)) {
                   candidateId = baseId + "-" + counter;
                   counter += 1;
                 }

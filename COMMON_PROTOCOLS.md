@@ -15,7 +15,7 @@ permalink: /protocols
 
 ## Table of Contents
 
-<div id="protocol-navigator" class="protocol-navigator" aria-label="Protocol navigator">
+<nav id="protocol-navigator" class="protocol-navigator" aria-label="Protocol navigator">
   <p><strong>Find a protocol quickly:</strong> filter by protocol name or content keywords.</p>
   <label for="protocol-search"><strong>Search protocols</strong></label><br>
   <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
@@ -34,7 +34,7 @@ permalink: /protocols
     <li><a href="#9-serial-dilution-and-plate-counting">9. Serial Dilution and Plate Counting</a></li>
     <li><a href="#10-micropipette-calibration-and-usage">10. Micropipette Calibration and Usage</a></li>
   </ul>
-</div>
+</nav>
 
 <p><em>Update note for maintainers:</em> this navigator auto-indexes H2 headings that start with a number, optional single letter, a period, and a space (for example <code>## 6. Title</code>, <code>## 5a. Title</code>, or <code>## 5A. Title</code>).</p>
 

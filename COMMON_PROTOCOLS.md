@@ -15,18 +15,117 @@ permalink: /protocols
 
 ## Table of Contents
 
-1. [Aseptic Technique](#1-aseptic-technique)
-2. [Preparing Liquid Media](#2-preparing-liquid-media)
-3. [Preparing Agar Plates](#3-preparing-agar-plates)
-4. [Bacterial Transformation (Heat Shock)](#4-bacterial-transformation-heat-shock)
-5. [PCR Amplification](#5-pcr-amplification)
+<div id="protocol-navigator" class="protocol-navigator" aria-label="Protocol navigator">
+  <p><strong>Find a protocol quickly:</strong> filter by protocol name or content keywords.</p>
+  <label for="protocol-search"><strong>Search protocols</strong></label><br>
+  <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
+  <button id="protocol-search-clear" type="button">Clear</button>
+  <p id="protocol-search-status" role="status" aria-live="polite"></p>
+  <ul id="protocol-search-results"></ul>
+</div>
 
-   1.[16S or ITS Colony PCR](#5a-16s-or-its-colony-pcr)
-7. [Agarose Gel Electrophoresis](#6-agarose-gel-electrophoresis-using-e-gel-system)
-8. [Restriction Enzyme Digest](#7-restriction-enzyme-digest)
-9. [Gram Staining](#8-gram-staining)
-10. [Serial Dilution and Plate Counting](#9-serial-dilution-and-plate-counting)
-11. [Micropipette Calibration and Usage](#10-micropipette-calibration-and-usage)
+<p><em>Update note for maintainers:</em> this navigator auto-indexes every <code>## N. Protocol Title</code> section below. To add a new protocol, add a new H2 section in the same numbered format.</p>
+
+<style>
+  #protocol-navigator {
+    border: 1px solid var(--border, #d0d7de);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--code-background, #f6f8fa);
+  }
+
+  #protocol-search {
+    width: min(100%, 30rem);
+    margin: 0.25rem 0;
+    padding: 0.5rem 0.6rem;
+  }
+
+  #protocol-search-clear {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  #protocol-search-results {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  #protocol-search-results li {
+    margin-bottom: 0.35rem;
+  }
+</style>
+
+<script>
+  (() => {
+    const nav = document.getElementById("protocol-navigator");
+    if (!nav) return;
+
+    const searchInput = document.getElementById("protocol-search");
+    const clearButton = document.getElementById("protocol-search-clear");
+    const status = document.getElementById("protocol-search-status");
+    const results = document.getElementById("protocol-search-results");
+    if (!searchInput || !clearButton || !status || !results) return;
+
+    const allHeadings = Array.from(document.querySelectorAll(".main-content h2"));
+    const protocolSections = allHeadings
+      .filter((heading) => /^\d+(\.\d+)?\.\s+/.test(heading.textContent.trim()))
+      .map((heading) => {
+        let sectionText = heading.textContent || "";
+        let node = heading.nextElementSibling;
+        while (node && node.tagName !== "H2") {
+          sectionText += " " + (node.textContent || "");
+          node = node.nextElementSibling;
+        }
+
+        return {
+          title: heading.textContent.trim(),
+          id: heading.id,
+          searchableText: sectionText.toLowerCase()
+        };
+      });
+
+    const renderResults = (query) => {
+      const normalizedQuery = query.trim().toLowerCase();
+      const filtered = normalizedQuery
+        ? protocolSections.filter((section) => section.searchableText.includes(normalizedQuery))
+        : protocolSections;
+
+      results.innerHTML = "";
+      filtered.forEach((section) => {
+        const li = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = "#" + section.id;
+        link.textContent = section.title;
+        li.appendChild(link);
+        results.appendChild(li);
+      });
+
+      if (filtered.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "No matching protocols found.";
+        results.appendChild(li);
+      }
+
+      status.textContent =
+        normalizedQuery.length > 0
+          ? `${filtered.length} protocol${filtered.length === 1 ? "" : "s"} match "${query.trim()}".`
+          : `${protocolSections.length} protocol${protocolSections.length === 1 ? "" : "s"} listed.`;
+    };
+
+    searchInput.addEventListener("input", (event) => {
+      renderResults(event.target.value);
+    });
+
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      searchInput.focus();
+      renderResults("");
+    });
+
+    renderResults("");
+  })();
+</script>
 
 ---
 

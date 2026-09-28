@@ -17,7 +17,7 @@ permalink: /protocols
 
 <nav id="protocol-navigator" class="protocol-navigator" aria-label="Protocol navigator">
   <p><strong>Find a protocol quickly:</strong> filter by protocol title keywords.</p>
-  <form aria-label="Protocol title filter" onsubmit="return false;">
+  <form aria-label="Protocol title filter">
     <label for="protocol-search"><strong>Search protocols</strong></label><br>
     <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
     <button id="protocol-search-clear" type="button">Clear</button>

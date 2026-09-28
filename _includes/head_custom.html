@@ -475,7 +475,12 @@
           const protocolSections = buildProtocolSections();
           const updateProtocolCurrentLink = function () {
             const hash = (window.location.hash || "").replace(/^#/, "");
-            const activeId = decodeURIComponent(hash);
+            let activeId = hash;
+            try {
+              activeId = decodeURIComponent(hash);
+            } catch (error) {
+              activeId = hash;
+            }
             results.querySelectorAll("a").forEach(function (link) {
               const hrefId = (link.getAttribute("href") || "").replace(/^#/, "");
               if (activeId && hrefId === activeId) {

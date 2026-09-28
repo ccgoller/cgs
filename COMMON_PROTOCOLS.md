@@ -19,7 +19,7 @@ permalink: /protocols
   <p><strong>Find a protocol quickly:</strong> filter by protocol title keywords.</p>
   <form aria-label="Protocol title filter">
     <label for="protocol-search"><strong>Search protocols</strong></label><br>
-    <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off">
+    <input id="protocol-search" type="search" placeholder="e.g., PCR, agar, transformation, staining" autocomplete="off" aria-describedby="protocol-search-status">
     <button id="protocol-search-clear" type="button">Clear</button>
   </form>
   <p id="protocol-search-status" role="status" aria-live="polite">Loading protocol links…</p>

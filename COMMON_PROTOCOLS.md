@@ -36,8 +36,6 @@ permalink: /protocols
   </ul>
 </nav>
 
-<!-- Maintainers: keep protocol headings numbered (for example 5., 5a., 5.1.) and add matching fallback links above for non-JavaScript readers. -->
-
 ---
 
 ## 1. Aseptic Technique

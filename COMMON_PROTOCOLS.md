@@ -36,7 +36,7 @@ permalink: /protocols
   </ul>
 </div>
 
-<p><em>Update note for maintainers:</em> this navigator auto-indexes every <code>## N. Protocol Title</code> section below. To add a new protocol, add a new H2 section in the same numbered format.</p>
+<p><em>Update note for maintainers:</em> this navigator auto-indexes every <code>## N. Protocol Title</code> or <code>## Na. Protocol Title</code> section below. To add a new protocol, add a new H2 section in the same numbered format.</p>
 
 ---
 

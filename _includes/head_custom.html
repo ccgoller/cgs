@@ -457,7 +457,7 @@
 
         if (searchInput && clearButton && status && results) {
           // Numbered protocol headings (e.g., "5.", "5a.", "5.1.") are indexed automatically.
-          const protocolHeadingPattern = /^\s*(?:\d+[a-z]?|\d+(?:\.\d+)+[a-z]?)\.?\s+/i;
+          const protocolHeadingPattern = /^\s*\d[0-9a-z.]*\.\s+/i;
           const buildProtocolSections = function () {
             return Array.from(mainContent.querySelectorAll("h2, h3"))
               .filter(function (heading) {
@@ -473,6 +473,18 @@
           };
 
           const protocolSections = buildProtocolSections();
+          const updateProtocolCurrentLink = function () {
+            const hash = (window.location.hash || "").replace(/^#/, "");
+            const activeId = decodeURIComponent(hash);
+            results.querySelectorAll("a").forEach(function (link) {
+              const hrefId = (link.getAttribute("href") || "").replace(/^#/, "");
+              if (activeId && hrefId === activeId) {
+                link.setAttribute("aria-current", "location");
+              } else {
+                link.removeAttribute("aria-current");
+              }
+            });
+          };
 
           const renderResults = function (query) {
             const normalizedQuery = query.trim().toLowerCase();
@@ -502,6 +514,8 @@
               normalizedQuery.length > 0
                 ? filtered.length + " protocol" + (filtered.length === 1 ? "" : "s") + " matched."
                 : protocolSections.length + " protocol" + (protocolSections.length === 1 ? "" : "s") + " listed.";
+
+            updateProtocolCurrentLink();
           };
 
           searchInput.addEventListener("input", function (event) {
@@ -519,6 +533,7 @@
             searchInput.focus();
             renderResults("");
           });
+          window.addEventListener("hashchange", updateProtocolCurrentLink);
 
           if (protocolSections.length > 0) {
             renderResults("");

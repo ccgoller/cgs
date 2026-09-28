@@ -36,7 +36,7 @@ permalink: /protocols
   </ul>
 </nav>
 
-<p><em>Update note for maintainers:</em> this navigator auto-indexes numbered H2/H3 headings that start with a number, optional single letter, a period, and a space (for example <code>## 6. Title</code>, <code>### 1. Substep</code>, <code>### 5a. Title</code>, or <code>### 5A. Title</code>).</p>
+<p><em>Update note for maintainers:</em> this navigator auto-indexes only numbered H2/H3 headings that match this rule: starts with a number, optional single letter, a period, then a space (for example <code>## 6. Title</code>, <code>### 1. Substep</code>, <code>### 5a. Title</code>, or <code>### 5A. Title</code>).</p>
 
 ---
 

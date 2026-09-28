@@ -456,6 +456,7 @@
         const results = document.getElementById("protocol-search-results");
 
         if (searchInput && clearButton && status && results) {
+          const protocolHeadingPattern = /^\s*\d+[a-z]?\.\s+/i;
           const usedIds = new Set(
             Array.from(document.querySelectorAll("[id]"))
               .map(function (element) { return element.id; })
@@ -472,7 +473,7 @@
 
           const protocolSections = Array.from(mainContent.querySelectorAll("h2, h3"))
             .filter(function (heading) {
-              return /^\d+[a-z]?\.\s+/i.test(heading.textContent.trim());
+              return protocolHeadingPattern.test(heading.textContent);
             })
             .map(function (heading) {
               if (!heading.id) {
@@ -488,17 +489,10 @@
               }
               usedIds.add(heading.id);
 
-              let sectionText = heading.textContent || "";
-              let node = heading.nextElementSibling;
-              while (node && node.tagName !== "H2" && node.tagName !== "H3") {
-                sectionText += " " + (node.textContent || "");
-                node = node.nextElementSibling;
-              }
-
               return {
                 title: heading.textContent.trim(),
                 id: heading.id,
-                searchableText: sectionText.toLowerCase()
+                searchableText: (heading.textContent || "").toLowerCase()
               };
             });
 

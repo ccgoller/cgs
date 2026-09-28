@@ -468,7 +468,7 @@
 
           const protocolSections = Array.from(mainContent.querySelectorAll("h2"))
             .filter(function (heading) {
-              return /^\d+[a-z]?\.\s+/.test(heading.textContent.trim());
+              return /^\d+[a-z]?\.\s+/i.test(heading.textContent.trim());
             })
             .map(function (heading) {
               if (!heading.id) {

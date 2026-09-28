@@ -456,7 +456,7 @@
         const results = document.getElementById("protocol-search-results");
 
         if (searchInput && clearButton && status && results) {
-          const protocolHeadingPattern = /^\s*\d+(?:[a-z]|\.\d+)?\.\s+/i;
+          const protocolHeadingPattern = /^\s*\d+(?:[a-z]|\.\d+)*\.\s+/i;
           const usedIds = new Set(
             Array.from(document.querySelectorAll("[id]"))
               .map(function (element) { return element.id; })
@@ -545,6 +545,8 @@
 
           if (protocolSections.length > 0) {
             renderResults("");
+          } else {
+            status.textContent = "No auto-indexed protocols found; fallback links are shown.";
           }
         }
       }

@@ -470,31 +470,38 @@
               .replace(/\s+/g, "-")
               .replace(/-+/g, "-");
           };
-
-          const protocolSections = Array.from(mainContent.querySelectorAll("h2, h3"))
-            .filter(function (heading) {
-              return protocolHeadingPattern.test(heading.textContent);
-            })
-            .map(function (heading) {
-              if (!heading.id) {
-                let baseId = slugify(heading.textContent);
-                if (!baseId) baseId = "protocol";
-                let candidateId = baseId;
-                let counter = 2;
-                while (usedIds.has(candidateId) || document.getElementById(candidateId)) {
-                  candidateId = baseId + "-" + counter;
-                  counter += 1;
-                }
-                heading.id = candidateId;
-              }
+          const ensureHeadingId = function (heading) {
+            if (heading.id) {
               usedIds.add(heading.id);
+              return heading.id;
+            }
+            let baseId = slugify(heading.textContent);
+            if (!baseId) baseId = "protocol";
+            let candidateId = baseId;
+            let counter = 2;
+            while (usedIds.has(candidateId) || document.getElementById(candidateId)) {
+              candidateId = baseId + "-" + counter;
+              counter += 1;
+            }
+            heading.id = candidateId;
+            usedIds.add(heading.id);
+            return heading.id;
+          };
+          const buildProtocolSections = function () {
+            return Array.from(mainContent.querySelectorAll("h2, h3"))
+              .filter(function (heading) {
+                return protocolHeadingPattern.test(heading.textContent);
+              })
+              .map(function (heading) {
+                return {
+                  title: heading.textContent.trim(),
+                  id: ensureHeadingId(heading),
+                  searchableText: (heading.textContent || "").toLowerCase()
+                };
+              });
+          };
 
-              return {
-                title: heading.textContent.trim(),
-                id: heading.id,
-                searchableText: (heading.textContent || "").toLowerCase()
-              };
-            });
+          const protocolSections = buildProtocolSections();
 
           const renderResults = function (query) {
             const normalizedQuery = query.trim().toLowerCase();
@@ -522,7 +529,7 @@
 
             status.textContent =
               normalizedQuery.length > 0
-                ? filtered.length + " protocol" + (filtered.length === 1 ? "" : "s") + " match \"" + query.trim() + "\"."
+                ? filtered.length + " protocol" + (filtered.length === 1 ? "" : "s") + " matched."
                 : protocolSections.length + " protocol" + (protocolSections.length === 1 ? "" : "s") + " listed.";
           };
 

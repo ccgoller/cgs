@@ -1,0 +1,98 @@
+<style>
+  .reading-focus-toggle {
+    position: fixed;
+    z-index: 10000;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--focus-ring);
+    border-radius: 999px;
+    background: var(--bg-page);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .reading-focus-toggle:hover,
+  .reading-focus-toggle[aria-pressed="true"] {
+    background: var(--focus-ring);
+    color: #ffffff;
+  }
+
+  html[data-reading-focus="true"] .side-bar,
+  html[data-reading-focus="true"] .main-header,
+  html[data-reading-focus="true"] .site-footer,
+  html[data-reading-focus="true"] .aux-nav,
+  html[data-reading-focus="true"] .home-site-header,
+  html[data-reading-focus="true"] body > footer {
+    display: none !important;
+  }
+  html[data-reading-focus="true"] .main-content-wrap {
+    margin-left: 0 !important;
+    max-width: none !important;
+  }
+  html[data-reading-focus="true"] .main {
+    margin-left: 0 !important;
+  }
+  html[data-reading-focus="true"] .main-content {
+    max-width: 72ch !important;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem !important;
+  }
+  html[data-reading-focus="true"] #main-content {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .reading-focus-toggle {
+      bottom: 0.5rem;
+      right: 0.5rem;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "cgs-reading-focus";
+    const root = document.documentElement;
+    const isEnabled = function () {
+      return root.getAttribute("data-reading-focus") === "true";
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "reading-focus-toggle";
+      button.setAttribute("aria-pressed", "false");
+      document.body.appendChild(button);
+
+      const updateButton = function () {
+        const enabled = isEnabled();
+        button.setAttribute("aria-pressed", String(enabled));
+        button.textContent = "Reading focus: " + (enabled ? "on" : "off");
+        button.title = enabled ? "Turn reading focus off" : "Turn reading focus on";
+      };
+
+      if (localStorage.getItem(STORAGE_KEY) === "true") {
+        root.setAttribute("data-reading-focus", "true");
+      }
+      updateButton();
+
+      button.addEventListener("click", function () {
+        const enabled = !isEnabled();
+        if (enabled) {
+          root.setAttribute("data-reading-focus", "true");
+          localStorage.setItem(STORAGE_KEY, "true");
+        } else {
+          root.removeAttribute("data-reading-focus");
+          localStorage.removeItem(STORAGE_KEY);
+        }
+        updateButton();
+      });
+    });
+  })();
+</script>

@@ -95,6 +95,25 @@
     color: var(--text-main) !important;
   }
 
+  .main-content h1 {
+    position: relative;
+    isolation: isolate;
+    text-align: center;
+  }
+  .main-content h1::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    transform: translate(-50%, -50%);
+    background: url("{{ '/assets/favicon.svg' | relative_url }}") center / contain no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+
   .main-content table,
   .main-content pre,
   .main-content .code-example,

@@ -15,11 +15,12 @@ permalink: /professional-development
 1. [Setting Semester Goals](#1-setting-semester-goals)
 2. [Skills Inventory](#2-skills-inventory)
 3. [CV / Résumé Building Blocks](#3-cv--résumé-building-blocks)
-4. [Networking and Mentorship](#4-networking-and-mentorship)
-5. [Applying to Research Opportunities](#5-applying-to-research-opportunities)
-6. [Graduate School Preparation](#6-graduate-school-preparation)
-7. [Exploring Non-Academic Careers](#7-exploring-non-academic-careers)
-8. [Recommended Resources](#8-recommended-resources)
+4. [Presenting Research at Conferences](#4-presenting-research-at-conferences)
+5. [Networking and Mentorship](#5-networking-and-mentorship)
+6. [Applying to Research Opportunities](#6-applying-to-research-opportunities)
+7. [Graduate School Preparation](#7-graduate-school-preparation)
+8. [Exploring Non-Academic Careers](#8-exploring-non-academic-careers)
+9. [Recommended Resources](#9-recommended-resources)
 
 ---
 
@@ -111,7 +112,25 @@ Everything you do in this course can go on your CV. Track your accomplishments b
 
 ---
 
-## 4. Networking and Mentorship
+## 4. Presenting Research at Conferences
+
+Presenting your work helps you practice communicating science, get feedback, and meet researchers with shared interests. Look for opportunities at **institutional** events (such as a campus research or undergraduate symposium), **regional** meetings hosted by scientific societies, and **national** conferences in your field. Ask your research mentor which venue fits your project and experience, and check abstract deadlines, presentation requirements, travel support, and registration costs early.
+
+### Poster Preparation Tips
+
+- Start with one clear takeaway. Use a concise title and organize the poster so readers can follow the story from background and question through methods, results, and conclusions.
+- Make the text brief and easy to scan. Use readable fonts, strong contrast, clear section headings, and enough white space.
+- Let figures communicate the results: label axes and units, use legible legends, explain abbreviations, and include short captions.
+- Check that you have permission to share all data and images. Include acknowledgments, funding information, and key references as appropriate.
+- Ask your mentor and lab mates to review the content and design. Proofread carefully and check the final-size layout before printing.
+- Practice a short overview and be ready to explain the poster in more depth, answer questions, and discuss limitations. Bring a way to take notes on feedback.
+- Add contact information or a QR code to a relevant paper, lab page, or contact page if useful.
+
+For scientific icons and poster design guidance, see [SciIcons](https://www.sciicons.com/#) and [Poster Scientist](https://www.posterscientist.com/).
+
+---
+
+## 5. Networking and Mentorship
 
 ### Finding a Mentor
 
@@ -133,7 +152,7 @@ Reach out to graduate students, postdocs, or industry scientists for a 20-min co
 
 ---
 
-## 5. Applying to Research Opportunities
+## 6. Applying to Research Opportunities
 
 ### On-Campus Research
 
@@ -154,7 +173,7 @@ Reach out to graduate students, postdocs, or industry scientists for a 20-min co
 
 ---
 
-## 6. Graduate School Preparation
+## 7. Graduate School Preparation
 
 If you are considering an M.S. or Ph.D., start planning in your **junior year**.
 
@@ -183,7 +202,7 @@ If you are considering an M.S. or Ph.D., start planning in your **junior year**.
 
 ---
 
-## 7. Exploring Non-Academic Careers
+## 8. Exploring Non-Academic Careers
 
 A biology degree opens many doors beyond academia.
 
@@ -199,7 +218,7 @@ A biology degree opens many doors beyond academia.
 
 ---
 
-## 8. Recommended Resources
+## 9. Recommended Resources
 
 ### Books
 - *At the Helm* by Kathy Barker — mentoring and running a lab

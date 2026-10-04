@@ -417,13 +417,13 @@
       content: "";
       position: absolute;
       z-index: -1;
-      top: 50%;
+      top: calc(50% + 0.75rem);
       left: 50%;
       width: 5rem;
       height: 5rem;
       transform: translate(-50%, -50%);
       background: url("{{ '/assets/favicon.svg' | relative_url }}") center / contain no-repeat;
-      opacity: 0.14;
+      opacity: 0.22;
       pointer-events: none;
     }
     .hero h1 em {

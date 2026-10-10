@@ -215,8 +215,10 @@
     align-items: center;
     height: auto;
     min-height: 60px;
+    max-height: none;
   }
   .side-bar .site-title {
+    display: block;
     min-width: 0;
     padding: 0.5rem 1rem;
     white-space: normal;
@@ -230,7 +232,7 @@
     color: var(--text-main) !important;
     font-size: 0.86rem;
     line-height: 1.1;
-    min-height: 2.75rem;
+    min-height: 44px;
     padding: 0.4rem 0.6rem;
   }
   .site-header .site-button:hover,
@@ -330,8 +332,9 @@
     background: var(--toggle-bg);
     color: var(--text-main);
     width: 2.75rem;
-    min-width: 2.75rem;
+    min-width: 44px;
     height: 2.75rem;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -388,7 +391,7 @@
     }
     .site-header .site-button {
       font-size: 0.8rem;
-      min-height: 2.75rem;
+      min-height: 44px;
       padding: 0.3rem 0.5rem;
     }
     .site-nav .nav-list-link,

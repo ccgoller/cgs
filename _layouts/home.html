@@ -132,6 +132,8 @@
       font-size: 1rem;
       text-rendering: optimizeLegibility;
     }
+    html { scroll-padding-top: 7rem; }
+    :target { scroll-margin-block-start: 7rem; }
     p { max-width: 68ch; }
     a {
       color: var(--link-color);
@@ -227,7 +229,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 2.25rem;
+      min-height: 2.75rem;
       color: var(--nav-text);
       font-size: clamp(0.82rem, 1.4vw, 0.9rem);
       font-weight: 500;
@@ -257,7 +259,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 2.25rem;
+      min-height: 2.75rem;
       color: var(--nav-text);
       font-size: clamp(0.82rem, 1.4vw, 0.9rem);
       font-weight: 500;
@@ -321,8 +323,9 @@
       justify-content: center;
       padding: 0.2rem;
       cursor: pointer;
-      width: 3.4rem;
-      height: 2rem;
+      width: 2.75rem;
+      min-width: 2.75rem;
+      height: 2.75rem;
       flex-shrink: 0;
     }
     .theme-toggle:hover {
@@ -761,18 +764,6 @@
         margin-top: 0.5rem;
         max-width: 100%;
       }
-      .theme-toggle {
-        width: 2.85rem;
-        height: 1.7rem;
-      }
-      .theme-toggle-thumb {
-        left: 0.16rem;
-        width: 1rem;
-        height: 1rem;
-      }
-      .theme-toggle[aria-checked="true"] .theme-toggle-thumb {
-        left: calc(100% - 1.16rem);
-      }
       .section { padding: 3.5rem 1rem; }
       .hero {
         padding-inline: 1rem;
@@ -823,7 +814,7 @@
   </header>
 
   <!-- ── Main Content ── -->
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- ── Hero ── -->
     <section class="hero" aria-labelledby="hero-heading">

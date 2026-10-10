@@ -71,7 +71,7 @@ Search the live inventory spreadsheet and filter items by any text value.
   .inventory-input,
   .inventory-select,
   .inventory-button {
-    min-height: 2.3rem;
+    min-height: 2.75rem;
     border: 1px solid #b9b9b9;
     border-radius: 0.2rem;
     padding: 0.45rem 0.6rem;

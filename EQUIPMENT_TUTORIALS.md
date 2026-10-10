@@ -12,22 +12,51 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## Table of Contents
+Use the quick links to jump to an instrument, or watch a manufacturer video where one is available. Videos are supplementary; follow the lab instructions and ask your TA or instructor before operating an instrument.
 
-1. [Implen NP80 Nano Spectrophotometer](#1-implen-np80-nano-spectrophotometer)
-2. [Cerillo Bio (Alto) Plate Reader](#2-cerillo-bio-alto-plate-reader)
-3. [Invitrogen Fluorometer (Qubit 4.0)](#3-invitrogen-fluorometer-qubit-40)
-4. [BioTek Synergy HT Plate Reader](#4-biotek-synergy-ht-plate-reader)
-5. [LogPhase 600 Plate Reader](#5-logphase-600-plate-reader)
-6. [USA Scientific Digital Disruptor Genie](#6-usa-scientific-digital-disruptor-genie)
-7. [KREO Universal Plate Pourer](#7-kreo-universal-plate-pourer)
-8. [General Good Habits for All Equipment](#general-good-habits-for-all-equipment)
+<style>
+  .video-embed {
+    max-width: 48rem;
+    aspect-ratio: 16 / 9;
+    margin: 1rem 0;
+  }
+  .video-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+
+## Find an Instrument
+
+- **Molecular measurement:** [Implen NP80 Nano Spectrophotometer](#implen-np80-nano-spectrophotometer), [Invitrogen Qubit 4.0 Fluorometer](#invitrogen-fluorometer-qubit-40)
+- **Plate readers:** [Cerillo Bio Alto](#cerillo-bio-alto-plate-reader), [BioTek Synergy HT](#biotek-synergy-ht-plate-reader), [LogPhase 600](#logphase-600-plate-reader)
+- **Sample preparation:** [USA Scientific Digital Disruptor Genie](#usa-scientific-digital-disruptor-genie)
+- **Media preparation:** [KREO Universal Plate Pourer](#kreo-universal-plate-pourer)
+- [General Good Habits](#general-good-habits-for-all-equipment)
 
 ---
 
-## 1. Implen NP80 Nano Spectrophotometer
+## Molecular Measurement
+
+### Implen NP80 Nano Spectrophotometer
 
 *Manufacturer reference:* [NanoPhotometer® NP80 (Implen)](https://implen.com/products/nanophotometer/np80-microvolume-cuvette-spectrophotometer/)
+
+### Manufacturer video
+
+<div class="video-embed">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/oFrfJf7fRX8"
+    title="Implen NanoPhotometer NP80 and spectrophotometer family overview"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<p><a href="https://www.youtube.com/watch?v=oFrfJf7fRX8">Watch the Implen NanoPhotometer video on YouTube</a>.</p>
 
 ### Safe use
 1. Wear gloves and wipe gloves if they contact samples.
@@ -47,34 +76,23 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 - Do not leave sample residue to dry on the optical surface.
 - Shut down software properly before power off.
 
----
-
-## 2. Cerillo Bio (Alto) Plate Reader
-
-*Manufacturer reference:* [Alto Plate Reader (Cerillo)](https://cerillo.bio/alto)
-
-### Safe use
-1. Only use sealed, clean plates with no liquid on the outside.
-2. Keep fingers away from moving tray parts.
-3. Do not move the reader while it is running.
-
-### Quick steps
-1. Power on and open the Cerillo control software.
-2. Choose the correct protocol (OD, kinetics, endpoint, etc.).
-3. Check plate orientation (A1 corner matches software map).
-4. Insert plate gently and start run.
-5. Export data to the assigned lab folder.
-
-### Care checklist
-- Wipe spills immediately with approved lab wipes.
-- Keep tray and plate path free of dust and tape residue.
-- Report unusual noise or tray movement right away.
-
----
-
-## 3. Invitrogen Fluorometer (Qubit 4.0)
+### Invitrogen Fluorometer (Qubit 4.0)
 
 *Manufacturer reference:* [Invitrogen™ Qubit™ 4 Fluorometer (Thermo Fisher)](https://www.thermofisher.com/order/catalog/product/Q33226)
+
+### Manufacturer video
+
+<div class="video-embed">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/gtSLkbaLlMU"
+    title="Thermo Fisher Qubit 4 fluorometer DNA, RNA, and protein quantitation"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<p><a href="https://www.youtube.com/watch?v=gtSLkbaLlMU">Watch the Qubit 4 fluorometer video on YouTube</a>.</p>
 
 ### Safe use
 1. Use only Qubit assay tubes (not standard microcentrifuge tubes).
@@ -95,7 +113,48 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## 4. BioTek Synergy HT Plate Reader
+## Plate Readers
+
+The following readers are grouped together. Confirm the instrument model and software before selecting a protocol.
+
+### Cerillo Bio (Alto) Plate Reader
+
+*Manufacturer reference:* [Alto Plate Reader (Cerillo)](https://cerillo.bio/alto)
+
+### Manufacturer video
+
+<div class="video-embed">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/_UtEkia08BQ"
+    title="Cerillo Stratus and Alto plate reader demonstration"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<p><a href="https://www.youtube.com/watch?v=_UtEkia08BQ">Watch the Cerillo Alto demonstration on YouTube</a>.</p>
+
+### Safe use
+1. Only use sealed, clean plates with no liquid on the outside.
+2. Keep fingers away from moving tray parts.
+3. Do not move the reader while it is running.
+
+### Quick steps
+1. Power on and open the Cerillo control software.
+2. Choose the correct protocol (OD, kinetics, endpoint, etc.).
+3. Check plate orientation (A1 corner matches software map).
+4. Insert plate gently and start run.
+5. Export data to the assigned lab folder.
+
+### Care checklist
+- Wipe spills immediately with approved lab wipes.
+- Keep tray and plate path free of dust and tape residue.
+- Report unusual noise or tray movement right away.
+
+---
+
+### BioTek Synergy HT Plate Reader
 
 *Manufacturer reference:* [Synergy Multi-Mode Readers (Agilent/BioTek)](https://www.agilent.com/en/product/microplate-readers-imagers/multimode-microplate-readers/synergy-multi-mode-readers)
 
@@ -118,7 +177,7 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## 5. LogPhase 600 Plate Reader
+### LogPhase 600 Plate Reader
 
 *Manufacturer reference:* [BioTek LogPhase 600 Microbiology Reader (Agilent)](https://www.agilent.com/en/product/microplate-instrumentation/microplate-readers/multiplate-absorbance-reader/biotek-logphase-600-microbiology-reader-1623185)
 
@@ -141,7 +200,9 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## 6. USA Scientific Digital Disruptor Genie
+## Sample Preparation
+
+### USA Scientific Digital Disruptor Genie
 
 *Manufacturer reference:* [Digital Disruptor Genie (USA Scientific)](https://www.usascientific.com/digital-disruptor-genie/p/7403-3380)
 
@@ -165,7 +226,9 @@ Simple, safety-first guides for undergraduate researchers and teaching assistant
 
 ---
 
-## 7. KREO Universal Plate Pourer
+## Media Preparation
+
+### KREO Universal Plate Pourer
 
 *Manufacturer reference:* [KREO Technologies](https://kreotechnologies.com)
 

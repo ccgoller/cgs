@@ -10,6 +10,8 @@
     --brand-red-bright:#E03A3E;   /* brighter accent red */
     --brand-red-dark:  #990000;   /* darker red for hover */
     --brand-dark:      #111111;
+    --brand-black:     #111111;
+    --site-title-red:  #CC0000;
     --brand-mid:       #2b2b2b;
     --brand-light:     #f4f4f4;
     --text:            #1a1a1a;
@@ -40,6 +42,8 @@
   [data-theme="dark"] {
     --brand-red-bright:#FF6B6F;
     --brand-red-dark:  #B30000;
+    --brand-black:     #f4f4f4;
+    --site-title-red:  #ff8f93;
     --brand-light:     #1f1f21;
     --text:            #f4f4f4;
     --muted:           #c8c8c8;
@@ -194,6 +198,8 @@
     color: var(--text-main) !important;
     font-weight: 700;
   }
+  .site-title-brand { color: var(--site-title-red); }
+  .site-title-lab { color: var(--brand-black); }
   .site-title:hover {
     background-color: rgba(224, 58, 62, 0.08) !important;
     color: var(--text-main) !important;
@@ -364,6 +370,11 @@
       min-height: 2.75rem;
       padding: 0.3rem 0.5rem;
     }
+    .site-nav .nav-list-link,
+    .site-nav .nav-list-expander {
+      font-size: clamp(0.82rem, 3.6vw, 1rem);
+      line-height: 1.25;
+    }
     .theme-toggle { margin-right: 0.5rem; margin-left: 0.5rem; }
   }
 
@@ -463,6 +474,18 @@
       }
       if (mainContent && !mainContent.hasAttribute("tabindex")) {
         mainContent.setAttribute("tabindex", "-1");
+      }
+
+      const siteTitle = document.querySelector(".site-title");
+      const titleParts = siteTitle && siteTitle.textContent.trim().match(/^(Gordy[–-]Goller)(\s+)(Lab)$/);
+      if (siteTitle && titleParts) {
+        const brandName = document.createElement("span");
+        brandName.className = "site-title-brand";
+        brandName.textContent = titleParts[1];
+        const labName = document.createElement("span");
+        labName.className = "site-title-lab";
+        labName.textContent = titleParts[3];
+        siteTitle.replaceChildren(brandName, document.createTextNode(titleParts[2]), labName);
       }
 
       const siteBaseUrl = "{{ site.baseurl | default: '' }}";

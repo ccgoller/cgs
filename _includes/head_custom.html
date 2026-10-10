@@ -209,6 +209,23 @@
   }
 
   /* Top navigation bar (mobile) */
+  .side-bar .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    height: auto;
+    min-height: 60px;
+  }
+  .side-bar .site-title {
+    min-width: 0;
+    padding: 0.5rem 1rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+  .side-bar .site-header .site-button {
+    flex-shrink: 0;
+  }
   .site-header .site-button {
     color: var(--text-main) !important;
     font-size: 0.86rem;
@@ -319,6 +336,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    flex-shrink: 0;
   }
   .theme-toggle:hover {
     background: rgba(224, 58, 62, 0.12);
@@ -365,6 +383,9 @@
   }
 
   @media (max-width: 799px) {
+    .side-bar .site-title {
+      font-size: clamp(1rem, 4vw, 1.25rem);
+    }
     .site-header .site-button {
       font-size: 0.8rem;
       min-height: 2.75rem;
@@ -624,7 +645,7 @@
         button.innerHTML = '<span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span><span class="theme-toggle-label">Dark theme</span>';
         const header = document.querySelector(".side-bar .site-header") || document.querySelector(".site-header");
         if (header) {
-          header.appendChild(button);
+          header.insertBefore(button, header.querySelector(".site-button"));
           applyTheme(root.getAttribute("data-theme") || "light", button);
           button.addEventListener("click", function () {
             const next = (root.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";

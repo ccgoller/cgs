@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8e7"/>
+      <stop offset="1" stop-color="#e7f3ed"/>
+    </linearGradient>
+    <linearGradient id="cell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8db83"/>
+      <stop offset="1" stop-color="#e8aa4d"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="300" rx="18" fill="url(#background)"/>
+  <g fill="none" stroke="#368778" stroke-linecap="round" stroke-width="4">
+    <path d="M102 144c-32-29-42-8-25 13s-2 37-24 17"/>
+    <path d="M378 149c34-30 48-3 27 18s2 35 24 15"/>
+    <path d="M151 89c-17-29-36-20-26 4"/>
+    <path d="M332 207c15 24 35 20 29-4"/>
+  </g>
+  <g fill="#d9eadf" stroke="#57947f" stroke-width="3">
+    <circle cx="118" cy="76" r="9"/>
+    <circle cx="369" cy="95" r="7"/>
+    <circle cx="110" cy="220" r="6"/>
+    <circle cx="355" cy="230" r="10"/>
+    <circle cx="398" cy="116" r="4"/>
+  </g>
+  <g transform="rotate(-8 240 150)">
+    <rect x="116" y="111" width="248" height="78" rx="39" fill="url(#cell)" stroke="#a86d30" stroke-width="5"/>
+    <path d="M145 150h190" stroke="#fff2bd" stroke-linecap="round" stroke-width="5" opacity=".8"/>
+    <path d="M190 128c20 13 20 37 0 49m41-49c20 13 20 37 0 49m41-49c20 13 20 37 0 49" fill="none" stroke="#c1813b" stroke-width="4" opacity=".7"/>
+    <circle cx="161" cy="148" r="9" fill="#fff0b5" opacity=".8"/>
+  </g>
+  <text x="240" y="263" fill="#31594e" font-family="system-ui, sans-serif" font-size="20" font-weight="700" text-anchor="middle">Delftia Project</text>
+</svg>

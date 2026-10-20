@@ -595,6 +595,63 @@
     }
     .research-card h3 { font-size: 1.02rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.55rem; }
     .research-card p { font-size: 0.93rem; color: var(--muted); }
+    .research-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--brand-red-bright);
+      border-radius: 8px;
+      background: var(--research-card-bg);
+    }
+    .research-cta-copy {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .research-cta-copy img {
+      flex: 0 0 auto;
+      width: min(100%, 110px);
+      height: auto;
+      border-radius: 4px;
+    }
+    .research-cta-copy strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 1.1rem;
+    }
+    .research-cta-copy p { margin: 0; color: var(--muted); }
+    .research-cta-action {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--brand-red-dark);
+      border-radius: 6px;
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+      background: var(--brand-red-dark);
+    }
+    .research-cta-action:hover,
+    .research-cta-action:focus-visible {
+      border-color: var(--brand-gold);
+      color: var(--brand-dark);
+      background: var(--brand-gold);
+    }
+    .research-cta-action:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+    }
+    @media (max-width: 640px) {
+      .research-cta { align-items: flex-start; flex-direction: column; }
+      .research-cta-copy { align-items: flex-start; }
+    }
 
     /* ─── About strip ───────────────────────────────────────── */
     .about { background: var(--about-bg); color: var(--about-fg); }
@@ -934,12 +991,17 @@
             <h3><span aria-hidden="true">🍄 </span>Fungal Genomics</h3>
             <p>Investigating fungal diversity, genome-level variation, and the biological mechanisms that shape how fungi survive, interact, and evolve.</p>
           </li>
-          <li class="research-card">
-            <img class="research-card-logo" src="https://github.com/user-attachments/assets/2141a6d8-ab12-4dde-9c5a-c80723b06c67" alt="Delftia logo with an illustrated bacterium">
-            <h3>The <em>Delftia</em> Project</h3>
-            <p>Undergraduate research opportunities exploring the genomic potential of <em>Delftia</em> spp.</p>
-          </li>
         </ul>
+        <div class="research-cta">
+          <div class="research-cta-copy">
+            <img src="https://github.com/user-attachments/assets/2141a6d8-ab12-4dde-9c5a-c80723b06c67" alt="Delftia logo with an illustrated bacterium">
+            <div>
+              <strong>The <em>Delftia</em> Project</strong>
+              <p>Interested in undergraduate research exploring the genomic potential of <em>Delftia</em> spp.? Email Carlos to start a conversation.</p>
+            </div>
+          </div>
+          <a class="research-cta-action" href="mailto:ccgoller@ncsu.edu">Email Carlos</a>
+        </div>
       </div>
     </section>
 

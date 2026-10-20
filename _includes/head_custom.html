@@ -479,6 +479,57 @@
     margin-bottom: 0.35rem;
   }
 
+  .delftia-project-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-block: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border-sidebar);
+    border-left: 6px solid var(--brand-red-bright);
+    border-radius: 8px;
+    background: var(--surface-elevated);
+  }
+  .delftia-project-card > img {
+    flex: 0 1 220px;
+    width: min(100%, 220px);
+    height: auto;
+    border-radius: 6px;
+  }
+  .delftia-project-copy { flex: 1; }
+  .delftia-project-copy h2 { margin-top: 0; }
+  .delftia-project-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin-top: 0.25rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--brand-red-dark);
+    border-radius: 6px;
+    background: var(--brand-red-dark);
+    color: #fff !important;
+    font-weight: 700;
+    text-decoration: none !important;
+  }
+  .delftia-project-action:hover,
+  .delftia-project-action:focus-visible {
+    border-color: var(--brand-red-dark);
+    background: var(--brand-red-dark);
+    text-decoration: underline !important;
+  }
+  .delftia-project-action:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+  @media (max-width: 40rem) {
+    .delftia-project-card {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .delftia-project-card > img { flex-basis: auto; }
+  }
+
   /* ─── Reduced motion ──────────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

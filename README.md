@@ -50,7 +50,7 @@ Investigate fungal diversity, genome-level variation, and the biological mechani
 
 ### *Delftia* spp. Research
 
-Study *Delftia* species through questions in microbial ecology, genetics, and functional traits, with opportunities to connect genomic data to laboratory observations.
+Study *Delftia* species through questions in microbial ecology, genetics, and functional traits, with opportunities to connect genomic data to laboratory observations. [Explore the research page](https://ccgoller.github.io/cgs/research).
 
 ---
 
